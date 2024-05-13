@@ -6,8 +6,8 @@ public class GameFrame extends JFrame {
 
     private static final String TITLE = "Space Invaders";
 
-    public GameFrame(GamePanel gamePanel) {
-        this.add(gamePanel);
+    public GameFrame(FramePanel framePanel) {
+        this.add(framePanel);
         this.pack();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(this);

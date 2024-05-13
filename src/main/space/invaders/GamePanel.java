@@ -1,30 +1,31 @@
 package main.space.invaders;
 
+import main.space.invaders.utils.MobDisplayUtils;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
 public class GamePanel extends JPanel implements Runnable {
 
-    private static final int PREFERRED_WIDTH = 1024;
-    private static final int PREFERRED_HEIGHT = 780;
-    private Mob middle;
+    private final List<Mob> mobs;
 
-
-    public GamePanel(Mob middle) {
+    public GamePanel(List<Mob> mobs) {
         this.setBackground(Color.BLACK);
-        System.out.println("Panel black");
-        this.middle = middle;
+        this.mobs = mobs;
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        middle.drawImage(g);
+        for (Mob mob : mobs) {
+            mob.drawImage(g);
+        }
     }
 
     @Override
     public Dimension getPreferredSize() {
-        return new Dimension(PREFERRED_WIDTH, PREFERRED_HEIGHT);
+        return MobDisplayUtils.getGameDimension();
     }
 
     @Override
@@ -35,7 +36,9 @@ public class GamePanel extends JPanel implements Runnable {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            middle.changeImage();
+            for (Mob mob : mobs) {
+                mob.changeImage();
+            }
             repaint();
         }
     }
