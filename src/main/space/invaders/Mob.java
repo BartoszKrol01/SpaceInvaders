@@ -8,7 +8,7 @@ import static main.space.invaders.utils.GameDisplayUtils.MOB_POSSIBLE_STEPS_SIDE
 import static main.space.invaders.utils.GameDisplayUtils.MOB_STEP_SIZE;
 import static main.space.invaders.utils.GameDisplayUtils.TOTAL_MOB_SIZE;
 
-public class Mob {
+public class Mob implements Drawable {
 
     private final Image stay;
     private final Image go;
@@ -32,7 +32,8 @@ public class Mob {
         this.startRow = startRow;
     }
 
-    public void drawImage(Graphics g) {
+    @Override
+    public void draw(Graphics g) {
         g.drawImage(currentImage, xLocation, yLocation, null);
     }
 
