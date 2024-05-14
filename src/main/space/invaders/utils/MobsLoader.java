@@ -6,15 +6,15 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static main.space.invaders.utils.MobDisplayUtils.MOBS_IN_ONE_ROW_COUNT;
-import static main.space.invaders.utils.MobDisplayUtils.NUMBER_OF_ROWS_COUNT;
-import static main.space.invaders.utils.MobDisplayUtils.SIDE_PANEL_GAP;
-import static main.space.invaders.utils.MobDisplayUtils.TOP_GAP_BETWEEN_PANEL_AND_FRAME;
-import static main.space.invaders.utils.MobDisplayUtils.TOTAL_MOB_SIZE;
+import static main.space.invaders.utils.GameDisplayUtils.MOBS_IN_ONE_ROW_COUNT;
+import static main.space.invaders.utils.GameDisplayUtils.NUMBER_OF_ROWS_COUNT;
+import static main.space.invaders.utils.GameDisplayUtils.SIDE_PANEL_GAP;
+import static main.space.invaders.utils.GameDisplayUtils.TOP_GAP_BETWEEN_PANEL_AND_FRAME;
+import static main.space.invaders.utils.GameDisplayUtils.TOTAL_MOB_SIZE;
 
 public class MobsLoader {
 
-    private static int currentRow = 0;
+    private static int currentRow = 1;
 
     public static List<Mob> loadMobs() {
         List<Mob> mobs = new ArrayList<>();
@@ -29,7 +29,7 @@ public class MobsLoader {
         Image go = FileLoader.loadImage(fileName + "_2.png");
 
         int x = SIDE_PANEL_GAP;
-        int y = getLowestMobYLocation();
+        int y = getCurrentMobYLocation();
 
         for (int row = 1; row <= howManyRows; row++) {
             for (int column = 1; column <= MOBS_IN_ONE_ROW_COUNT; column++) {
@@ -42,7 +42,7 @@ public class MobsLoader {
         }
     }
 
-    private static int getLowestMobYLocation() {
-        return (TOP_GAP_BETWEEN_PANEL_AND_FRAME + NUMBER_OF_ROWS_COUNT * TOTAL_MOB_SIZE) - (currentRow * TOTAL_MOB_SIZE);
+    private static int getCurrentMobYLocation() {
+        return (TOP_GAP_BETWEEN_PANEL_AND_FRAME + (NUMBER_OF_ROWS_COUNT * TOTAL_MOB_SIZE)) - (currentRow * TOTAL_MOB_SIZE);
     }
 }

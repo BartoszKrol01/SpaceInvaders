@@ -1,6 +1,6 @@
 package main.space.invaders;
 
-import main.space.invaders.utils.MobDisplayUtils;
+import main.space.invaders.utils.GameDisplayUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,7 +27,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     @Override
     public Dimension getPreferredSize() {
-        return MobDisplayUtils.getGameDimension();
+        return GameDisplayUtils.getGameDimension();
     }
 
     @Override

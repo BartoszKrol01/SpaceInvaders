@@ -2,12 +2,12 @@ package main.space.invaders.utils;
 
 import java.awt.*;
 
-public class MobDisplayUtils {
+public class GameDisplayUtils {
 
     public static final int MOB_SIZE = 32;
     public static final int MOB_GAP = 18;
     public static final int TOTAL_MOB_SIZE = MOB_SIZE + MOB_GAP;
-    public static final int HALF_MOB_GAP = MOB_GAP/2;
+    public static final int HALF_MOB_GAP = MOB_GAP / 2;
     public static final int TOP_GAP_BETWEEN_PANEL_AND_FRAME = TOTAL_MOB_SIZE;
     public static final int NUMBER_OF_ROWS_COUNT = 5;
     public static final int MOBS_IN_ONE_ROW_COUNT = 11;
@@ -22,5 +22,5 @@ public class MobDisplayUtils {
         return new Dimension(width, height);
     }
 
-    private MobDisplayUtils() {}
+    private GameDisplayUtils() {}
 }

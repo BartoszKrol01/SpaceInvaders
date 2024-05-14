@@ -1,14 +1,12 @@
 package main.space.invaders;
 
-import main.space.invaders.utils.MobDisplayUtils;
-
 import java.awt.*;
 import java.util.Objects;
 
-import static main.space.invaders.utils.MobDisplayUtils.FIRST_MOB_POSSIBLE_STEPS_DOWN;
-import static main.space.invaders.utils.MobDisplayUtils.MOB_POSSIBLE_STEPS_SIDE;
-import static main.space.invaders.utils.MobDisplayUtils.MOB_STEP_SIZE;
-import static main.space.invaders.utils.MobDisplayUtils.TOTAL_MOB_SIZE;
+import static main.space.invaders.utils.GameDisplayUtils.FIRST_MOB_POSSIBLE_STEPS_DOWN;
+import static main.space.invaders.utils.GameDisplayUtils.MOB_POSSIBLE_STEPS_SIDE;
+import static main.space.invaders.utils.GameDisplayUtils.MOB_STEP_SIZE;
+import static main.space.invaders.utils.GameDisplayUtils.TOTAL_MOB_SIZE;
 
 public class Mob {
 
