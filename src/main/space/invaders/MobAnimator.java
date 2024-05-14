@@ -27,7 +27,7 @@ public class MobAnimator implements Runnable {
 
     @Override
     public void run() {
-        while (true) {
+        while (!PauseService.gamePaused()) {
             for (Mob mob : mobs) {
                 mob.changeImage();
                 sleep(30);
