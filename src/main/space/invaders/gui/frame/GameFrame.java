@@ -1,4 +1,6 @@
-package main.space.invaders;
+package main.space.invaders.gui.frame;
+
+import main.space.invaders.gui.FramePanel;
 
 import javax.swing.*;
 

@@ -1,4 +1,6 @@
-package main.space.invaders;
+package main.space.invaders.drawable.mob;
+
+import main.space.invaders.PauseService;
 
 import javax.swing.*;
 import java.util.ArrayList;

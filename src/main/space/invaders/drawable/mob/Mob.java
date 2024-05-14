@@ -1,12 +1,14 @@
-package main.space.invaders;
+package main.space.invaders.drawable.mob;
+
+import main.space.invaders.drawable.Drawable;
 
 import java.awt.*;
 import java.util.Objects;
 
-import static main.space.invaders.utils.GameDisplayUtils.FIRST_MOB_POSSIBLE_STEPS_DOWN;
-import static main.space.invaders.utils.GameDisplayUtils.MOB_POSSIBLE_STEPS_SIDE;
-import static main.space.invaders.utils.GameDisplayUtils.MOB_STEP_SIZE;
-import static main.space.invaders.utils.GameDisplayUtils.TOTAL_MOB_SIZE;
+import static main.space.invaders.gui.GameDisplayConstants.FIRST_MOB_POSSIBLE_STEPS_DOWN;
+import static main.space.invaders.gui.GameDisplayConstants.MOB_POSSIBLE_STEPS_SIDE;
+import static main.space.invaders.gui.GameDisplayConstants.MOB_STEP_SIZE;
+import static main.space.invaders.gui.GameDisplayConstants.TOTAL_MOB_SIZE;
 
 public class Mob implements Drawable {
 

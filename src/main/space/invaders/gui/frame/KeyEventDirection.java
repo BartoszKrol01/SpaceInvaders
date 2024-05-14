@@ -1,4 +1,4 @@
-package main.space.invaders;
+package main.space.invaders.gui.frame;
 
 public enum KeyEventDirection {
     NO_DIRECTION(0),

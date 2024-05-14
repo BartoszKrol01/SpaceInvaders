@@ -1,4 +1,4 @@
-package main.space.invaders;
+package main.space.invaders.gui;
 
 import javax.swing.*;
 import java.awt.*;

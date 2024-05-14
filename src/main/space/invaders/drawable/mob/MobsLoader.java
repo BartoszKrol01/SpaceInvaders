@@ -1,17 +1,17 @@
-package main.space.invaders.utils;
+package main.space.invaders.drawable.mob;
 
-import main.space.invaders.Drawable;
-import main.space.invaders.Mob;
+import main.space.invaders.drawable.Drawable;
+import main.space.invaders.utils.FileLoader;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static main.space.invaders.utils.GameDisplayUtils.MOBS_IN_ONE_ROW_COUNT;
-import static main.space.invaders.utils.GameDisplayUtils.NUMBER_OF_ROWS_COUNT;
-import static main.space.invaders.utils.GameDisplayUtils.SIDE_PANEL_GAP;
-import static main.space.invaders.utils.GameDisplayUtils.TOP_GAP_BETWEEN_PANEL_AND_FRAME;
-import static main.space.invaders.utils.GameDisplayUtils.TOTAL_MOB_SIZE;
+import static main.space.invaders.gui.GameDisplayConstants.MOBS_IN_ONE_ROW_COUNT;
+import static main.space.invaders.gui.GameDisplayConstants.NUMBER_OF_ROWS_COUNT;
+import static main.space.invaders.gui.GameDisplayConstants.SIDE_PANEL_GAP;
+import static main.space.invaders.gui.GameDisplayConstants.TOP_GAP_BETWEEN_PANEL_AND_FRAME;
+import static main.space.invaders.gui.GameDisplayConstants.TOTAL_MOB_SIZE;
 
 public class MobsLoader {
 

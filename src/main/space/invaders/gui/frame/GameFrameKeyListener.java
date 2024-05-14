@@ -1,4 +1,6 @@
-package main.space.invaders;
+package main.space.invaders.gui.frame;
+
+import main.space.invaders.drawable.Spaceship;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

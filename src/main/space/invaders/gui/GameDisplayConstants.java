@@ -1,8 +1,8 @@
-package main.space.invaders.utils;
+package main.space.invaders.gui;
 
 import java.awt.*;
 
-public class GameDisplayUtils {
+public class GameDisplayConstants {
 
     public static final int MOB_SIZE = 32;
     public static final int MOB_GAP = 18;
@@ -24,5 +24,5 @@ public class GameDisplayUtils {
         return new Dimension(GAME_PANEL_WIDTH, GAME_PANEL_HEIGHT);
     }
 
-    private GameDisplayUtils() {}
+    private GameDisplayConstants() {}
 }

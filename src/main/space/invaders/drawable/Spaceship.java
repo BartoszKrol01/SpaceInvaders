@@ -1,12 +1,12 @@
-package main.space.invaders;
+package main.space.invaders.drawable;
 
 import main.space.invaders.utils.FileLoader;
 
 import javax.swing.*;
 import java.awt.*;
 
-import static main.space.invaders.utils.GameDisplayUtils.SPACESHIP_START_X;
-import static main.space.invaders.utils.GameDisplayUtils.SPACESHIP_START_Y;
+import static main.space.invaders.gui.GameDisplayConstants.SPACESHIP_START_X;
+import static main.space.invaders.gui.GameDisplayConstants.SPACESHIP_START_Y;
 
 public class Spaceship implements Drawable {
 

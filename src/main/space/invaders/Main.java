@@ -1,6 +1,12 @@
 package main.space.invaders;
 
-import main.space.invaders.utils.MobsLoader;
+import main.space.invaders.drawable.Drawable;
+import main.space.invaders.drawable.Spaceship;
+import main.space.invaders.drawable.mob.MobAnimator;
+import main.space.invaders.drawable.mob.MobsLoader;
+import main.space.invaders.gui.FramePanel;
+import main.space.invaders.gui.GamePanel;
+import main.space.invaders.gui.frame.GameFrame;
 
 import java.util.List;
 

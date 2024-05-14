@@ -1,4 +1,4 @@
-package main.space.invaders;
+package main.space.invaders.drawable;
 
 import java.awt.*;
 
