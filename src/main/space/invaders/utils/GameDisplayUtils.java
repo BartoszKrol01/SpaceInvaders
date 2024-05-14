@@ -15,11 +15,13 @@ public class GameDisplayUtils {
     public static final int MOB_POSSIBLE_STEPS_SIDE = 9;
     public static final int FIRST_MOB_POSSIBLE_STEPS_DOWN = 5;
     public static final int SIDE_PANEL_GAP = MOB_STEP_SIZE * MOB_POSSIBLE_STEPS_SIDE + HALF_MOB_GAP;
+    public static final int GAME_PANEL_WIDTH = TOTAL_MOB_SIZE * MOBS_IN_ONE_ROW_COUNT + SIDE_PANEL_GAP * 2;
+    public static final int GAME_PANEL_HEIGHT = TOTAL_MOB_SIZE * NUMBER_OF_ROWS_COUNT * 2 + TOP_GAP_BETWEEN_PANEL_AND_FRAME;
+    public static final int SPACESHIP_START_X = GAME_PANEL_WIDTH / 2;
+    public static final int SPACESHIP_START_Y = GAME_PANEL_HEIGHT - TOTAL_MOB_SIZE;
 
     public static Dimension getGameDimension() {
-        int width = TOTAL_MOB_SIZE * MOBS_IN_ONE_ROW_COUNT + SIDE_PANEL_GAP * 2;
-        int height = TOTAL_MOB_SIZE * NUMBER_OF_ROWS_COUNT * 2 + TOP_GAP_BETWEEN_PANEL_AND_FRAME;
-        return new Dimension(width, height);
+        return new Dimension(GAME_PANEL_WIDTH, GAME_PANEL_HEIGHT);
     }
 
     private GameDisplayUtils() {}

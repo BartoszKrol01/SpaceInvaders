@@ -14,7 +14,7 @@ public class FileLoader {
     private static final String resourcePath;
 
     static {
-        resourcePath = Paths.get(".").normalize().toAbsolutePath() + "/resources/mob/";
+        resourcePath = Paths.get(".").normalize().toAbsolutePath() + "/resources/";
     }
 
     public static Image loadImage(String fileName) {

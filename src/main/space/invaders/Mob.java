@@ -30,6 +30,7 @@ public class Mob implements Drawable {
         this.verticalStepsCounter = 0;
         this.direction = 1;
         this.startRow = startRow;
+        MobAnimator.addMob(this);
     }
 
     @Override

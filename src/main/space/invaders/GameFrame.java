@@ -13,5 +13,6 @@ public class GameFrame extends JFrame {
         this.setLocationRelativeTo(this);
         this.setTitle(TITLE);
         this.setVisible(true);
+        this.addKeyListener(new GameFrameKeyListener());
     }
 }

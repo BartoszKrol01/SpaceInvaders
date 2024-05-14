@@ -2,7 +2,6 @@ package main.space.invaders.utils;
 
 import main.space.invaders.Drawable;
 import main.space.invaders.Mob;
-import main.space.invaders.MobAnimator;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -24,9 +23,9 @@ public class MobsLoader {
 
     private static List<Drawable> loadMobs() {
         List<Drawable> mobs = new ArrayList<>();
-        loadSpecificMob(mobs, "lower", 2);
-        loadSpecificMob(mobs, "middle", 2);
-        loadSpecificMob(mobs, "upper", 1);
+        loadSpecificMob(mobs, "mob/lower", 2);
+        loadSpecificMob(mobs, "mob/middle", 2);
+        loadSpecificMob(mobs, "mob/upper", 1);
         return mobs;
     }
 
@@ -34,14 +33,12 @@ public class MobsLoader {
         Image stay = FileLoader.loadImage(fileName + "_1.png");
         Image go = FileLoader.loadImage(fileName + "_2.png");
 
-        int x = SIDE_PANEL_GAP;
+        int x = SIDE_PANEL_GAP - 1;
         int y = getCurrentMobYLocation();
 
         for (int row = 1; row <= howManyRows; row++) {
             for (int column = 1; column <= MOBS_IN_ONE_ROW_COUNT; column++) {
-                Mob newMob = new Mob(stay, go, x, y, currentRow);
-                mobs.add(newMob);
-                MobAnimator.addMob(newMob);
+                mobs.add(new Mob(stay, go, x, y, currentRow));
                 x += TOTAL_MOB_SIZE;
             }
             y -= TOTAL_MOB_SIZE;

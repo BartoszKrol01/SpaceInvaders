@@ -6,8 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-import static main.space.invaders.utils.ThreadUtils.sleep;
-
 public class GamePanel extends JPanel {
 
     private final List<Drawable> drawables;
