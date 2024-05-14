@@ -5,6 +5,11 @@ import main.space.invaders.utils.MobDisplayUtils;
 import java.awt.*;
 import java.util.Objects;
 
+import static main.space.invaders.utils.MobDisplayUtils.FIRST_MOB_POSSIBLE_STEPS_DOWN;
+import static main.space.invaders.utils.MobDisplayUtils.MOB_POSSIBLE_STEPS_SIDE;
+import static main.space.invaders.utils.MobDisplayUtils.MOB_STEP_SIZE;
+import static main.space.invaders.utils.MobDisplayUtils.TOTAL_MOB_SIZE;
+
 public class Mob {
 
     private final Image stay;
@@ -12,17 +17,21 @@ public class Mob {
     private Image currentImage;
     private int xLocation;
     private int yLocation;
-    private int stepsInRowCounter;
+    private int horizontalStepsCounter;
     private int direction;
+    private int verticalStepsCounter;
+    private final int startRow;
 
-    public Mob(Image stay, Image go, int xLocation, int yLocation) {
+    public Mob(Image stay, Image go, int xLocation, int yLocation, int startRow) {
         this.stay = stay;
         this.go = go;
-        currentImage = stay;
+        this.currentImage = stay;
         this.xLocation = xLocation;
         this.yLocation = yLocation;
-        this.stepsInRowCounter = 0;
+        this.horizontalStepsCounter = 0;
+        this.verticalStepsCounter = 0;
         this.direction = 1;
+        this.startRow = startRow;
     }
 
     public void drawImage(Graphics g) {
@@ -39,13 +48,24 @@ public class Mob {
     }
 
     private void updateLocation() {
-        if (stepsInRowCounter == MobDisplayUtils.MOB_POSSIBLE_STEPS_IN_ONE_ROW) {
-            stepsInRowCounter = 0;
-            yLocation += MobDisplayUtils.TOTAL_MOB_SIZE;
+        if (horizontalStepsCounter >= MOB_POSSIBLE_STEPS_SIDE) {
+            horizontalStepsCounter = 0;
+            yLocation += TOTAL_MOB_SIZE;
+            verticalStepsCounter++;
+            checkIfGameIsOver();
             direction = direction * -1;
         } else {
-            xLocation += direction * MobDisplayUtils.MOB_STEP_SIZE;
-            stepsInRowCounter++;
+            xLocation += direction * MOB_STEP_SIZE;
+            horizontalStepsCounter++;
+        }
+    }
+
+    private void checkIfGameIsOver() {
+        if (verticalStepsCounter >= FIRST_MOB_POSSIBLE_STEPS_DOWN + startRow) {
+            System.out.println("I've won - x -> " + xLocation + " y -> " + yLocation);
+            System.out.println("GAME OVER!!!!!");
+            throw new RuntimeException();
+            //todo: handle win
         }
     }
 }

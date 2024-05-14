@@ -23,7 +23,7 @@ public class FileLoader {
         try {
             image = ImageIO.read(new File(url));
         } catch (IOException e) {
-            throw new FileLoadException("Error occurred while loading file " + url, e);
+            throw new FileLoadException("Error occurred while reading input file " + url, e);
         }
         return Objects.requireNonNull(image);
     }

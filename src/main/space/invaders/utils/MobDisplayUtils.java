@@ -12,8 +12,9 @@ public class MobDisplayUtils {
     public static final int NUMBER_OF_ROWS_COUNT = 5;
     public static final int MOBS_IN_ONE_ROW_COUNT = 11;
     public static final int MOB_STEP_SIZE = 3;
-    public static final int MOB_POSSIBLE_STEPS_IN_ONE_ROW = 9;
-    public static final int SIDE_PANEL_GAP = MOB_STEP_SIZE * MOB_POSSIBLE_STEPS_IN_ONE_ROW + HALF_MOB_GAP;
+    public static final int MOB_POSSIBLE_STEPS_SIDE = 9;
+    public static final int FIRST_MOB_POSSIBLE_STEPS_DOWN = 5;
+    public static final int SIDE_PANEL_GAP = MOB_STEP_SIZE * MOB_POSSIBLE_STEPS_SIDE + HALF_MOB_GAP;
 
     public static Dimension getGameDimension() {
         int width = TOTAL_MOB_SIZE * MOBS_IN_ONE_ROW_COUNT + SIDE_PANEL_GAP * 2;

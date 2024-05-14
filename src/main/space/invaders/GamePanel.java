@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
+import static main.space.invaders.utils.ThreadUtils.sleep;
+
 public class GamePanel extends JPanel implements Runnable {
 
     private final List<Mob> mobs;
@@ -31,15 +33,11 @@ public class GamePanel extends JPanel implements Runnable {
     @Override
     public void run() {
         while (true) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
             for (Mob mob : mobs) {
                 mob.changeImage();
+                sleep(30);
+                repaint();
             }
-            repaint();
         }
     }
 }
