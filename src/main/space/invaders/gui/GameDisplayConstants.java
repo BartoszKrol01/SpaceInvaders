@@ -19,6 +19,7 @@ public class GameDisplayConstants {
     public static final int GAME_PANEL_HEIGHT = TOTAL_MOB_SIZE * NUMBER_OF_ROWS_COUNT * 2 + TOP_GAP_BETWEEN_PANEL_AND_FRAME;
     public static final int SPACESHIP_START_X = GAME_PANEL_WIDTH / 2;
     public static final int SPACESHIP_START_Y = GAME_PANEL_HEIGHT - TOTAL_MOB_SIZE;
+    public static final int SPACESHIP_SIZE = 32;
 
     public static Dimension getGameDimension() {
         return new Dimension(GAME_PANEL_WIDTH, GAME_PANEL_HEIGHT);

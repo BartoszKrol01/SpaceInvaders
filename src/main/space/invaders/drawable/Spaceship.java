@@ -42,4 +42,8 @@ public class Spaceship implements Drawable {
     public void setParentPanel(JPanel parentPanel) {
         this.parentPanel = parentPanel;
     }
+
+    public int getXLocation() {
+        return xLocation;
+    }
 }
