@@ -1,11 +1,14 @@
 package main.space.invaders.gui.frame;
 
+import java.awt.event.KeyEvent;
 import java.util.Arrays;
 
 public enum KeyEventDirection {
     NO_DIRECTION(0, 0),
-    RIGHT(39, 1),
-    LEFT(37, -1);
+    RIGHT(KeyEvent.VK_RIGHT, 1),
+    LEFT(KeyEvent.VK_LEFT, -1),
+    UP(KeyEvent.VK_UP, 0);
+
     private final int sign;
     private final int value;
 
@@ -22,6 +25,9 @@ public enum KeyEventDirection {
         return Arrays.stream(KeyEventDirection.values())
                 .filter(e -> e.value == value)
                 .findFirst()
-                .orElse(NO_DIRECTION);
+                .orElseGet(() -> {
+                    System.err.println("Undefined key pressed, returning NO_DIRECTION for key: " + value);
+                    return NO_DIRECTION;
+                });
     }
 }
