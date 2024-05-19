@@ -1,6 +1,6 @@
 package main.space.invaders.gui;
 
-import java.awt.*;
+import java.awt.Dimension;
 
 public class GameDisplayConstants {
 

@@ -1,6 +1,6 @@
 package main.space.invaders.gui.frame;
 
-import main.space.invaders.drawable.Spaceship;
+import main.space.invaders.utils.Distributor;
 
 import static main.space.invaders.gui.GameDisplayConstants.GAME_PANEL_WIDTH;
 import static main.space.invaders.gui.GameDisplayConstants.SPACESHIP_SIZE;
@@ -28,7 +28,7 @@ public class DirectionService {
     }
 
     private static int adjustChangeValue(int changeValue, KeyEventDirection direction) {
-        int spaceShipXLocation = Spaceship.getSpaceship().getXLocation();
+        int spaceShipXLocation = Distributor.getSpaceship().getXLocation();
         while (isSpaceShipAtBorder(direction, spaceShipXLocation + changeValue)) {
             changeValue = changeValue - direction.getSign();
         }

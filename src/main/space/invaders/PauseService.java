@@ -2,9 +2,7 @@ package main.space.invaders;
 
 public class PauseService {
 
-    //todo
-
-    private static final boolean isGamePaused;
+    private static boolean isGamePaused;
 
     static {
         isGamePaused = false;
@@ -12,6 +10,10 @@ public class PauseService {
 
     public static boolean gamePaused() {
         return isGamePaused;
+    }
+
+    public static void setIsGamePaused(boolean isGamePaused) {
+        PauseService.isGamePaused = isGamePaused;
     }
 
     private PauseService() {}

@@ -2,6 +2,7 @@ package main.space.invaders.gui.frame;
 
 import main.space.invaders.PauseService;
 import main.space.invaders.drawable.Spaceship;
+import main.space.invaders.utils.Distributor;
 import main.space.invaders.utils.ThreadUtils;
 
 import java.awt.event.KeyEvent;
@@ -37,7 +38,7 @@ public class GameFrameKeyListener implements KeyListener, Runnable {
     @Override
     public void run() {
         while (!PauseService.gamePaused()) {
-            Spaceship spaceship = Spaceship.getSpaceship();
+            Spaceship spaceship = Distributor.getSpaceship();
             if (keysPressed.contains(KeyEventDirection.RIGHT)) {
                 handleKeyPressed(KeyEventDirection.RIGHT, spaceship);
             }

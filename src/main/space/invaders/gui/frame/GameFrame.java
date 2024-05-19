@@ -2,7 +2,7 @@ package main.space.invaders.gui.frame;
 
 import main.space.invaders.gui.FramePanel;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 
 public class GameFrame extends JFrame {
 

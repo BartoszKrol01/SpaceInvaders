@@ -1,26 +1,24 @@
 package main.space.invaders.drawable;
 
+import main.space.invaders.utils.Distributor;
 import main.space.invaders.utils.FileLoader;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Image;
 
 import static main.space.invaders.gui.GameDisplayConstants.SPACESHIP_START_X;
 import static main.space.invaders.gui.GameDisplayConstants.SPACESHIP_START_Y;
 
 public class Spaceship implements Drawable {
 
-    private static Spaceship spaceship;
     private int xLocation;
     private final int yLocation;
-    private JPanel parentPanel;
     private final Image image;
 
-    public static Spaceship getSpaceship() {
-        if (spaceship == null) {
-            spaceship = new Spaceship();
-        }
-        return spaceship;
+    public Spaceship() {
+        this.xLocation = SPACESHIP_START_X;
+        this.yLocation = SPACESHIP_START_Y;
+        this.image = FileLoader.loadImage("spaceship/spaceship.png");
     }
 
     @Override
@@ -28,19 +26,19 @@ public class Spaceship implements Drawable {
         g.drawImage(image, xLocation, yLocation, null);
     }
 
+    @Override
+    public boolean isHostile() {
+        return false;
+    }
+
+    @Override
+    public HitBox getHitBox() {
+        return null;
+    }
+
     public void changeSpaceshipLocation(int xChangeValue) {
         this.xLocation += xChangeValue;
-        parentPanel.repaint();
-    }
-
-    private Spaceship() {
-        this.xLocation = SPACESHIP_START_X;
-        this.yLocation = SPACESHIP_START_Y;
-        this.image = FileLoader.loadImage("spaceship/spaceship.png");
-    }
-
-    public void setParentPanel(JPanel parentPanel) {
-        this.parentPanel = parentPanel;
+        Distributor.getGamePanel().repaint();
     }
 
     public int getXLocation() {

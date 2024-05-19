@@ -1,24 +1,23 @@
 package main.space.invaders.gui;
 
 import main.space.invaders.drawable.Drawable;
+import main.space.invaders.utils.Distributor;
 
-import javax.swing.*;
-import java.awt.*;
-import java.util.List;
+import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
 
 public class GamePanel extends JPanel {
 
-    private final List<Drawable> drawables;
-
-    public GamePanel(List<Drawable> drawables) {
+    public GamePanel() {
         this.setBackground(Color.BLACK);
-        this.drawables = drawables;
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (Drawable drawable : drawables) {
+        for (Drawable drawable : Distributor.getDrawables()) {
             drawable.draw(g);
         }
     }
