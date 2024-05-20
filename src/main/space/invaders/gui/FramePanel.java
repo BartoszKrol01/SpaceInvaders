@@ -18,7 +18,6 @@ public class FramePanel extends JPanel {
         this.add(new ScoreBoardPanel(), BorderLayout.WEST);
         this.add(new ActivePlayerPanel(), BorderLayout.SOUTH);
         this.add(new EastPanel(), BorderLayout.EAST);
-        this.add(new RealTimeScorePanel(), BorderLayout.NORTH);
         this.add(Distributor.getGamePanel(), BorderLayout.CENTER);
     }
 

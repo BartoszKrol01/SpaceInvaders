@@ -6,6 +6,7 @@ import main.space.invaders.drawable.shootable.Spaceship;
 import main.space.invaders.drawable.shootable.mob.MobsLoader;
 import main.space.invaders.drawable.shootable.mob.model.Mob;
 import main.space.invaders.gui.GamePanel;
+import main.space.invaders.gui.RealTimePointsLabel;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -17,8 +18,10 @@ public class Distributor {
     private static final Spaceship spaceship;
     private static final GamePanel gamePanel;
     private static final CopyOnWriteArrayList<Missile> missiles;
+    private static final RealTimePointsLabel realTimePointsLabel;
 
     static {
+        realTimePointsLabel = new RealTimePointsLabel();
         gamePanel = new GamePanel();
         mobs = MobsLoader.loadMobs();
         spaceship = new Spaceship();
@@ -71,5 +74,9 @@ public class Distributor {
 
     public static List<Missile> getMissiles() {
         return missiles;
+    }
+
+    public static RealTimePointsLabel getRealTimePointsLabel() {
+        return realTimePointsLabel;
     }
 }

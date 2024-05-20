@@ -12,6 +12,7 @@ public class GamePanel extends JPanel {
 
     public GamePanel() {
         this.setBackground(Color.BLACK);
+        this.add(Distributor.getRealTimePointsLabel());
     }
 
     @Override

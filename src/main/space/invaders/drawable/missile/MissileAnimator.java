@@ -45,6 +45,9 @@ public class MissileAnimator implements Runnable {
             Distributor.removeMissiles(toRemoveMissiles);
             Distributor.removeDrawables(toRemoveDrawables);
             Distributor.removeMobs(toRemoveMobs);
+            if (!toRemoveMobs.isEmpty()) {
+                Distributor.getRealTimePointsLabel().updateText(toRemoveMobs.size());
+            }
             ThreadUtils.sleep(5);
         }
     }
