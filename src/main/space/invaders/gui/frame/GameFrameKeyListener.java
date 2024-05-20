@@ -11,8 +11,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static main.space.invaders.gui.frame.DirectionService.isSpaceShipAtBorder;
+import static main.space.invaders.gui.frame.MissileVerificationService.shouldFireMoreMissiles;
 
 public class GameFrameKeyListener implements KeyListener, Runnable {
+
+    //todo: typing over pressing up arrow should be implemented to discourage player spamming the up arrow key
 
     private final DirectionService directionService;
     private final Set<KeyEventDirection> keysPressed;
@@ -44,6 +47,11 @@ public class GameFrameKeyListener implements KeyListener, Runnable {
             }
             if (keysPressed.contains(KeyEventDirection.LEFT)) {
                 handleKeyPressed(KeyEventDirection.LEFT, spaceship);
+            }
+            if (keysPressed.contains(KeyEventDirection.UP)) {
+                if (shouldFireMoreMissiles()) {
+                    spaceship.fireMissile();
+                }
             }
             ThreadUtils.sleep(20);
         }

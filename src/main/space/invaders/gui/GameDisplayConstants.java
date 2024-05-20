@@ -20,6 +20,14 @@ public class GameDisplayConstants {
     public static final int SPACESHIP_START_X = GAME_PANEL_WIDTH / 2;
     public static final int SPACESHIP_START_Y = GAME_PANEL_HEIGHT - TOTAL_MOB_SIZE;
     public static final int SPACESHIP_SIZE = 32;
+    public static final int SPACESHIP_HITBOX_DIFFERENCE = 4;
+    public static final int LOWER_MOB_HITBOX_DIFFERENCE = 1;
+    public static final int UPPER_MOB_HITBOX_DIFFERENCE_X = 7;
+    public static final int UPPER_MOB_HITBOX_DIFFERENCE_Y = 3;
+    public static final int MIDDLE_MOB_HITBOX_DIFFERENCE_X = 2;
+    public static final int MIDDLE_MOB_HITBOX_DIFFERENCE_Y = 8;
+    public static final int MISSILE_HEIGHT = 20;
+    public static final int MISSILE_WIDTH = 3;
 
     public static Dimension getGameDimension() {
         return new Dimension(GAME_PANEL_WIDTH, GAME_PANEL_HEIGHT);

@@ -1,18 +1,18 @@
 package main.space.invaders.drawable.mob.model;
 
 import main.space.invaders.drawable.Drawable;
-import main.space.invaders.drawable.HitBox;
+import main.space.invaders.drawable.missile.HitBox;
 
 import java.awt.Graphics;
 import java.awt.Image;
 
 public abstract class Mob implements Drawable {
 
-    protected final Image stay;
-    protected final Image go;
+    private final Image stay;
+    private final Image go;
     private Image currentImage;
-    private int xLocation;
-    private int yLocation;
+    protected int xLocation;
+    protected int yLocation;
     private int horizontalStepsCounter;
     private int direction;
     private int verticalStepsCounter;

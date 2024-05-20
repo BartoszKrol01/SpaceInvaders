@@ -17,9 +17,13 @@ public class GamePanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+//        try {
         for (Drawable drawable : Distributor.getDrawables()) {
             drawable.draw(g);
         }
+//        } catch (ConcurrentModificationException e) {
+//            System.err.println("Concurrent Modification of drawable in GamePanel");
+//        }
     }
 
     @Override
