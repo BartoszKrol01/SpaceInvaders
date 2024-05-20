@@ -3,6 +3,7 @@ package main.space.invaders.gui;
 import main.space.invaders.utils.Distributor;
 
 import javax.swing.JPanel;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -13,7 +14,12 @@ public class FramePanel extends JPanel {
 
     public FramePanel() {
         this.setBackground(Color.DARK_GRAY);
-        this.add(Distributor.getGamePanel());
+        this.setLayout(new BorderLayout());
+        this.add(new ScoreBoardPanel(), BorderLayout.WEST);
+        this.add(new ActivePlayerPanel(), BorderLayout.SOUTH);
+        this.add(new EastPanel(), BorderLayout.EAST);
+        this.add(new RealTimeScorePanel(), BorderLayout.NORTH);
+        this.add(Distributor.getGamePanel(), BorderLayout.CENTER);
     }
 
     @Override
