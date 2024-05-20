@@ -5,6 +5,7 @@ import main.space.invaders.drawable.mob.model.Mob;
 import main.space.invaders.utils.Distributor;
 
 import java.util.Objects;
+import java.util.Random;
 
 import static main.space.invaders.gui.GameDisplayConstants.FIRST_MOB_POSSIBLE_STEPS_DOWN;
 import static main.space.invaders.gui.GameDisplayConstants.MOB_POSSIBLE_STEPS_SIDE;
@@ -13,6 +14,8 @@ import static main.space.invaders.gui.GameDisplayConstants.TOTAL_MOB_SIZE;
 import static main.space.invaders.utils.ThreadUtils.sleep;
 
 public class MobAnimator implements Runnable {
+
+    private static final int FIRE_MISSILE_PROBABILITY_PER_MILLE = 50;
 
     public MobAnimator() {
         new Thread(this).start();
@@ -23,9 +26,17 @@ public class MobAnimator implements Runnable {
         while (!PauseService.gamePaused()) {
             for (Mob mob : Distributor.getMobs()) {
                 changeImage(mob);
+                tryToFireMissile(mob);
                 sleep(30);
                 Distributor.getGamePanel().repaint();
             }
+        }
+    }
+
+    private static void tryToFireMissile(Mob mob) {
+        Random random = new Random();
+        if (random.nextInt(1000) <= FIRE_MISSILE_PROBABILITY_PER_MILLE) {
+            mob.fireMissile();
         }
     }
 

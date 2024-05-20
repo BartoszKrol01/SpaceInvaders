@@ -1,6 +1,9 @@
 package main.space.invaders.drawable.missile;
 
 import main.space.invaders.drawable.Drawable;
+import main.space.invaders.drawable.Spaceship;
+import main.space.invaders.drawable.mob.model.Mob;
+import main.space.invaders.exception.UnknownMissileSourceException;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,11 +17,13 @@ public class Missile implements Drawable {
     private final int xLocation;
     private int yLocation;
     private final Drawable source;
+    private final int direction;
 
     public Missile(int xLocation, int yLocation, Drawable source) {
         this.source = source;
         this.xLocation = xLocation;
         this.yLocation = yLocation;
+        this.direction = getDirection(source);
     }
 
     @Override
@@ -39,11 +44,25 @@ public class Missile implements Drawable {
         return new HitBox(new Rectangle(xLocation, yLocation, MISSILE_WIDTH, MISSILE_HEIGHT));
     }
 
+    private int getDirection(Drawable source) {
+        if (source instanceof Mob) {
+            return 5;
+        } else if (source instanceof Spaceship) {
+            return -5;
+        } else {
+            throw new UnknownMissileSourceException("Missile cant be fired from unknown source!");
+        }
+    }
+
     public int getYLocation() {
         return yLocation;
     }
 
     public void setYLocation(int yLocation) {
         this.yLocation = yLocation;
+    }
+
+    public int getDirection() {
+        return direction;
     }
 }

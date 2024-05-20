@@ -1,5 +1,6 @@
 package main.space.invaders.drawable;
 
+import main.space.invaders.Shootable;
 import main.space.invaders.drawable.missile.HitBox;
 import main.space.invaders.drawable.missile.Missile;
 import main.space.invaders.utils.Distributor;
@@ -8,7 +9,6 @@ import main.space.invaders.utils.FileLoader;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
-import java.util.List;
 
 import static main.space.invaders.gui.GameDisplayConstants.MISSILE_HEIGHT;
 import static main.space.invaders.gui.GameDisplayConstants.SPACESHIP_HITBOX_DIFFERENCE;
@@ -16,7 +16,7 @@ import static main.space.invaders.gui.GameDisplayConstants.SPACESHIP_SIZE;
 import static main.space.invaders.gui.GameDisplayConstants.SPACESHIP_START_X;
 import static main.space.invaders.gui.GameDisplayConstants.SPACESHIP_START_Y;
 
-public class Spaceship implements Drawable {
+public class Spaceship implements Drawable, Shootable {
 
     private int xLocation;
     private final int yLocation;
@@ -51,10 +51,12 @@ public class Spaceship implements Drawable {
         Distributor.getGamePanel().repaint();
     }
 
+    @Override
     public void fireMissile() {
         int x = xLocation + SPACESHIP_SIZE / 2;
-        Missile missile = new Missile(x, yLocation + MISSILE_HEIGHT, this);
-        Distributor.addDrawables(List.of(missile));
+        int y = yLocation + MISSILE_HEIGHT;
+        Missile missile = new Missile(x, y, this);
+        Distributor.addDrawables(missile);
         Distributor.addMissile(missile);
     }
 

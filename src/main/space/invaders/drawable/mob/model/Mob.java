@@ -1,12 +1,18 @@
 package main.space.invaders.drawable.mob.model;
 
+import main.space.invaders.Shootable;
 import main.space.invaders.drawable.Drawable;
 import main.space.invaders.drawable.missile.HitBox;
+import main.space.invaders.drawable.missile.Missile;
+import main.space.invaders.utils.Distributor;
 
 import java.awt.Graphics;
 import java.awt.Image;
 
-public abstract class Mob implements Drawable {
+import static main.space.invaders.gui.GameDisplayConstants.MISSILE_HEIGHT;
+import static main.space.invaders.gui.GameDisplayConstants.TOTAL_MOB_SIZE;
+
+public abstract class Mob implements Drawable, Shootable {
 
     private final Image stay;
     private final Image go;
@@ -42,6 +48,15 @@ public abstract class Mob implements Drawable {
 
     @Override
     public abstract HitBox getHitBox();
+
+    @Override
+    public void fireMissile() {
+        int x = xLocation + TOTAL_MOB_SIZE / 2;
+        int y = yLocation - MISSILE_HEIGHT;
+        Missile missile = new Missile(x, y, this);
+        Distributor.addDrawables(missile);
+        Distributor.addMissile(missile);
+    }
 
     //getters and setters
 

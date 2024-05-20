@@ -39,7 +39,7 @@ public class MissileAnimator implements Runnable {
                         }
                     }
                 }
-                missile.setYLocation(missile.getYLocation() - 5);
+                missile.setYLocation(missile.getYLocation() + missile.getDirection());
             }
 
             Distributor.removeMissiles(toRemoveMissiles);

@@ -33,8 +33,8 @@ public class Distributor {
         return drawables;
     }
 
-    public static void addDrawables(List<Drawable> drawables) {
-        Distributor.drawables.addAll(drawables);
+    public static void addDrawables(Drawable drawable) {
+        drawables.add(drawable);
     }
 
     public static void removeDrawables(List<Drawable> drawables) {
