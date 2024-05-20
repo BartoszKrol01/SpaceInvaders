@@ -7,8 +7,8 @@ import main.space.invaders.drawable.shootable.mob.model.UpperMob;
 import main.space.invaders.utils.FileLoader;
 
 import java.awt.Image;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import static main.space.invaders.gui.GameDisplayConstants.MOBS_IN_ONE_ROW_COUNT;
 import static main.space.invaders.gui.GameDisplayConstants.NUMBER_OF_ROWS_COUNT;
@@ -20,8 +20,8 @@ public class MobsLoader {
 
     private static int currentRow = 1;
 
-    public static List<Mob> loadMobs() {
-        List<Mob> mobs = new ArrayList<>();
+    public static CopyOnWriteArrayList<Mob> loadMobs() {
+        CopyOnWriteArrayList<Mob> mobs = new CopyOnWriteArrayList<>();
         loadSpecificMob(mobs, MobType.LOWER);
         loadSpecificMob(mobs, MobType.MIDDLE);
         loadSpecificMob(mobs, MobType.UPPER);

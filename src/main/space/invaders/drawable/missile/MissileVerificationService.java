@@ -14,7 +14,7 @@ public class MissileVerificationService {
 
     private static LocalDateTime lastMissileFired;
     private static final double MINIMAL_INTERVAL_BETWEEN_MISSILE_FIRE = 500;
-    private static final int MAXIMUM_MISSILES_ON_SCREEN = 10;
+    private static final int MAXIMUM_MISSILES_ON_SCREEN = 10; //todo: measure size of friendly missiles
 
     public static boolean shouldFireMoreMissiles() {
         if (lastMissileFired == null) {

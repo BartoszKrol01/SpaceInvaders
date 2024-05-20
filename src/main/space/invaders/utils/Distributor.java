@@ -13,7 +13,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class Distributor {
 
     private static final CopyOnWriteArrayList<Drawable> drawables;
-    private static final List<Mob> mobs;
+    private static final CopyOnWriteArrayList<Mob> mobs;
     private static final Spaceship spaceship;
     private static final GamePanel gamePanel;
     private static final CopyOnWriteArrayList<Missile> missiles;
@@ -50,7 +50,7 @@ public class Distributor {
     }
 
     public static void removeMobs(List<Mob> mobs) {
-        drawables.removeAll(mobs);
+        Distributor.mobs.removeAll(mobs);
     }
 
     public static Spaceship getSpaceship() {
