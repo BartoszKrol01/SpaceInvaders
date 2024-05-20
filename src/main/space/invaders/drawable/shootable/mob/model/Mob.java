@@ -1,9 +1,9 @@
-package main.space.invaders.drawable.mob.model;
+package main.space.invaders.drawable.shootable.mob.model;
 
-import main.space.invaders.Shootable;
 import main.space.invaders.drawable.Drawable;
 import main.space.invaders.drawable.missile.HitBox;
 import main.space.invaders.drawable.missile.Missile;
+import main.space.invaders.drawable.shootable.Shootable;
 import main.space.invaders.utils.Distributor;
 
 import java.awt.Graphics;

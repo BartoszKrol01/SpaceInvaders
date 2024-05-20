@@ -1,8 +1,8 @@
 package main.space.invaders.drawable.missile;
 
 import main.space.invaders.drawable.Drawable;
-import main.space.invaders.drawable.Spaceship;
-import main.space.invaders.drawable.mob.model.Mob;
+import main.space.invaders.drawable.shootable.Spaceship;
+import main.space.invaders.drawable.shootable.mob.model.Mob;
 import main.space.invaders.exception.UnknownMissileSourceException;
 
 import java.awt.Color;
@@ -18,18 +18,28 @@ public class Missile implements Drawable {
     private int yLocation;
     private final Drawable source;
     private final int direction;
+    private final Color color;
 
     public Missile(int xLocation, int yLocation, Drawable source) {
         this.source = source;
         this.xLocation = xLocation;
         this.yLocation = yLocation;
-        this.direction = getDirection(source);
+
+        if (source instanceof Mob) {
+            this.color = Color.RED;
+            this.direction = 5;
+        } else if (source instanceof Spaceship) {
+            this.color = Color.GREEN;
+            this.direction = -5;
+        } else {
+            throw new UnknownMissileSourceException("Missile cant be fired from unknown source!");
+        }
     }
 
     @Override
     public void draw(Graphics g) {
         Color oldColor = g.getColor();
-        g.setColor(Color.GREEN);
+        g.setColor(color);
         g.fillRect(xLocation, yLocation, MISSILE_WIDTH, MISSILE_HEIGHT);
         g.setColor(oldColor);
     }
@@ -42,16 +52,6 @@ public class Missile implements Drawable {
     @Override
     public HitBox getHitBox() {
         return new HitBox(new Rectangle(xLocation, yLocation, MISSILE_WIDTH, MISSILE_HEIGHT));
-    }
-
-    private int getDirection(Drawable source) {
-        if (source instanceof Mob) {
-            return 5;
-        } else if (source instanceof Spaceship) {
-            return -5;
-        } else {
-            throw new UnknownMissileSourceException("Missile cant be fired from unknown source!");
-        }
     }
 
     public int getYLocation() {

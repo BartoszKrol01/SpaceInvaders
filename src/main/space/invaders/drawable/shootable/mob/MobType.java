@@ -1,4 +1,4 @@
-package main.space.invaders.drawable.mob;
+package main.space.invaders.drawable.shootable.mob;
 
 public enum MobType {
     LOWER(2, "mob/lower"),

@@ -1,6 +1,6 @@
-package main.space.invaders.drawable;
+package main.space.invaders.drawable.shootable;
 
-import main.space.invaders.Shootable;
+import main.space.invaders.drawable.Drawable;
 import main.space.invaders.drawable.missile.HitBox;
 import main.space.invaders.drawable.missile.Missile;
 import main.space.invaders.utils.Distributor;

@@ -1,7 +1,7 @@
-package main.space.invaders.drawable.mob;
+package main.space.invaders.drawable.shootable.mob;
 
 import main.space.invaders.PauseService;
-import main.space.invaders.drawable.mob.model.Mob;
+import main.space.invaders.drawable.shootable.mob.model.Mob;
 import main.space.invaders.utils.Distributor;
 
 import java.util.Objects;

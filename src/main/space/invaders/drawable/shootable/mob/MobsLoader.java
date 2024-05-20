@@ -1,9 +1,9 @@
-package main.space.invaders.drawable.mob;
+package main.space.invaders.drawable.shootable.mob;
 
-import main.space.invaders.drawable.mob.model.LowerMob;
-import main.space.invaders.drawable.mob.model.MiddleMob;
-import main.space.invaders.drawable.mob.model.Mob;
-import main.space.invaders.drawable.mob.model.UpperMob;
+import main.space.invaders.drawable.shootable.mob.model.LowerMob;
+import main.space.invaders.drawable.shootable.mob.model.MiddleMob;
+import main.space.invaders.drawable.shootable.mob.model.Mob;
+import main.space.invaders.drawable.shootable.mob.model.UpperMob;
 import main.space.invaders.utils.FileLoader;
 
 import java.awt.Image;

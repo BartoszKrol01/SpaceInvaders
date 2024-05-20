@@ -1,4 +1,4 @@
-package main.space.invaders.drawable.mob.model;
+package main.space.invaders.drawable.shootable.mob.model;
 
 import main.space.invaders.drawable.missile.HitBox;
 

@@ -1,7 +1,7 @@
 package main.space.invaders.gui.frame;
 
 import main.space.invaders.PauseService;
-import main.space.invaders.drawable.Spaceship;
+import main.space.invaders.drawable.shootable.Spaceship;
 import main.space.invaders.utils.Distributor;
 import main.space.invaders.utils.ThreadUtils;
 
@@ -10,8 +10,8 @@ import java.awt.event.KeyListener;
 import java.util.HashSet;
 import java.util.Set;
 
+import static main.space.invaders.drawable.missile.MissileVerificationService.shouldFireMoreMissiles;
 import static main.space.invaders.gui.frame.DirectionService.isSpaceShipAtBorder;
-import static main.space.invaders.gui.frame.MissileVerificationService.shouldFireMoreMissiles;
 
 public class GameFrameKeyListener implements KeyListener, Runnable {
 
@@ -48,7 +48,7 @@ public class GameFrameKeyListener implements KeyListener, Runnable {
             if (keysPressed.contains(KeyEventDirection.LEFT)) {
                 handleKeyPressed(KeyEventDirection.LEFT, spaceship);
             }
-            if (keysPressed.contains(KeyEventDirection.UP)) {
+            if (keysPressed.contains(KeyEventDirection.SPACE)) {
                 if (shouldFireMoreMissiles()) {
                     spaceship.fireMissile();
                 }

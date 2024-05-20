@@ -2,15 +2,15 @@ package main.space.invaders.drawable.missile;
 
 import main.space.invaders.PauseService;
 import main.space.invaders.drawable.Drawable;
-import main.space.invaders.drawable.mob.model.Mob;
+import main.space.invaders.drawable.shootable.mob.model.Mob;
 import main.space.invaders.utils.Distributor;
 import main.space.invaders.utils.ThreadUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static main.space.invaders.gui.frame.MissileVerificationService.isMissileOffScreen;
-import static main.space.invaders.gui.frame.MissileVerificationService.shouldRemoveMissile;
+import static main.space.invaders.drawable.missile.MissileVerificationService.isMissileOffScreen;
+import static main.space.invaders.drawable.missile.MissileVerificationService.shouldRemoveMissile;
 
 public class MissileAnimator implements Runnable {
 

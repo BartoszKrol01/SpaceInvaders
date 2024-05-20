@@ -1,7 +1,6 @@
-package main.space.invaders.gui.frame;
+package main.space.invaders.drawable.missile;
 
 import main.space.invaders.drawable.Drawable;
-import main.space.invaders.drawable.missile.Missile;
 import main.space.invaders.utils.Distributor;
 
 import java.time.Duration;

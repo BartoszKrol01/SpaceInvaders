@@ -7,7 +7,7 @@ public enum KeyEventDirection {
     NO_DIRECTION(0, 0),
     RIGHT(KeyEvent.VK_RIGHT, 1),
     LEFT(KeyEvent.VK_LEFT, -1),
-    UP(KeyEvent.VK_UP, 0);
+    SPACE(KeyEvent.VK_SPACE, 0);
 
     private final int sign;
     private final int value;
