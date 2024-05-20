@@ -45,7 +45,7 @@ public class MissileAnimator implements Runnable {
             Distributor.removeMissiles(toRemoveMissiles);
             Distributor.removeDrawables(toRemoveDrawables);
             Distributor.removeMobs(toRemoveMobs);
-            ThreadUtils.sleep(10);
+            ThreadUtils.sleep(5);
         }
     }
 }

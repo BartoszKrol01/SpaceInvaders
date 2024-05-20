@@ -27,10 +27,10 @@ public class Missile implements Drawable {
 
         if (source instanceof Mob) {
             this.color = Color.RED;
-            this.direction = 5;
+            this.direction = 2;
         } else if (source instanceof Spaceship) {
             this.color = Color.GREEN;
-            this.direction = -5;
+            this.direction = -2;
         } else {
             throw new UnknownMissileSourceException("Missile cant be fired from unknown source!");
         }

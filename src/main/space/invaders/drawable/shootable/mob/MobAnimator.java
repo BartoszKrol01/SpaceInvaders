@@ -2,6 +2,7 @@ package main.space.invaders.drawable.shootable.mob;
 
 import main.space.invaders.PauseService;
 import main.space.invaders.drawable.shootable.mob.model.Mob;
+import main.space.invaders.gui.GameDisplayConstants;
 import main.space.invaders.utils.Distributor;
 
 import java.util.Objects;
@@ -16,18 +17,21 @@ import static main.space.invaders.utils.ThreadUtils.sleep;
 public class MobAnimator implements Runnable {
 
     private static final int FIRE_MISSILE_PROBABILITY_PER_MILLE = 50;
+    private long sleepTime;
 
     public MobAnimator() {
+        this.sleepTime = GameDisplayConstants.TOTAL_NUMBER_OF_MOBS;
         new Thread(this).start();
     }
 
     @Override
     public void run() {
         while (!PauseService.gamePaused()) {
+            sleepTime = Distributor.getMobs().size();
             for (Mob mob : Distributor.getMobs()) {
                 changeImage(mob);
                 tryToFireMissile(mob);
-                sleep(30);
+                sleep(sleepTime);
                 Distributor.getGamePanel().repaint();
             }
         }
