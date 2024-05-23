@@ -10,7 +10,10 @@ import main.space.invaders.utils.Distributor;
 import java.awt.Graphics;
 
 import static main.space.invaders.constants.Missile.MISSILE_HEIGHT;
-import static main.space.invaders.constants.Spaceship.SPACESHIP_HITBOX_DIFFERENCE;
+import static main.space.invaders.constants.Spaceship.FIRST_SPACESHIP_HITBOX_DIFFERENCE_X;
+import static main.space.invaders.constants.Spaceship.FIRST_SPACESHIP_HITBOX_DIFFERENCE_Y;
+import static main.space.invaders.constants.Spaceship.SECOND_SPACESHIP_HITBOX_DIFFERENCE_X;
+import static main.space.invaders.constants.Spaceship.SECOND_SPACESHIP_HITBOX_DIFFERENCE_Y;
 import static main.space.invaders.constants.Spaceship.SPACESHIP_SIZE;
 import static main.space.invaders.constants.Spaceship.SPACESHIP_START_X;
 import static main.space.invaders.constants.Spaceship.SPACESHIP_START_Y;
@@ -42,10 +45,20 @@ public class Spaceship implements Drawable, Shootable {
 
     @Override
     public HitBox getHitBox() {
-        int x = this.xLocation + SPACESHIP_HITBOX_DIFFERENCE;
-        int y = this.yLocation + SPACESHIP_HITBOX_DIFFERENCE;
-        int size = SPACESHIP_SIZE - 2 * SPACESHIP_HITBOX_DIFFERENCE;
-        return new HitBox(x, y, size, size);
+        int currentSpaceshipId = SpaceshipImagesService.getCurrentSpaceshipImageId();
+        int x = 0, y = 0, width = 0, height = 0;
+        if (currentSpaceshipId == 1) {
+            x = this.xLocation + FIRST_SPACESHIP_HITBOX_DIFFERENCE_X;
+            y = this.yLocation + FIRST_SPACESHIP_HITBOX_DIFFERENCE_Y;
+            width = SPACESHIP_SIZE - 2 * FIRST_SPACESHIP_HITBOX_DIFFERENCE_X;
+            height = SPACESHIP_SIZE - 2 * FIRST_SPACESHIP_HITBOX_DIFFERENCE_Y;
+        } else if (currentSpaceshipId == 2) {
+            x = this.xLocation + SECOND_SPACESHIP_HITBOX_DIFFERENCE_X;
+            y = this.yLocation + SECOND_SPACESHIP_HITBOX_DIFFERENCE_Y;
+            width = SPACESHIP_SIZE - 2 * SECOND_SPACESHIP_HITBOX_DIFFERENCE_X;
+            height = SPACESHIP_SIZE - FIRST_SPACESHIP_HITBOX_DIFFERENCE_Y;
+        }
+        return new HitBox(x, y, width, height);
     }
 
     @Override

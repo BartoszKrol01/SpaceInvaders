@@ -12,6 +12,7 @@ public class SpaceshipImagesService {
 
     private static final int SPACESHIPS_TO_LOAD = 2;
     private static final String SPACESHIP_PATH = "spaceship/spaceship_X.png";
+    private static final String CURRENT_SPACESHIP_ERROR = "Can not find current spaceship ";
     private static final Map<Integer, SpaceshipImage> spaceshipImages;
 
     static {
@@ -32,11 +33,24 @@ public class SpaceshipImagesService {
         return findCurrentSpaceshipImage().getImage();
     }
 
+    public static Integer getCurrentSpaceshipImageId() {
+        for (Map.Entry<Integer, SpaceshipImage> entry : spaceshipImages.entrySet()) {
+            if (entry.getValue().isCurrent()) {
+                return entry.getKey();
+            }
+        }
+        throw getNoSuchElementException("id");
+    }
+
     private static SpaceshipImage findCurrentSpaceshipImage() {
         return spaceshipImages.values().stream()
                 .filter(SpaceshipImage::isCurrent)
                 .findFirst()
-                .orElseThrow(() -> new NoSuchElementException("Can not find current spaceship image"));
+                .orElseThrow(() -> getNoSuchElementException("image"));
+    }
+
+    private static NoSuchElementException getNoSuchElementException(String info) {
+        return new NoSuchElementException(CURRENT_SPACESHIP_ERROR + info);
     }
 
     public static Map<Integer, SpaceshipImage> getSpaceshipImages() {

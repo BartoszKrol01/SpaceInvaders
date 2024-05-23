@@ -19,7 +19,7 @@ public class LowerMob extends Mob {
         int x = super.xLocation + LOWER_MOB_HITBOX_DIFFERENCE_X;
         int y = super.yLocation + LOWER_MOB_HITBOX_DIFFERENCE_Y;
         int width = MOB_SIZE - LOWER_MOB_HITBOX_DIFFERENCE_X;
-        int height = MOB_SIZE - LOWER_MOB_HITBOX_DIFFERENCE_Y;
+        int height = MOB_SIZE - 2 * LOWER_MOB_HITBOX_DIFFERENCE_Y;
         return new HitBox(x, y, width, height);
     }
 }

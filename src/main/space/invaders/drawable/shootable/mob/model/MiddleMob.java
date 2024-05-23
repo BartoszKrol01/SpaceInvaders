@@ -18,8 +18,8 @@ public class MiddleMob extends Mob {
     public HitBox getHitBox() {
         int x = super.xLocation + MIDDLE_MOB_HITBOX_DIFFERENCE_X;
         int y = super.yLocation + MIDDLE_MOB_HITBOX_DIFFERENCE_Y;
-        int width = MOB_SIZE - MIDDLE_MOB_HITBOX_DIFFERENCE_X;
-        int height = MOB_SIZE - MIDDLE_MOB_HITBOX_DIFFERENCE_Y;
+        int width = MOB_SIZE - 2 * MIDDLE_MOB_HITBOX_DIFFERENCE_X;
+        int height = MOB_SIZE - 2 * MIDDLE_MOB_HITBOX_DIFFERENCE_Y;
         return new HitBox(x, y, width, height);
     }
 }
