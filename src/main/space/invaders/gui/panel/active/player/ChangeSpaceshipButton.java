@@ -11,11 +11,11 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.Map;
 
-public class SpaceshipButton extends JButton {
+public class ChangeSpaceshipButton extends JButton {
 
     private static final String TITLE = "Spaceship edit mode";
 
-    public SpaceshipButton() {
+    public ChangeSpaceshipButton() {
         this.setFocusable(false);
         this.setBackground(Color.BLACK);
         this.setIcon(new ImageIcon(SpaceshipImagesService.getCurrentSpaceshipImage()));
@@ -50,6 +50,7 @@ public class SpaceshipButton extends JButton {
             SpaceshipImagesService.setCurrentSpaceshipImage(spaceshipId);
             PauseService.unpauseTheGame();
             dialog.setVisible(false);
+            this.setIcon(new ImageIcon(spaceshipImage.getImage()));
         });
     }
 }

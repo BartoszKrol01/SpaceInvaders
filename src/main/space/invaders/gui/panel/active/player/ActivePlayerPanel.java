@@ -7,6 +7,6 @@ public class ActivePlayerPanel extends JPanel {
 
     public ActivePlayerPanel() {
         this.setBackground(new Color(16, 18, 16));
-        this.add(new SpaceshipButton());
+        this.add(new ChangeSpaceshipButton());
     }
 }
