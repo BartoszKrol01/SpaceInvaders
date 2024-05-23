@@ -1,6 +1,5 @@
-package main.space.invaders.drawable.shootable.mob;
+package main.space.invaders.animator;
 
-import main.space.invaders.PauseService;
 import main.space.invaders.drawable.shootable.mob.model.Mob;
 import main.space.invaders.gui.panel.game.GameDisplayConstants;
 import main.space.invaders.utils.Distributor;
@@ -12,9 +11,8 @@ import static main.space.invaders.gui.panel.game.GameDisplayConstants.FIRST_MOB_
 import static main.space.invaders.gui.panel.game.GameDisplayConstants.MOB_POSSIBLE_STEPS_SIDE;
 import static main.space.invaders.gui.panel.game.GameDisplayConstants.MOB_STEP_SIZE;
 import static main.space.invaders.gui.panel.game.GameDisplayConstants.TOTAL_MOB_SIZE;
-import static main.space.invaders.utils.ThreadUtils.sleep;
 
-public class MobAnimator implements Runnable {
+public class MobAnimator extends Animator {
 
     private static final int FIRE_MISSILE_PROBABILITY_PER_MILLE = 50;
     private long sleepTime;
@@ -22,16 +20,20 @@ public class MobAnimator implements Runnable {
     public MobAnimator() {
         this.sleepTime = GameDisplayConstants.TOTAL_NUMBER_OF_MOBS;
         new Thread(this).start();
+        Distributor.addAnimator(this);
     }
 
     @Override
     public void run() {
-        while (!PauseService.gamePaused()) {
+        while (PauseService.isRunning()) {
+            if (PauseService.gamePaused()) {
+                pauseAnimation();
+            }
             sleepTime = Distributor.getMobs().size();
             for (Mob mob : Distributor.getMobs()) {
                 changeImage(mob);
                 tryToFireMissile(mob);
-                sleep(sleepTime);
+                sleepTryCatch(sleepTime);
                 Distributor.getGamePanel().repaint();
             }
         }
@@ -70,7 +72,7 @@ public class MobAnimator implements Runnable {
         if (mob.getVerticalStepsCounter() >= FIRST_MOB_POSSIBLE_STEPS_DOWN + mob.getStartRow()) {
             System.out.println("I've won - x -> " + mob.getXLocation() + " y -> " + mob.getYLocation());
             System.out.println("GAME OVER!!!!!");
-            PauseService.setIsGamePaused(true);
+            PauseService.pauseTheGame();
             throw new RuntimeException();
             //todo: handle win
         }

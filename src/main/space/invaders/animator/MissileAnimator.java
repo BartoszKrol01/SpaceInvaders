@@ -1,10 +1,9 @@
-package main.space.invaders.drawable.missile;
+package main.space.invaders.animator;
 
-import main.space.invaders.PauseService;
 import main.space.invaders.drawable.Drawable;
+import main.space.invaders.drawable.missile.Missile;
 import main.space.invaders.drawable.shootable.mob.model.Mob;
 import main.space.invaders.utils.Distributor;
-import main.space.invaders.utils.ThreadUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,15 +13,19 @@ import static main.space.invaders.drawable.missile.MissileVerificationService.sh
 import static main.space.invaders.drawable.missile.MissileVerificationService.shouldShortenMissile;
 import static main.space.invaders.gui.panel.game.GameDisplayConstants.MISSILE_SHORTEN_RATE;
 
-public class MissileAnimator implements Runnable {
+public class MissileAnimator extends Animator {
 
     public MissileAnimator() {
         new Thread(this).start();
+        Distributor.addAnimator(this);
     }
 
     @Override
     public void run() {
-        while (!PauseService.gamePaused()) {
+        while (PauseService.isRunning()) {
+            if (PauseService.gamePaused()) {
+                pauseAnimation();
+            }
             List<Missile> toRemoveMissiles = new ArrayList<>();
             List<Drawable> toRemoveDrawables = new ArrayList<>();
             List<Mob> toRemoveMobs = new ArrayList<>();
@@ -56,7 +59,7 @@ public class MissileAnimator implements Runnable {
             if (!toRemoveMobs.isEmpty()) {
                 Distributor.getRealTimePointsLabel().updateText(toRemoveMobs.size());
             }
-            ThreadUtils.sleep(4);
+            sleepTryCatch(16);
         }
     }
 

@@ -1,5 +1,6 @@
 package main.space.invaders.gui.frame;
 
+import main.space.invaders.animator.GameFrameKeyListener;
 import main.space.invaders.gui.panel.FramePanel;
 
 import javax.swing.JFrame;
@@ -15,8 +16,6 @@ public class GameFrame extends JFrame {
         this.setLocationRelativeTo(this);
         this.setTitle(TITLE);
         this.setVisible(true);
-        GameFrameKeyListener listener = new GameFrameKeyListener();
-        this.addKeyListener(listener);
-        new Thread(listener).start();
+        this.addKeyListener(new GameFrameKeyListener());
     }
 }

@@ -1,7 +1,7 @@
 package main.space.invaders;
 
-import main.space.invaders.drawable.missile.MissileAnimator;
-import main.space.invaders.drawable.shootable.mob.MobAnimator;
+import main.space.invaders.animator.MissileAnimator;
+import main.space.invaders.animator.MobAnimator;
 import main.space.invaders.gui.frame.GameFrame;
 import main.space.invaders.gui.panel.FramePanel;
 

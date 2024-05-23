@@ -1,14 +1,13 @@
-package main.space.invaders.drawable.shootable;
+package main.space.invaders.drawable.shootable.spaceship;
 
 import main.space.invaders.drawable.Drawable;
 import main.space.invaders.drawable.DrawableType;
 import main.space.invaders.drawable.missile.HitBox;
 import main.space.invaders.drawable.missile.Missile;
+import main.space.invaders.drawable.shootable.Shootable;
 import main.space.invaders.utils.Distributor;
-import main.space.invaders.utils.FileLoader;
 
 import java.awt.Graphics;
-import java.awt.Image;
 
 import static main.space.invaders.gui.panel.game.GameDisplayConstants.MISSILE_HEIGHT;
 import static main.space.invaders.gui.panel.game.GameDisplayConstants.SPACESHIP_HITBOX_DIFFERENCE;
@@ -20,12 +19,10 @@ public class Spaceship implements Drawable, Shootable {
 
     private int xLocation;
     private final int yLocation;
-    private final Image image;
 
     public Spaceship() {
         this.xLocation = SPACESHIP_START_X;
         this.yLocation = SPACESHIP_START_Y;
-        this.image = FileLoader.loadImage("spaceship/spaceship.png");
     }
 
     public void changeSpaceshipLocation(int xChangeValue) {
@@ -35,7 +32,7 @@ public class Spaceship implements Drawable, Shootable {
 
     @Override
     public void draw(Graphics g) {
-        g.drawImage(image, xLocation, yLocation, null);
+        g.drawImage(SpaceshipImagesService.getCurrentSpaceshipImage(), xLocation, yLocation, null);
     }
 
     @Override
