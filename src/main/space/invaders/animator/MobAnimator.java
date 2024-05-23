@@ -25,11 +25,11 @@ public class MobAnimator extends Animator {
     @Override
     public void run() {
         while (PauseService.isRunning()) {
-            if (PauseService.gamePaused()) {
-                pauseAnimation();
-            }
             sleepTime = Distributor.getMobs().size();
             for (Mob mob : Distributor.getMobs()) {
+                if (PauseService.gamePaused()) {
+                    pauseAnimation();
+                }
                 changeImage(mob);
                 tryToFireMissile(mob);
                 sleepTryCatch(sleepTime);
