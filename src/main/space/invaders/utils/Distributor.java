@@ -1,5 +1,6 @@
 package main.space.invaders.utils;
 
+import main.space.invaders.Player;
 import main.space.invaders.animator.Animator;
 import main.space.invaders.drawable.Drawable;
 import main.space.invaders.drawable.barrier.Barrier;
@@ -25,6 +26,7 @@ public class Distributor {
     private static final Spaceship spaceship;
     private static final GamePanel gamePanel;
     private static final RealTimePointsLabel realTimePointsLabel;
+    private static Player player;
 
     static {
         animators = new ArrayList<>();
@@ -39,6 +41,14 @@ public class Distributor {
         drawables.addAll(mobs);
         drawables.addAll(barriers);
         drawables.add(spaceship);
+    }
+
+    public static void setPlayer(Player player) {
+        Distributor.player = player;
+    }
+
+    public static Player getPlayer() {
+        return player;
     }
 
     public static void addAnimator(Animator animator) {
