@@ -9,11 +9,11 @@ import main.space.invaders.utils.Distributor;
 
 import java.awt.Graphics;
 
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.MISSILE_HEIGHT;
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.SPACESHIP_HITBOX_DIFFERENCE;
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.SPACESHIP_SIZE;
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.SPACESHIP_START_X;
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.SPACESHIP_START_Y;
+import static main.space.invaders.constants.Missile.MISSILE_HEIGHT;
+import static main.space.invaders.constants.Spaceship.SPACESHIP_HITBOX_DIFFERENCE;
+import static main.space.invaders.constants.Spaceship.SPACESHIP_SIZE;
+import static main.space.invaders.constants.Spaceship.SPACESHIP_START_X;
+import static main.space.invaders.constants.Spaceship.SPACESHIP_START_Y;
 
 public class Spaceship implements Drawable, Shootable {
 

@@ -5,7 +5,7 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Font;
 
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.GAME_PANEL_WIDTH;
+import static main.space.invaders.constants.GameDisplay.GAME_PANEL_WIDTH;
 
 public class RealTimePointsLabel extends JLabel {
 

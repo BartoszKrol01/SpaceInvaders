@@ -1,16 +1,15 @@
 package main.space.invaders.animator;
 
 import main.space.invaders.drawable.shootable.mob.model.Mob;
-import main.space.invaders.gui.panel.game.GameDisplayConstants;
 import main.space.invaders.utils.Distributor;
 
 import java.util.Objects;
 import java.util.Random;
 
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.FIRST_MOB_POSSIBLE_STEPS_DOWN;
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.MOB_POSSIBLE_STEPS_SIDE;
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.MOB_STEP_SIZE;
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.TOTAL_MOB_SIZE;
+import static main.space.invaders.constants.Mob.FIRST_MOB_POSSIBLE_STEPS_DOWN;
+import static main.space.invaders.constants.Mob.MOB_POSSIBLE_STEPS_SIDE;
+import static main.space.invaders.constants.Mob.MOB_STEP_SIZE;
+import static main.space.invaders.constants.Mob.TOTAL_MOB_SIZE;
 
 public class MobAnimator extends Animator {
 
@@ -18,7 +17,7 @@ public class MobAnimator extends Animator {
     private long sleepTime;
 
     public MobAnimator() {
-        this.sleepTime = GameDisplayConstants.TOTAL_NUMBER_OF_MOBS;
+        this.sleepTime = main.space.invaders.constants.Mob.TOTAL_NUMBER_OF_MOBS;
         new Thread(this).start();
         Distributor.addAnimator(this);
     }

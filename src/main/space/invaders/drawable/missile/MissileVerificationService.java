@@ -7,10 +7,10 @@ import main.space.invaders.utils.Distributor;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+import static main.space.invaders.constants.GameDisplay.GAME_PANEL_HEIGHT;
+import static main.space.invaders.constants.Missile.MISSILE_HEIGHT;
+import static main.space.invaders.constants.Missile.MISSILE_SHORTEN_RATE;
 import static main.space.invaders.drawable.missile.HitBox.isThereCollision;
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.GAME_PANEL_HEIGHT;
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.MISSILE_HEIGHT;
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.MISSILE_SHORTEN_RATE;
 
 public class MissileVerificationService {
 

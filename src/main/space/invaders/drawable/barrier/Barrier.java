@@ -8,7 +8,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.BARRIER_SIZE;
+import static main.space.invaders.constants.Barrier.BARRIER_SIZE;
 
 public class Barrier implements Drawable {
 

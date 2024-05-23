@@ -8,10 +8,10 @@ import main.space.invaders.utils.Distributor;
 import java.util.ArrayList;
 import java.util.List;
 
+import static main.space.invaders.constants.Missile.MISSILE_SHORTEN_RATE;
 import static main.space.invaders.drawable.missile.MissileVerificationService.isMissileOffScreen;
 import static main.space.invaders.drawable.missile.MissileVerificationService.shouldRemoveMissile;
 import static main.space.invaders.drawable.missile.MissileVerificationService.shouldShortenMissile;
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.MISSILE_SHORTEN_RATE;
 
 public class MissileAnimator extends Animator {
 

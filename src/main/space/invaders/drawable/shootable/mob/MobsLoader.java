@@ -10,11 +10,11 @@ import java.awt.Image;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.MOBS_IN_ONE_ROW_COUNT;
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.NUMBER_OF_ROWS_COUNT;
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.SIDE_PANEL_GAP;
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.TOP_GAP_BETWEEN_PANEL_AND_FRAME;
-import static main.space.invaders.gui.panel.game.GameDisplayConstants.TOTAL_MOB_SIZE;
+import static main.space.invaders.constants.GameDisplay.SIDE_PANEL_GAP;
+import static main.space.invaders.constants.GameDisplay.TOP_GAP_BETWEEN_PANEL_AND_FRAME;
+import static main.space.invaders.constants.Mob.MOBS_IN_ONE_ROW_COUNT;
+import static main.space.invaders.constants.Mob.NUMBER_OF_MOB_ROWS;
+import static main.space.invaders.constants.Mob.TOTAL_MOB_SIZE;
 
 public class MobsLoader {
 
@@ -55,6 +55,6 @@ public class MobsLoader {
     }
 
     private static int getCurrentMobYLocation() {
-        return (TOP_GAP_BETWEEN_PANEL_AND_FRAME + (NUMBER_OF_ROWS_COUNT * TOTAL_MOB_SIZE)) - (currentRow * TOTAL_MOB_SIZE);
+        return (TOP_GAP_BETWEEN_PANEL_AND_FRAME + (NUMBER_OF_MOB_ROWS * TOTAL_MOB_SIZE)) - (currentRow * TOTAL_MOB_SIZE);
     }
 }
