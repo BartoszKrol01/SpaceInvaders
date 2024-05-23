@@ -1,12 +1,14 @@
 package main.space.invaders.utils;
 
 import main.space.invaders.drawable.Drawable;
+import main.space.invaders.drawable.barrier.Barrier;
+import main.space.invaders.drawable.barrier.BarrierLoader;
 import main.space.invaders.drawable.missile.Missile;
 import main.space.invaders.drawable.shootable.Spaceship;
 import main.space.invaders.drawable.shootable.mob.MobsLoader;
 import main.space.invaders.drawable.shootable.mob.model.Mob;
-import main.space.invaders.gui.GamePanel;
-import main.space.invaders.gui.RealTimePointsLabel;
+import main.space.invaders.gui.panel.game.GamePanel;
+import main.space.invaders.gui.panel.game.RealTimePointsLabel;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -15,12 +17,14 @@ public class Distributor {
 
     private static final CopyOnWriteArrayList<Drawable> drawables;
     private static final CopyOnWriteArrayList<Mob> mobs;
+    private static final CopyOnWriteArrayList<Missile> missiles;
+    private static final CopyOnWriteArrayList<Barrier> barriers;
     private static final Spaceship spaceship;
     private static final GamePanel gamePanel;
-    private static final CopyOnWriteArrayList<Missile> missiles;
     private static final RealTimePointsLabel realTimePointsLabel;
 
     static {
+        barriers = BarrierLoader.loadBarriers();
         realTimePointsLabel = new RealTimePointsLabel();
         gamePanel = new GamePanel();
         mobs = MobsLoader.loadMobs();
@@ -29,6 +33,7 @@ public class Distributor {
 
         drawables = new CopyOnWriteArrayList<>();
         drawables.addAll(mobs);
+        drawables.addAll(barriers);
         drawables.add(spaceship);
     }
 

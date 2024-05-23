@@ -11,6 +11,8 @@ import java.util.List;
 
 import static main.space.invaders.drawable.missile.MissileVerificationService.isMissileOffScreen;
 import static main.space.invaders.drawable.missile.MissileVerificationService.shouldRemoveMissile;
+import static main.space.invaders.drawable.missile.MissileVerificationService.shouldShortenMissile;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.MISSILE_SHORTEN_RATE;
 
 public class MissileAnimator implements Runnable {
 
@@ -32,11 +34,17 @@ public class MissileAnimator implements Runnable {
                         toRemoveMissiles.add(missile);
                         toRemoveDrawables.add(missile);
                     } else if (shouldRemoveMissile(missile, drawable)) {
-                        toRemoveMissiles.add(missile);
-                        toRemoveDrawables.addAll(List.of(missile, drawable));
-                        if (drawable instanceof Mob mob) {
-                            toRemoveMobs.add(mob);
+                        if (shouldShortenMissile(missile, drawable)) {
+                            shortenMissile(missile);
+                            toRemoveDrawables.add(drawable);
+                        } else {
+                            toRemoveMissiles.add(missile);
+                            toRemoveDrawables.addAll(List.of(missile, drawable));
+                            if (drawable instanceof Mob mob) {
+                                toRemoveMobs.add(mob);
+                            }
                         }
+
                     }
                 }
                 missile.setYLocation(missile.getYLocation() + missile.getDirection());
@@ -48,7 +56,12 @@ public class MissileAnimator implements Runnable {
             if (!toRemoveMobs.isEmpty()) {
                 Distributor.getRealTimePointsLabel().updateText(toRemoveMobs.size());
             }
-            ThreadUtils.sleep(5);
+            ThreadUtils.sleep(4);
         }
     }
+
+    private void shortenMissile(Missile missile) {
+        missile.setHeight(missile.getHeight() - MISSILE_SHORTEN_RATE);
+    }
 }
+

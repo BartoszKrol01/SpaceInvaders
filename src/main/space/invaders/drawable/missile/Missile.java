@@ -1,21 +1,20 @@
 package main.space.invaders.drawable.missile;
 
 import main.space.invaders.drawable.Drawable;
-import main.space.invaders.drawable.shootable.Spaceship;
-import main.space.invaders.drawable.shootable.mob.model.Mob;
+import main.space.invaders.drawable.DrawableType;
 import main.space.invaders.exception.UnknownMissileSourceException;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Rectangle;
 
-import static main.space.invaders.gui.GameDisplayConstants.MISSILE_HEIGHT;
-import static main.space.invaders.gui.GameDisplayConstants.MISSILE_WIDTH;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.MISSILE_HEIGHT;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.MISSILE_WIDTH;
 
 public class Missile implements Drawable {
 
     private final int xLocation;
     private int yLocation;
+    private int height;
     private final Drawable source;
     private final int direction;
     private final Color color;
@@ -24,11 +23,12 @@ public class Missile implements Drawable {
         this.source = source;
         this.xLocation = xLocation;
         this.yLocation = yLocation;
+        this.height = MISSILE_HEIGHT;
 
-        if (source instanceof Mob) {
+        if (source.getType() == DrawableType.MOB) {
             this.color = Color.RED;
             this.direction = 2;
-        } else if (source instanceof Spaceship) {
+        } else if (source.getType() == DrawableType.SPACESHIP) {
             this.color = Color.GREEN;
             this.direction = -2;
         } else {
@@ -40,7 +40,7 @@ public class Missile implements Drawable {
     public void draw(Graphics g) {
         Color oldColor = g.getColor();
         g.setColor(color);
-        g.fillRect(xLocation, yLocation, MISSILE_WIDTH, MISSILE_HEIGHT);
+        g.fillRect(xLocation, yLocation, MISSILE_WIDTH, height);
         g.setColor(oldColor);
     }
 
@@ -51,7 +51,12 @@ public class Missile implements Drawable {
 
     @Override
     public HitBox getHitBox() {
-        return new HitBox(new Rectangle(xLocation, yLocation, MISSILE_WIDTH, MISSILE_HEIGHT));
+        return new HitBox(xLocation, yLocation, MISSILE_WIDTH, height);
+    }
+
+    @Override
+    public DrawableType getType() {
+        return DrawableType.MISSILE;
     }
 
     public int getYLocation() {
@@ -64,5 +69,13 @@ public class Missile implements Drawable {
 
     public int getDirection() {
         return direction;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 }

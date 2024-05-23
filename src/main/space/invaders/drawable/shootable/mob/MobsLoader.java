@@ -10,11 +10,11 @@ import java.awt.Image;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import static main.space.invaders.gui.GameDisplayConstants.MOBS_IN_ONE_ROW_COUNT;
-import static main.space.invaders.gui.GameDisplayConstants.NUMBER_OF_ROWS_COUNT;
-import static main.space.invaders.gui.GameDisplayConstants.SIDE_PANEL_GAP;
-import static main.space.invaders.gui.GameDisplayConstants.TOP_GAP_BETWEEN_PANEL_AND_FRAME;
-import static main.space.invaders.gui.GameDisplayConstants.TOTAL_MOB_SIZE;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.MOBS_IN_ONE_ROW_COUNT;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.NUMBER_OF_ROWS_COUNT;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.SIDE_PANEL_GAP;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.TOP_GAP_BETWEEN_PANEL_AND_FRAME;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.TOTAL_MOB_SIZE;
 
 public class MobsLoader {
 

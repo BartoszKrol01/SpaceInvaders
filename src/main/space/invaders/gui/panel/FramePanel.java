@@ -1,5 +1,6 @@
-package main.space.invaders.gui;
+package main.space.invaders.gui.panel;
 
+import main.space.invaders.gui.panel.active.player.ActivePlayerPanel;
 import main.space.invaders.utils.Distributor;
 
 import javax.swing.JPanel;

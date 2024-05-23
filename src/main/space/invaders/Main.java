@@ -2,8 +2,8 @@ package main.space.invaders;
 
 import main.space.invaders.drawable.missile.MissileAnimator;
 import main.space.invaders.drawable.shootable.mob.MobAnimator;
-import main.space.invaders.gui.FramePanel;
 import main.space.invaders.gui.frame.GameFrame;
+import main.space.invaders.gui.panel.FramePanel;
 
 public class Main {
     public static void main(String[] args) {

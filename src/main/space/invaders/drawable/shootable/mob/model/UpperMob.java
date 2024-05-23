@@ -3,11 +3,10 @@ package main.space.invaders.drawable.shootable.mob.model;
 import main.space.invaders.drawable.missile.HitBox;
 
 import java.awt.Image;
-import java.awt.Rectangle;
 
-import static main.space.invaders.gui.GameDisplayConstants.MOB_SIZE;
-import static main.space.invaders.gui.GameDisplayConstants.UPPER_MOB_HITBOX_DIFFERENCE_X;
-import static main.space.invaders.gui.GameDisplayConstants.UPPER_MOB_HITBOX_DIFFERENCE_Y;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.MOB_SIZE;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.UPPER_MOB_HITBOX_DIFFERENCE_X;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.UPPER_MOB_HITBOX_DIFFERENCE_Y;
 
 public class UpperMob extends Mob {
 
@@ -21,6 +20,6 @@ public class UpperMob extends Mob {
         int y = super.yLocation + UPPER_MOB_HITBOX_DIFFERENCE_Y;
         int width = MOB_SIZE - UPPER_MOB_HITBOX_DIFFERENCE_X;
         int height = MOB_SIZE - UPPER_MOB_HITBOX_DIFFERENCE_Y;
-        return new HitBox(new Rectangle(x, y, width, height));
+        return new HitBox(x, y, width, height);
     }
 }

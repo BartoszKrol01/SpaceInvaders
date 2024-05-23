@@ -10,4 +10,6 @@ public interface Drawable {
     boolean isHostile();
 
     HitBox getHitBox();
+
+    DrawableType getType();
 }

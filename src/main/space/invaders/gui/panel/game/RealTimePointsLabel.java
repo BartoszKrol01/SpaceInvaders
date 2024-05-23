@@ -1,11 +1,11 @@
-package main.space.invaders.gui;
+package main.space.invaders.gui.panel.game;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Font;
 
-import static main.space.invaders.gui.GameDisplayConstants.GAME_PANEL_WIDTH;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.GAME_PANEL_WIDTH;
 
 public class RealTimePointsLabel extends JLabel {
 
@@ -28,9 +28,6 @@ public class RealTimePointsLabel extends JLabel {
 
     public void updateText(int mobsEliminated) {
         counter += mobsEliminated;
-        if (mobsEliminated > 0) {
-            System.out.println(counter);
-        }
         this.setText(SCORE + ": " + counter);
     }
 }

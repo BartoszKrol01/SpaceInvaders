@@ -2,8 +2,8 @@ package main.space.invaders.gui.frame;
 
 import main.space.invaders.utils.Distributor;
 
-import static main.space.invaders.gui.GameDisplayConstants.GAME_PANEL_WIDTH;
-import static main.space.invaders.gui.GameDisplayConstants.SPACESHIP_SIZE;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.GAME_PANEL_WIDTH;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.SPACESHIP_SIZE;
 
 public class DirectionService {
 

@@ -1,6 +1,7 @@
 package main.space.invaders.drawable.shootable.mob.model;
 
 import main.space.invaders.drawable.Drawable;
+import main.space.invaders.drawable.DrawableType;
 import main.space.invaders.drawable.missile.HitBox;
 import main.space.invaders.drawable.missile.Missile;
 import main.space.invaders.drawable.shootable.Shootable;
@@ -9,8 +10,8 @@ import main.space.invaders.utils.Distributor;
 import java.awt.Graphics;
 import java.awt.Image;
 
-import static main.space.invaders.gui.GameDisplayConstants.MISSILE_HEIGHT;
-import static main.space.invaders.gui.GameDisplayConstants.TOTAL_MOB_SIZE;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.MISSILE_HEIGHT;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.TOTAL_MOB_SIZE;
 
 public abstract class Mob implements Drawable, Shootable {
 
@@ -48,6 +49,11 @@ public abstract class Mob implements Drawable, Shootable {
 
     @Override
     public abstract HitBox getHitBox();
+
+    @Override
+    public DrawableType getType() {
+        return DrawableType.MOB;
+    }
 
     @Override
     public void fireMissile() {

@@ -1,4 +1,4 @@
-package main.space.invaders.gui;
+package main.space.invaders.gui.panel.game;
 
 import java.awt.Dimension;
 
@@ -29,6 +29,14 @@ public class GameDisplayConstants {
     public static final int MIDDLE_MOB_HITBOX_DIFFERENCE_Y = 8;
     public static final int MISSILE_HEIGHT = 20;
     public static final int MISSILE_WIDTH = 3;
+    public static final int BARRIER_SIZE = 2;
+    public static final int MISSILE_SHORTEN_RATE = BARRIER_SIZE;
+    public static final int BARRIERS_TRIANGLE_BASE = 41;
+    public static final int BARRIERS_TRIANGLE_HEIGHT = (BARRIERS_TRIANGLE_BASE + 1) / 2;
+    public static final int BARRIERS_TRIANGLE_BASE_WIDTH = BARRIERS_TRIANGLE_BASE * BARRIER_SIZE;
+    public static final int GAP_BETWEEN_BARRIERS = ((GAME_PANEL_WIDTH - (2 * SIDE_PANEL_GAP)) - 2 * BARRIERS_TRIANGLE_BASE_WIDTH) / 2 - BARRIERS_TRIANGLE_BASE_WIDTH / 2;
+    public static final int BARRIERS_TRIANGLES_NUMBER = 3;
+    public static final int BARRIERS_TRIANGLE_BASE_START_Y = SPACESHIP_START_Y - TOTAL_MOB_SIZE - BARRIER_SIZE;
 
     public static Dimension getGameDimension() {
         return new Dimension(GAME_PANEL_WIDTH, GAME_PANEL_HEIGHT);

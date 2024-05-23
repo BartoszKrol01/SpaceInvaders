@@ -1,4 +1,4 @@
-package main.space.invaders.gui;
+package main.space.invaders.gui.panel.active.player;
 
 import javax.swing.JPanel;
 import java.awt.Color;

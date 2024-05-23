@@ -2,16 +2,16 @@ package main.space.invaders.drawable.shootable.mob;
 
 import main.space.invaders.PauseService;
 import main.space.invaders.drawable.shootable.mob.model.Mob;
-import main.space.invaders.gui.GameDisplayConstants;
+import main.space.invaders.gui.panel.game.GameDisplayConstants;
 import main.space.invaders.utils.Distributor;
 
 import java.util.Objects;
 import java.util.Random;
 
-import static main.space.invaders.gui.GameDisplayConstants.FIRST_MOB_POSSIBLE_STEPS_DOWN;
-import static main.space.invaders.gui.GameDisplayConstants.MOB_POSSIBLE_STEPS_SIDE;
-import static main.space.invaders.gui.GameDisplayConstants.MOB_STEP_SIZE;
-import static main.space.invaders.gui.GameDisplayConstants.TOTAL_MOB_SIZE;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.FIRST_MOB_POSSIBLE_STEPS_DOWN;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.MOB_POSSIBLE_STEPS_SIDE;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.MOB_STEP_SIZE;
+import static main.space.invaders.gui.panel.game.GameDisplayConstants.TOTAL_MOB_SIZE;
 import static main.space.invaders.utils.ThreadUtils.sleep;
 
 public class MobAnimator implements Runnable {

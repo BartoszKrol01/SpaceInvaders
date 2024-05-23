@@ -1,4 +1,4 @@
-package main.space.invaders.gui;
+package main.space.invaders.gui.panel.game;
 
 import main.space.invaders.drawable.Drawable;
 import main.space.invaders.utils.Distributor;

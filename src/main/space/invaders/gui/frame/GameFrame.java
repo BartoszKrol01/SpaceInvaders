@@ -1,6 +1,6 @@
 package main.space.invaders.gui.frame;
 
-import main.space.invaders.gui.FramePanel;
+import main.space.invaders.gui.panel.FramePanel;
 
 import javax.swing.JFrame;
 
