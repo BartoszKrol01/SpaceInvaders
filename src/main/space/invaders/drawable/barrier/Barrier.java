@@ -35,7 +35,7 @@ public class Barrier implements Drawable {
 
     @Override
     public HitBox getHitBox() {
-        return new HitBox(xLocation + 2, yLocation, BARRIER_SIZE, BARRIER_SIZE);
+        return new HitBox(xLocation + getRandomFactorToHitBox(), yLocation, BARRIER_SIZE, BARRIER_SIZE);
     }
 
     @Override
@@ -44,6 +44,6 @@ public class Barrier implements Drawable {
     }
 
     private int getRandomFactorToHitBox() {
-        return new Random().nextInt(2);
+        return new Random().nextInt(-2, 2);
     }
 }
