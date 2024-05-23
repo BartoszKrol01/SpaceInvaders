@@ -45,6 +45,7 @@ public class ChangeSpaceshipButton extends JButton {
     private void addJButtonToDialog(Integer spaceshipId, SpaceshipImage spaceshipImage, JDialog dialog) {
         JButton button = new JButton();
         button.setIcon(new ImageIcon(spaceshipImage.getImage()));
+        button.setBackground(Color.BLACK);
         dialog.add(button);
         button.addActionListener(event -> {
             SpaceshipImagesService.setCurrentSpaceshipImage(spaceshipId);
