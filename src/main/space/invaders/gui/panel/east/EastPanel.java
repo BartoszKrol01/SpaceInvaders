@@ -1,7 +1,7 @@
 package main.space.invaders.gui.panel.east;
 
 import main.space.invaders.gui.panel.east.controller.ControllerPanel;
-import main.space.invaders.utils.distribution.SwingDistributor;
+import main.space.invaders.gui.panel.east.settings.SettingsPanel;
 
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
@@ -13,10 +13,8 @@ public class EastPanel extends JPanel {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         JPanel difficultyPanel = new JPanel();
         difficultyPanel.setBackground(Color.BLUE);
-        JPanel settingsPanel = new JPanel();
-        settingsPanel.setBackground(Color.MAGENTA);
+        SettingsPanel settingsPanel = new SettingsPanel();
         ControllerPanel controllerPanel = new ControllerPanel();
-        controllerPanel.setBackground(SwingDistributor.GUI_COLOR);
         this.add(difficultyPanel);
         this.add(settingsPanel);
         this.add(controllerPanel);

@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class PauseButton extends JButton {
-
+    //todo: change icon based on changing the gamePaused flag
     private final ImageIcon pause;
     private final ImageIcon play;
     private ImageIcon currentImage;

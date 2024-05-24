@@ -1,6 +1,7 @@
 package main.space.invaders.gui.panel.east.controller;
 
 import main.space.invaders.gui.frame.KeyEventMapped;
+import main.space.invaders.utils.distribution.SwingDistributor;
 
 import javax.swing.JPanel;
 import java.awt.GridBagConstraints;
@@ -9,6 +10,7 @@ import java.awt.GridBagLayout;
 public class ControllerPanel extends JPanel {
 
     public ControllerPanel() {
+        this.setBackground(SwingDistributor.GUI_COLOR);
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
 
