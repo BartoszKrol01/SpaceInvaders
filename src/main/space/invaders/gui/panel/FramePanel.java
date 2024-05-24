@@ -1,5 +1,6 @@
 package main.space.invaders.gui.panel;
 
+import main.space.invaders.gui.panel.east.EastPanel;
 import main.space.invaders.gui.panel.game.CenterPanel;
 
 import javax.swing.JPanel;

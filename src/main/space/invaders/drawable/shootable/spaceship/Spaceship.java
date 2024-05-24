@@ -18,6 +18,7 @@ import static main.space.invaders.constants.Spaceship.SECOND_SPACESHIP_HITBOX_DI
 import static main.space.invaders.constants.Spaceship.SPACESHIP_SIZE;
 import static main.space.invaders.constants.Spaceship.SPACESHIP_START_X;
 import static main.space.invaders.constants.Spaceship.SPACESHIP_START_Y;
+import static main.space.invaders.drawable.missile.MissileVerificationService.shouldFireMoreMissiles;
 
 public class Spaceship implements Drawable, Shootable {
 
@@ -69,11 +70,13 @@ public class Spaceship implements Drawable, Shootable {
 
     @Override
     public void fireMissile() {
-        int x = xLocation + SPACESHIP_SIZE / 2;
-        int y = yLocation - MISSILE_HEIGHT;
-        Missile missile = new Missile(x, y, this);
-        DataDistributor.addDrawables(missile);
-        DataDistributor.addMissile(missile);
+        if (shouldFireMoreMissiles()) {
+            int x = xLocation + SPACESHIP_SIZE / 2;
+            int y = yLocation - MISSILE_HEIGHT;
+            Missile missile = new Missile(x, y, this);
+            DataDistributor.addDrawables(missile);
+            DataDistributor.addMissile(missile);
+        }
     }
 
     public int getXLocation() {

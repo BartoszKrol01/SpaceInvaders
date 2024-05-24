@@ -5,14 +5,14 @@ import main.space.invaders.utils.distribution.DataDistributor;
 import static main.space.invaders.constants.GameDisplay.GAME_PANEL_WIDTH;
 import static main.space.invaders.constants.Spaceship.SPACESHIP_SIZE;
 
-public class DirectionService {
+public class MoveService {
 
     private static final int MAX_CHANGE_VALUE = 9;
     private static final int CHANGE_VALUE_STEP = 3;
     private int changeValue;
     private KeyEventMapped arrowDirection;
 
-    public DirectionService() {
+    public MoveService() {
         this.changeValue = 0;
         this.arrowDirection = KeyEventMapped.NO_DIRECTION;
     }
@@ -27,21 +27,25 @@ public class DirectionService {
         return adjustChangeValue(changeValue, arrowDirection);
     }
 
-    private static int adjustChangeValue(int changeValue, KeyEventMapped direction) {
-        int spaceShipXLocation = DataDistributor.getSpaceship().getXLocation();
-        while (isSpaceShipAtBorder(direction, spaceShipXLocation + changeValue)) {
-            changeValue = changeValue - direction.getSign();
-        }
-        return changeValue;
-    }
-
     public static boolean isSpaceShipAtBorder(KeyEventMapped direction, int xLocation) {
         boolean isAtLeftBorder = xLocation <= -2 && direction == KeyEventMapped.LEFT;
         boolean isAtRightBorder = xLocation >= GAME_PANEL_WIDTH - SPACESHIP_SIZE + 1 && direction == KeyEventMapped.RIGHT;
         return isAtRightBorder || isAtLeftBorder;
     }
 
+    public static int handleButtonClicked(KeyEventMapped arrowDirection) {
+        return MAX_CHANGE_VALUE * arrowDirection.getSign();
+    }
+
     public void setChangeValue(int changeValue) {
         this.changeValue = changeValue;
+    }
+
+    private static int adjustChangeValue(int changeValue, KeyEventMapped direction) {
+        int spaceShipXLocation = DataDistributor.getSpaceship().getXLocation();
+        while (isSpaceShipAtBorder(direction, spaceShipXLocation + changeValue)) {
+            changeValue = changeValue - direction.getSign();
+        }
+        return changeValue;
     }
 }

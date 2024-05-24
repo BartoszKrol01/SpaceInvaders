@@ -1,6 +1,7 @@
 package main.space.invaders.gui.panel.game.player;
 
 import main.space.invaders.gui.popup.GameEndPopup;
+import main.space.invaders.utils.distribution.SwingDistributor;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,16 +16,14 @@ public class ActivePlayerPanel extends JPanel {
     private static final int NUMBER_OF_LIVES = 3;
     private static int livesCounter;
     private final List<Life> lives;
-    private static final Color color;
 
     static {
         livesCounter = NUMBER_OF_LIVES;
-        color = new Color(16, 18, 16);
     }
 
     public ActivePlayerPanel() {
         this.lives = new ArrayList<>();
-        this.setBackground(color);
+        this.setBackground(SwingDistributor.GUI_COLOR);
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         addComponents(c);
@@ -52,15 +51,15 @@ public class ActivePlayerPanel extends JPanel {
         c.gridy = 1;
         c.gridx = c.gridx + 1;
         c.anchor = GridBagConstraints.PAGE_END;
-        this.add(new ChangeSpaceshipButton(color), c);
+        this.add(new ChangeSpaceshipButton(), c);
 
         c.gridx = c.gridx + 1;
-        this.add(new PlayerNickButton(color), c);
+        this.add(new PlayerNickButton(), c);
     }
 
     public void reduceNumberOfLives() {
         if (livesCounter != 0) {
-            this.lives.get(--livesCounter).setBackground(color);
+            this.lives.get(--livesCounter).setBackground(SwingDistributor.GUI_COLOR);
             this.repaint();
         } else {
             new GameEndPopup(false);

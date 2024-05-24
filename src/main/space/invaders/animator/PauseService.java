@@ -30,6 +30,14 @@ public class PauseService {
         DataDistributor.getAnimators().forEach(Animator::resumeAnimation);
     }
 
+    public static void pauseOrUnpauseTheGame() {
+        if (isGamePaused) {
+            unpauseTheGame();
+        } else {
+            pauseTheGame();
+        }
+    }
+
     public static void restartTheGame() {
         GameFrameKeyListener.clearKeysPressedCache();
         SwingDistributor.getActivePlayerPanel().resetPanel();

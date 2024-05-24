@@ -11,7 +11,7 @@ import java.util.Objects;
 public class SpaceshipImagesService {
 
     private static final int SPACESHIPS_TO_LOAD = 2;
-    private static final String SPACESHIP_PATH = "spaceship/spaceship_X.png";
+    private static final String SPACESHIP_PATH = "spaceship/spaceship_X";
     private static final String CURRENT_SPACESHIP_ERROR = "Can not find current spaceship ";
     private static final Map<Integer, SpaceshipImage> spaceshipImages;
 

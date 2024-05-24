@@ -30,8 +30,8 @@ public class MobsLoader {
     }
 
     public static void loadSpecificMob(List<Mob> mobs, MobType mobType) {
-        Image stay = FileLoader.loadImage(mobType.getFileName() + "_1.png");
-        Image go = FileLoader.loadImage(mobType.getFileName() + "_2.png");
+        Image stay = FileLoader.loadImage(mobType.getFileName() + "_1");
+        Image go = FileLoader.loadImage(mobType.getFileName() + "_2");
 
         int x = SIDE_PANEL_GAP - 1;
         int y = getCurrentMobYLocation();
