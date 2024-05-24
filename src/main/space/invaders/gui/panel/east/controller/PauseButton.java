@@ -7,28 +7,29 @@ import main.space.invaders.utils.distribution.SwingDistributor;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-public class PauseButton extends JButton {
-    //todo: change icon based on changing the gamePaused flag
+public class PauseButton extends JButton implements Runnable {
+
     private final ImageIcon pause;
     private final ImageIcon play;
-    private ImageIcon currentImage;
 
     public PauseButton() {
         this.pause = new ImageIcon(FileLoader.loadImage("gui/pause"));
         this.play = new ImageIcon(FileLoader.loadImage("gui/play"));
-        currentImage = pause;
-        this.setIcon(currentImage);
         this.setFocusable(false);
         this.setBorderPainted(false);
         this.setBackground(SwingDistributor.GUI_COLOR);
-        this.addActionListener(e -> {
-            PauseService.pauseOrUnpauseTheGame();
-            changeIcon();
-        });
+        this.addActionListener(e -> PauseService.pauseOrUnpauseTheGame());
+        new Thread(this).start();
     }
 
-    private void changeIcon() {
-        currentImage = currentImage.equals(play) ? pause : play;
-        this.setIcon(currentImage);
+    @Override
+    public void run() {
+        while (PauseService.isRunning()) {
+            if (PauseService.gamePaused()) {
+                this.setIcon(play);
+            } else {
+                this.setIcon(pause);
+            }
+        }
     }
 }
