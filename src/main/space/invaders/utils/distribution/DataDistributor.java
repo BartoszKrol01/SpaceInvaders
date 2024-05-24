@@ -1,4 +1,4 @@
-package main.space.invaders.utils;
+package main.space.invaders.utils.distribution;
 
 import main.space.invaders.Player;
 import main.space.invaders.animator.Animator;
@@ -9,14 +9,12 @@ import main.space.invaders.drawable.missile.Missile;
 import main.space.invaders.drawable.shootable.mob.MobsLoader;
 import main.space.invaders.drawable.shootable.mob.model.Mob;
 import main.space.invaders.drawable.shootable.spaceship.Spaceship;
-import main.space.invaders.gui.panel.game.GamePanel;
-import main.space.invaders.gui.panel.game.RealTimePointsLabel;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class Distributor {
+public class DataDistributor {
 
     private static final CopyOnWriteArrayList<Drawable> drawables;
     private static final CopyOnWriteArrayList<Mob> mobs;
@@ -24,15 +22,11 @@ public class Distributor {
     private static final CopyOnWriteArrayList<Barrier> barriers;
     private static final List<Animator> animators;
     private static final Spaceship spaceship;
-    private static final GamePanel gamePanel;
-    private static final RealTimePointsLabel realTimePointsLabel;
     private static Player player;
 
     static {
         animators = new ArrayList<>();
         barriers = BarrierLoader.loadBarriers();
-        realTimePointsLabel = new RealTimePointsLabel();
-        gamePanel = new GamePanel();
         mobs = MobsLoader.loadMobs();
         spaceship = new Spaceship();
         missiles = new CopyOnWriteArrayList<>();
@@ -44,7 +38,7 @@ public class Distributor {
     }
 
     public static void setPlayer(Player player) {
-        Distributor.player = player;
+        DataDistributor.player = player;
     }
 
     public static Player getPlayer() {
@@ -68,7 +62,7 @@ public class Distributor {
     }
 
     public static void removeDrawables(List<Drawable> drawables) {
-        Distributor.drawables.removeAll(drawables);
+        DataDistributor.drawables.removeAll(drawables);
     }
 
     public static List<Mob> getMobs() {
@@ -76,15 +70,11 @@ public class Distributor {
     }
 
     public static void removeMobs(List<Mob> mobs) {
-        Distributor.mobs.removeAll(mobs);
+        DataDistributor.mobs.removeAll(mobs);
     }
 
     public static Spaceship getSpaceship() {
         return spaceship;
-    }
-
-    public static GamePanel getGamePanel() {
-        return gamePanel;
     }
 
     public static void addMissile(Missile missile) {
@@ -92,14 +82,11 @@ public class Distributor {
     }
 
     public static void removeMissiles(List<Missile> missiles) {
-        Distributor.missiles.removeAll(missiles);
+        DataDistributor.missiles.removeAll(missiles);
     }
 
     public static List<Missile> getMissiles() {
         return missiles;
     }
 
-    public static RealTimePointsLabel getRealTimePointsLabel() {
-        return realTimePointsLabel;
-    }
 }

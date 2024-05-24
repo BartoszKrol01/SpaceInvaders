@@ -1,6 +1,6 @@
 package main.space.invaders.animator;
 
-import main.space.invaders.utils.Distributor;
+import main.space.invaders.utils.distribution.DataDistributor;
 
 public class PauseService {
 
@@ -26,7 +26,7 @@ public class PauseService {
 
     public static void unpauseTheGame() {
         isGamePaused = false;
-        Distributor.getAnimators().forEach(Animator::resumeAnimation);
+        DataDistributor.getAnimators().forEach(Animator::resumeAnimation);
     }
 
     private PauseService() {}

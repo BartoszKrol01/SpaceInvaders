@@ -3,7 +3,7 @@ package main.space.invaders.animator;
 import main.space.invaders.drawable.shootable.spaceship.Spaceship;
 import main.space.invaders.gui.frame.DirectionService;
 import main.space.invaders.gui.frame.KeyEventDirection;
-import main.space.invaders.utils.Distributor;
+import main.space.invaders.utils.distribution.DataDistributor;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -22,7 +22,7 @@ public class GameFrameKeyListener extends Animator implements KeyListener {
         this.directionService = new DirectionService();
         this.keysPressed = new HashSet<>();
         new Thread(this).start();
-        Distributor.addAnimator(this);
+        DataDistributor.addAnimator(this);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class GameFrameKeyListener extends Animator implements KeyListener {
             if (PauseService.gamePaused()) {
                 pauseAnimation();
             }
-            Spaceship spaceship = Distributor.getSpaceship();
+            Spaceship spaceship = DataDistributor.getSpaceship();
             if (keysPressed.contains(KeyEventDirection.RIGHT)) {
                 handleKeyPressed(KeyEventDirection.RIGHT, spaceship);
             }

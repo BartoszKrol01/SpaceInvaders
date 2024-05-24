@@ -1,7 +1,8 @@
 package main.space.invaders.animator;
 
 import main.space.invaders.drawable.shootable.mob.model.Mob;
-import main.space.invaders.utils.Distributor;
+import main.space.invaders.utils.distribution.DataDistributor;
+import main.space.invaders.utils.distribution.SwingDistributor;
 
 import java.util.Objects;
 import java.util.Random;
@@ -19,21 +20,21 @@ public class MobAnimator extends Animator {
     public MobAnimator() {
         this.sleepTime = main.space.invaders.constants.Mob.TOTAL_NUMBER_OF_MOBS;
         new Thread(this).start();
-        Distributor.addAnimator(this);
+        DataDistributor.addAnimator(this);
     }
 
     @Override
     public void run() {
         while (PauseService.isRunning()) {
-            sleepTime = Distributor.getMobs().size();
-            for (Mob mob : Distributor.getMobs()) {
+            sleepTime = DataDistributor.getMobs().size();
+            for (Mob mob : DataDistributor.getMobs()) {
                 if (PauseService.gamePaused()) {
                     pauseAnimation();
                 }
                 changeImage(mob);
                 tryToFireMissile(mob);
                 sleepTryCatch(sleepTime);
-                Distributor.getGamePanel().repaint();
+                SwingDistributor.getGamePanel().repaint();
             }
         }
     }

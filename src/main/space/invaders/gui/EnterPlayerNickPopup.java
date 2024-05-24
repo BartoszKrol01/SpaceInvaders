@@ -2,7 +2,7 @@ package main.space.invaders.gui;
 
 import main.space.invaders.Player;
 import main.space.invaders.animator.PauseService;
-import main.space.invaders.utils.Distributor;
+import main.space.invaders.utils.distribution.DataDistributor;
 
 import javax.swing.JOptionPane;
 
@@ -14,7 +14,7 @@ public class EnterPlayerNickPopup {
         if (name == null || name.isBlank()) {
             name = "guest";
         }
-        Distributor.setPlayer(new Player(name));
+        DataDistributor.setPlayer(new Player(name));
         PauseService.unpauseTheGame();
     }
 }

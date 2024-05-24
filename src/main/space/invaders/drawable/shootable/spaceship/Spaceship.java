@@ -5,7 +5,8 @@ import main.space.invaders.drawable.DrawableType;
 import main.space.invaders.drawable.missile.HitBox;
 import main.space.invaders.drawable.missile.Missile;
 import main.space.invaders.drawable.shootable.Shootable;
-import main.space.invaders.utils.Distributor;
+import main.space.invaders.utils.distribution.DataDistributor;
+import main.space.invaders.utils.distribution.SwingDistributor;
 
 import java.awt.Graphics;
 
@@ -30,7 +31,7 @@ public class Spaceship implements Drawable, Shootable {
 
     public void changeSpaceshipLocation(int xChangeValue) {
         this.xLocation += xChangeValue;
-        Distributor.getGamePanel().repaint();
+        SwingDistributor.getGamePanel().repaint();
     }
 
     @Override
@@ -71,8 +72,8 @@ public class Spaceship implements Drawable, Shootable {
         int x = xLocation + SPACESHIP_SIZE / 2;
         int y = yLocation - MISSILE_HEIGHT;
         Missile missile = new Missile(x, y, this);
-        Distributor.addDrawables(missile);
-        Distributor.addMissile(missile);
+        DataDistributor.addDrawables(missile);
+        DataDistributor.addMissile(missile);
     }
 
     public int getXLocation() {

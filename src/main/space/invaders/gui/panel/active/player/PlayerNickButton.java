@@ -1,7 +1,7 @@
 package main.space.invaders.gui.panel.active.player;
 
 import main.space.invaders.gui.EnterPlayerNickPopup;
-import main.space.invaders.utils.Distributor;
+import main.space.invaders.utils.distribution.DataDistributor;
 
 import javax.swing.JButton;
 import java.awt.Color;
@@ -25,7 +25,7 @@ public class PlayerNickButton extends JButton {
     }
 
     public void updatePlayerNick() {
-        String name = Distributor.getPlayer().name();
+        String name = DataDistributor.getPlayer().name();
         this.setText(TEXT_PREFIX + name);
     }
 }

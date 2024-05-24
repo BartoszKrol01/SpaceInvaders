@@ -2,7 +2,7 @@ package main.space.invaders.drawable.missile;
 
 import main.space.invaders.drawable.Drawable;
 import main.space.invaders.drawable.DrawableType;
-import main.space.invaders.utils.Distributor;
+import main.space.invaders.utils.distribution.DataDistributor;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -24,7 +24,7 @@ public class MissileVerificationService {
             return true;
         }
         long durationBetweenLastMissileAndNow = Duration.between(lastMissileFired, LocalDateTime.now()).toMillis();
-        long notHostileMissileCount = Distributor.getMissiles().stream()
+        long notHostileMissileCount = DataDistributor.getMissiles().stream()
                 .filter(m -> !m.isHostile())
                 .count();
         if (notHostileMissileCount <= MAXIMUM_FRIENDLY_MISSILES_ON_SCREEN && durationBetweenLastMissileAndNow > MINIMAL_INTERVAL_BETWEEN_MISSILE_FIRE) {

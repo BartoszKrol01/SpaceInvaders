@@ -5,7 +5,7 @@ import main.space.invaders.drawable.DrawableType;
 import main.space.invaders.drawable.missile.HitBox;
 import main.space.invaders.drawable.missile.Missile;
 import main.space.invaders.drawable.shootable.Shootable;
-import main.space.invaders.utils.Distributor;
+import main.space.invaders.utils.distribution.DataDistributor;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -60,8 +60,8 @@ public abstract class Mob implements Drawable, Shootable {
         int x = xLocation + TOTAL_MOB_SIZE / 2;
         int y = yLocation + MISSILE_HEIGHT;
         Missile missile = new Missile(x, y, this);
-        Distributor.addDrawables(missile);
-        Distributor.addMissile(missile);
+        DataDistributor.addDrawables(missile);
+        DataDistributor.addMissile(missile);
     }
 
     //getters and setters

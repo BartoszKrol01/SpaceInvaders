@@ -3,7 +3,8 @@ package main.space.invaders.animator;
 import main.space.invaders.drawable.Drawable;
 import main.space.invaders.drawable.missile.Missile;
 import main.space.invaders.drawable.shootable.mob.model.Mob;
-import main.space.invaders.utils.Distributor;
+import main.space.invaders.utils.distribution.DataDistributor;
+import main.space.invaders.utils.distribution.SwingDistributor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ public class MissileAnimator extends Animator {
 
     public MissileAnimator() {
         new Thread(this).start();
-        Distributor.addAnimator(this);
+        DataDistributor.addAnimator(this);
     }
 
     @Override
@@ -31,8 +32,8 @@ public class MissileAnimator extends Animator {
             List<Mob> toRemoveMobs = new ArrayList<>();
 
             //In case of ConcurrentModificationException loop should iterate over array using Iterator<> class
-            for (Missile missile : Distributor.getMissiles()) {
-                for (Drawable drawable : Distributor.getDrawables()) {
+            for (Missile missile : DataDistributor.getMissiles()) {
+                for (Drawable drawable : DataDistributor.getDrawables()) {
                     if (isMissileOffScreen(missile)) {
                         toRemoveMissiles.add(missile);
                         toRemoveDrawables.add(missile);
@@ -53,11 +54,11 @@ public class MissileAnimator extends Animator {
                 missile.setYLocation(missile.getYLocation() + missile.getDirection());
             }
 
-            Distributor.removeMissiles(toRemoveMissiles);
-            Distributor.removeDrawables(toRemoveDrawables);
-            Distributor.removeMobs(toRemoveMobs);
+            DataDistributor.removeMissiles(toRemoveMissiles);
+            DataDistributor.removeDrawables(toRemoveDrawables);
+            DataDistributor.removeMobs(toRemoveMobs);
             if (!toRemoveMobs.isEmpty()) {
-                Distributor.getRealTimePointsLabel().updateText(toRemoveMobs.size());
+                SwingDistributor.getRealTimePointsLabel().updateText(toRemoveMobs.size());
             }
             sleepTryCatch(16);
         }
