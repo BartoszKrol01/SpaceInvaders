@@ -1,6 +1,7 @@
 package main.space.invaders.animator;
 
 import main.space.invaders.drawable.shootable.mob.model.Mob;
+import main.space.invaders.gui.popup.GameEndPopup;
 import main.space.invaders.utils.distribution.DataDistributor;
 import main.space.invaders.utils.distribution.SwingDistributor;
 
@@ -70,11 +71,8 @@ public class MobAnimator extends Animator {
 
     private static void checkIfGameIsOver(Mob mob) {
         if (mob.getVerticalStepsCounter() >= FIRST_MOB_POSSIBLE_STEPS_DOWN + mob.getStartRow()) {
-            System.out.println("I've won - x -> " + mob.getXLocation() + " y -> " + mob.getYLocation());
-            System.out.println("GAME OVER!!!!!");
-            PauseService.pauseTheGame();
-            throw new RuntimeException();
-            //todo: handle win
+            DataDistributor.getMobs().forEach(m -> m.setVerticalStepsCounter(0));
+            new GameEndPopup(false);
         }
     }
 
