@@ -1,6 +1,6 @@
 package main.space.invaders.gui.panel.active.player;
 
-import main.space.invaders.gui.EnterPlayerNickPopup;
+import main.space.invaders.gui.popup.EnterPlayerNickPopup;
 import main.space.invaders.utils.distribution.DataDistributor;
 
 import javax.swing.JButton;

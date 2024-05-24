@@ -1,4 +1,4 @@
-package main.space.invaders.gui;
+package main.space.invaders.gui.popup;
 
 import main.space.invaders.Player;
 import main.space.invaders.animator.PauseService;

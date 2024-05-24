@@ -3,7 +3,6 @@ package main.space.invaders.utils.distribution;
 import main.space.invaders.Player;
 import main.space.invaders.animator.Animator;
 import main.space.invaders.drawable.Drawable;
-import main.space.invaders.drawable.barrier.Barrier;
 import main.space.invaders.drawable.barrier.BarrierLoader;
 import main.space.invaders.drawable.missile.Missile;
 import main.space.invaders.drawable.shootable.mob.MobsLoader;
@@ -16,24 +15,26 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class DataDistributor {
 
-    private static final CopyOnWriteArrayList<Drawable> drawables;
-    private static final CopyOnWriteArrayList<Mob> mobs;
-    private static final CopyOnWriteArrayList<Missile> missiles;
-    private static final CopyOnWriteArrayList<Barrier> barriers;
     private static final List<Animator> animators;
-    private static final Spaceship spaceship;
+    private static CopyOnWriteArrayList<Drawable> drawables;
+    private static CopyOnWriteArrayList<Mob> mobs;
+    private static CopyOnWriteArrayList<Missile> missiles;
+    private static Spaceship spaceship;
     private static Player player;
 
     static {
         animators = new ArrayList<>();
-        barriers = BarrierLoader.loadBarriers();
+        repopulateData();
+    }
+
+    public static void repopulateData() {
         mobs = MobsLoader.loadMobs();
         spaceship = new Spaceship();
         missiles = new CopyOnWriteArrayList<>();
 
         drawables = new CopyOnWriteArrayList<>();
         drawables.addAll(mobs);
-        drawables.addAll(barriers);
+        drawables.addAll(BarrierLoader.loadBarriers());
         drawables.add(spaceship);
     }
 

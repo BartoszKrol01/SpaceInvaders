@@ -18,9 +18,10 @@ import static main.space.invaders.constants.Mob.TOTAL_MOB_SIZE;
 
 public class MobsLoader {
 
-    private static int currentRow = 1;
+    private static int currentRow;
 
     public static CopyOnWriteArrayList<Mob> loadMobs() {
+        currentRow = 1;
         CopyOnWriteArrayList<Mob> mobs = new CopyOnWriteArrayList<>();
         loadSpecificMob(mobs, MobType.LOWER);
         loadSpecificMob(mobs, MobType.MIDDLE);

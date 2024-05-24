@@ -1,6 +1,7 @@
 package main.space.invaders.animator;
 
 import main.space.invaders.drawable.Drawable;
+import main.space.invaders.drawable.DrawableType;
 import main.space.invaders.drawable.missile.Missile;
 import main.space.invaders.drawable.shootable.mob.model.Mob;
 import main.space.invaders.utils.distribution.DataDistributor;
@@ -43,12 +44,14 @@ public class MissileAnimator extends Animator {
                             toRemoveDrawables.add(drawable);
                         } else {
                             toRemoveMissiles.add(missile);
-                            toRemoveDrawables.addAll(List.of(missile, drawable));
+                            toRemoveDrawables.add(missile);
                             if (drawable instanceof Mob mob) {
                                 toRemoveMobs.add(mob);
+                                toRemoveDrawables.add(mob);
+                            } else if (drawable.getType() == DrawableType.SPACESHIP) {
+                                SwingDistributor.getActivePlayerPanel().reduceNumberOfLives();
                             }
                         }
-
                     }
                 }
                 missile.setYLocation(missile.getYLocation() + missile.getDirection());

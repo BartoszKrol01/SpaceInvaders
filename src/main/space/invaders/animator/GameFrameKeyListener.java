@@ -2,7 +2,7 @@ package main.space.invaders.animator;
 
 import main.space.invaders.drawable.shootable.spaceship.Spaceship;
 import main.space.invaders.gui.frame.DirectionService;
-import main.space.invaders.gui.frame.KeyEventDirection;
+import main.space.invaders.gui.frame.KeyEventMapped;
 import main.space.invaders.utils.distribution.DataDistributor;
 
 import java.awt.event.KeyEvent;
@@ -16,24 +16,38 @@ import static main.space.invaders.gui.frame.DirectionService.isSpaceShipAtBorder
 public class GameFrameKeyListener extends Animator implements KeyListener {
 
     private final DirectionService directionService;
-    private final Set<KeyEventDirection> keysPressed;
+    private static final Set<KeyEventMapped> keysPressed;
+
+    static {
+        keysPressed = new HashSet<>();
+    }
 
     public GameFrameKeyListener() {
         this.directionService = new DirectionService();
-        this.keysPressed = new HashSet<>();
         new Thread(this).start();
         DataDistributor.addAnimator(this);
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        KeyEventDirection direction = KeyEventDirection.getBasedOnKeyEventValue(e.getKeyCode());
-        keysPressed.add(direction);
+        KeyEventMapped eventKey = KeyEventMapped.getBasedOnKeyEventValue(e.getKeyCode());
+        if (eventKey == KeyEventMapped.ESC) {
+            System.exit(0);
+        }
+        if (eventKey == KeyEventMapped.P) {
+            if (PauseService.gamePaused()) {
+                PauseService.unpauseTheGame();
+            } else {
+                PauseService.pauseTheGame();
+            }
+            return;
+        }
+        keysPressed.add(eventKey);
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        KeyEventDirection direction = KeyEventDirection.getBasedOnKeyEventValue(e.getKeyCode());
+        KeyEventMapped direction = KeyEventMapped.getBasedOnKeyEventValue(e.getKeyCode());
         keysPressed.remove(direction);
         directionService.setChangeValue(0);
     }
@@ -45,13 +59,13 @@ public class GameFrameKeyListener extends Animator implements KeyListener {
                 pauseAnimation();
             }
             Spaceship spaceship = DataDistributor.getSpaceship();
-            if (keysPressed.contains(KeyEventDirection.RIGHT)) {
-                handleKeyPressed(KeyEventDirection.RIGHT, spaceship);
+            if (keysPressed.contains(KeyEventMapped.RIGHT)) {
+                handleKeyPressed(KeyEventMapped.RIGHT, spaceship);
             }
-            if (keysPressed.contains(KeyEventDirection.LEFT)) {
-                handleKeyPressed(KeyEventDirection.LEFT, spaceship);
+            if (keysPressed.contains(KeyEventMapped.LEFT)) {
+                handleKeyPressed(KeyEventMapped.LEFT, spaceship);
             }
-            if (keysPressed.contains(KeyEventDirection.SPACE)) {
+            if (keysPressed.contains(KeyEventMapped.SPACE)) {
                 if (shouldFireMoreMissiles()) {
                     spaceship.fireMissile();
                 }
@@ -60,7 +74,11 @@ public class GameFrameKeyListener extends Animator implements KeyListener {
         }
     }
 
-    private void handleKeyPressed(KeyEventDirection direction, Spaceship spaceship) {
+    public static void clearKeysPressedCache() {
+        keysPressed.clear();
+    }
+
+    private void handleKeyPressed(KeyEventMapped direction, Spaceship spaceship) {
         if (!isSpaceShipAtBorder(direction, spaceship.getXLocation())) {
             int changeValue = directionService.handleKeyPressed(direction);
             spaceship.changeSpaceshipLocation(changeValue);

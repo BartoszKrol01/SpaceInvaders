@@ -10,14 +10,14 @@ public class DirectionService {
     private static final int MAX_CHANGE_VALUE = 9;
     private static final int CHANGE_VALUE_STEP = 3;
     private int changeValue;
-    private KeyEventDirection arrowDirection;
+    private KeyEventMapped arrowDirection;
 
     public DirectionService() {
         this.changeValue = 0;
-        this.arrowDirection = KeyEventDirection.NO_DIRECTION;
+        this.arrowDirection = KeyEventMapped.NO_DIRECTION;
     }
 
-    public int handleKeyPressed(KeyEventDirection arrowDirection) {
+    public int handleKeyPressed(KeyEventMapped arrowDirection) {
         if (arrowDirection == this.arrowDirection) {
             changeValue = Math.abs(changeValue) <= MAX_CHANGE_VALUE ? changeValue + (CHANGE_VALUE_STEP * arrowDirection.getSign()) : changeValue;
         } else {
@@ -27,7 +27,7 @@ public class DirectionService {
         return adjustChangeValue(changeValue, arrowDirection);
     }
 
-    private static int adjustChangeValue(int changeValue, KeyEventDirection direction) {
+    private static int adjustChangeValue(int changeValue, KeyEventMapped direction) {
         int spaceShipXLocation = DataDistributor.getSpaceship().getXLocation();
         while (isSpaceShipAtBorder(direction, spaceShipXLocation + changeValue)) {
             changeValue = changeValue - direction.getSign();
@@ -35,9 +35,9 @@ public class DirectionService {
         return changeValue;
     }
 
-    public static boolean isSpaceShipAtBorder(KeyEventDirection direction, int xLocation) {
-        boolean isAtLeftBorder = xLocation <= -2 && direction == KeyEventDirection.LEFT;
-        boolean isAtRightBorder = xLocation >= GAME_PANEL_WIDTH - SPACESHIP_SIZE + 1 && direction == KeyEventDirection.RIGHT;
+    public static boolean isSpaceShipAtBorder(KeyEventMapped direction, int xLocation) {
+        boolean isAtLeftBorder = xLocation <= -2 && direction == KeyEventMapped.LEFT;
+        boolean isAtRightBorder = xLocation >= GAME_PANEL_WIDTH - SPACESHIP_SIZE + 1 && direction == KeyEventMapped.RIGHT;
         return isAtRightBorder || isAtLeftBorder;
     }
 
