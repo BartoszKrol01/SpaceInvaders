@@ -1,4 +1,4 @@
-package main.space.invaders.gui.panel.active.player;
+package main.space.invaders.gui.panel.game.player;
 
 import main.space.invaders.gui.popup.EnterPlayerNickPopup;
 import main.space.invaders.utils.distribution.DataDistributor;

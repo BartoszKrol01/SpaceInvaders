@@ -1,4 +1,4 @@
-package main.space.invaders.gui.panel.active.player;
+package main.space.invaders.gui.panel.game.player;
 
 import main.space.invaders.animator.PauseService;
 import main.space.invaders.drawable.shootable.spaceship.SpaceshipImage;

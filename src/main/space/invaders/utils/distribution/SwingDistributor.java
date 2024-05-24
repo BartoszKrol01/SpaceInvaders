@@ -1,8 +1,8 @@
 package main.space.invaders.utils.distribution;
 
-import main.space.invaders.gui.panel.active.player.ActivePlayerPanel;
 import main.space.invaders.gui.panel.game.GamePanel;
 import main.space.invaders.gui.panel.game.RealTimePointsLabel;
+import main.space.invaders.gui.panel.game.player.ActivePlayerPanel;
 
 public class SwingDistributor {
 

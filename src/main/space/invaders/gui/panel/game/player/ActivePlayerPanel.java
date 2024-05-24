@@ -1,4 +1,4 @@
-package main.space.invaders.gui.panel.active.player;
+package main.space.invaders.gui.panel.game.player;
 
 import main.space.invaders.gui.popup.GameEndPopup;
 
@@ -14,7 +14,7 @@ public class ActivePlayerPanel extends JPanel {
 
     private static final int NUMBER_OF_LIVES = 3;
     private static int livesCounter;
-    private final List<LifeLabel> lives;
+    private final List<Life> lives;
     private static final Color color;
 
     static {
@@ -37,9 +37,9 @@ public class ActivePlayerPanel extends JPanel {
             c.anchor = GridBagConstraints.PAGE_START;
             c.ipady = 20;
             c.ipadx = 40;
-            LifeLabel lifeLabel = new LifeLabel();
-            this.add(lifeLabel, c);
-            lives.add(lifeLabel);
+            Life life = new Life();
+            this.add(life, c);
+            lives.add(life);
         }
 
         c.ipadx = 100;
