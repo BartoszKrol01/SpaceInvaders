@@ -56,9 +56,9 @@ public abstract class Mob implements Drawable, Shootable {
     }
 
     @Override
-    public void fireMissile() {
+    public void fireMissile() {//todo: fix missile spawn point
         int x = xLocation + TOTAL_MOB_SIZE / 2;
-        int y = yLocation - MISSILE_HEIGHT;
+        int y = yLocation + MISSILE_HEIGHT;
         Missile missile = new Missile(x, y, this);
         Distributor.addDrawables(missile);
         Distributor.addMissile(missile);

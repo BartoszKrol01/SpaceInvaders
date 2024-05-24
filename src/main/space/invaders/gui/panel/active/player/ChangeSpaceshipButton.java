@@ -15,9 +15,10 @@ public class ChangeSpaceshipButton extends JButton {
 
     private static final String TITLE = "Spaceship edit mode";
 
-    public ChangeSpaceshipButton() {
+    public ChangeSpaceshipButton(Color parentColor) {
         this.setFocusable(false);
-        this.setBackground(Color.BLACK);
+        this.setBorderPainted(false);
+        this.setBackground(parentColor);
         this.setIcon(new ImageIcon(SpaceshipImagesService.getCurrentSpaceshipImage()));
         this.addActionListener(e -> {
             PauseService.pauseTheGame();

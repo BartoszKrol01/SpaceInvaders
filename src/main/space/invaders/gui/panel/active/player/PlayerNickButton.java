@@ -11,11 +11,12 @@ public class PlayerNickButton extends JButton {
 
     private static final String TEXT_PREFIX = "Player: ";
 
-    public PlayerNickButton() {
+    public PlayerNickButton(Color parentColor) {
         this.setFocusable(false);
+        this.setBorderPainted(false);
         this.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
         this.setForeground(Color.GREEN);
-        this.setBackground(Color.BLACK);
+        this.setBackground(parentColor);
         updatePlayerNick();
         this.addActionListener(e -> {
             new EnterPlayerNickPopup();
