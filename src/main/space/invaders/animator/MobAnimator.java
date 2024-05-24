@@ -28,14 +28,18 @@ public class MobAnimator extends Animator {
     public void run() {
         while (PauseService.isRunning()) {
             sleepTime = DataDistributor.getMobs().size();
-            for (Mob mob : DataDistributor.getMobs()) {
-                if (PauseService.gamePaused()) {
-                    pauseAnimation();
+            if (!DataDistributor.getMobs().isEmpty()) {
+                for (Mob mob : DataDistributor.getMobs()) {
+                    if (PauseService.gamePaused()) {
+                        pauseAnimation();
+                    }
+                    changeImage(mob);
+                    tryToFireMissile(mob);
+                    sleepTryCatch(sleepTime);
+                    SwingDistributor.getGamePanel().repaint();
                 }
-                changeImage(mob);
-                tryToFireMissile(mob);
-                sleepTryCatch(sleepTime);
-                SwingDistributor.getGamePanel().repaint();
+            } else {
+                new GameEndPopup(true);
             }
         }
     }
