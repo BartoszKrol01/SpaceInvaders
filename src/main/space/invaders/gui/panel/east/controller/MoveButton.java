@@ -1,7 +1,7 @@
 package main.space.invaders.gui.panel.east.controller;
 
-import main.space.invaders.gui.frame.KeyEventMapped;
-import main.space.invaders.gui.frame.MoveService;
+import main.space.invaders.KeyEventMapped;
+import main.space.invaders.MoveService;
 import main.space.invaders.utils.FileLoader;
 import main.space.invaders.utils.distribution.DataDistributor;
 import main.space.invaders.utils.distribution.SwingDistributor;

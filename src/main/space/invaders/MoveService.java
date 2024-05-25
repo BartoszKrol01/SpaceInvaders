@@ -1,4 +1,4 @@
-package main.space.invaders.gui.frame;
+package main.space.invaders;
 
 import main.space.invaders.utils.distribution.DataDistributor;
 

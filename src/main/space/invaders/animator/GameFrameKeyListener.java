@@ -1,8 +1,8 @@
 package main.space.invaders.animator;
 
+import main.space.invaders.KeyEventMapped;
+import main.space.invaders.MoveService;
 import main.space.invaders.drawable.shootable.spaceship.Spaceship;
-import main.space.invaders.gui.frame.KeyEventMapped;
-import main.space.invaders.gui.frame.MoveService;
 import main.space.invaders.utils.distribution.DataDistributor;
 
 import java.awt.event.KeyEvent;
@@ -10,7 +10,7 @@ import java.awt.event.KeyListener;
 import java.util.HashSet;
 import java.util.Set;
 
-import static main.space.invaders.gui.frame.MoveService.isSpaceShipAtBorder;
+import static main.space.invaders.MoveService.isSpaceShipAtBorder;
 
 public class GameFrameKeyListener extends Animator implements KeyListener {
 

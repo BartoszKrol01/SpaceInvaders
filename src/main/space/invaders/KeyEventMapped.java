@@ -1,4 +1,4 @@
-package main.space.invaders.gui.frame;
+package main.space.invaders;
 
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
