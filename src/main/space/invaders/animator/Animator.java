@@ -2,8 +2,13 @@ package main.space.invaders.animator;
 
 import main.space.invaders.exception.thread.ThreadSleepException;
 import main.space.invaders.exception.thread.ThreadWaitException;
+import main.space.invaders.utils.distribution.DataDistributor;
 
 public abstract class Animator implements Runnable {
+
+    public Animator() {
+        DataDistributor.addAnimator(this);
+    }
 
     public void resumeAnimation() {
         synchronized (this) {

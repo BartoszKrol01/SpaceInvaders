@@ -10,11 +10,11 @@ import java.awt.Image;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import static main.space.invaders.constants.GameDisplay.SIDE_PANEL_GAP;
-import static main.space.invaders.constants.GameDisplay.TOP_GAP_BETWEEN_PANEL_AND_FRAME;
-import static main.space.invaders.constants.Mob.MOBS_IN_ONE_ROW_COUNT;
-import static main.space.invaders.constants.Mob.NUMBER_OF_MOB_ROWS;
-import static main.space.invaders.constants.Mob.TOTAL_MOB_SIZE;
+import static main.space.invaders.settings.GameDisplay.SIDE_PANEL_GAP;
+import static main.space.invaders.settings.GameDisplay.TOP_GAP_BETWEEN_PANEL_AND_FRAME;
+import static main.space.invaders.settings.Mob.MOBS_IN_ONE_ROW_COUNT;
+import static main.space.invaders.settings.Mob.NUMBER_OF_MOB_ROWS;
+import static main.space.invaders.settings.Mob.TOTAL_MOB_SIZE;
 
 public class MobsLoader {
 
@@ -33,7 +33,7 @@ public class MobsLoader {
         Image stay = FileLoader.loadImage(mobType.getFileName() + "_1");
         Image go = FileLoader.loadImage(mobType.getFileName() + "_2");
 
-        int x = SIDE_PANEL_GAP - 1;
+        int x = SIDE_PANEL_GAP;
         int y = getCurrentMobYLocation();
 
         for (int row = 1; row <= mobType.getRowsOccupied(); row++) {

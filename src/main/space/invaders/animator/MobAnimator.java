@@ -8,10 +8,12 @@ import main.space.invaders.utils.distribution.SwingDistributor;
 import java.util.Objects;
 import java.util.Random;
 
-import static main.space.invaders.constants.Mob.FIRST_MOB_POSSIBLE_STEPS_DOWN;
-import static main.space.invaders.constants.Mob.MOB_POSSIBLE_STEPS_SIDE;
-import static main.space.invaders.constants.Mob.MOB_STEP_SIZE;
-import static main.space.invaders.constants.Mob.TOTAL_MOB_SIZE;
+import static main.space.invaders.settings.Mob.FIRST_MOB_POSSIBLE_STEPS_DOWN;
+import static main.space.invaders.settings.Mob.MOB_POSSIBLE_STEPS_SIDE;
+import static main.space.invaders.settings.Mob.MOB_STEP_SIZE;
+import static main.space.invaders.settings.Mob.TOTAL_MOB_SIZE;
+import static main.space.invaders.settings.Mob.TOTAL_NUMBER_OF_MOBS;
+import static main.space.invaders.settings.SettingsService.MOB_SLEEP_TIME_DEFAULT;
 
 public class MobAnimator extends Animator {
 
@@ -19,15 +21,14 @@ public class MobAnimator extends Animator {
     private long sleepTime;
 
     public MobAnimator() {
-        this.sleepTime = main.space.invaders.constants.Mob.TOTAL_NUMBER_OF_MOBS;
-        new Thread(this).start();
-        DataDistributor.addAnimator(this);
+        super();
+        this.sleepTime = MOB_SLEEP_TIME_DEFAULT;
     }
 
     @Override
     public void run() {
         while (PauseService.isRunning()) {
-            sleepTime = DataDistributor.getMobs().size();
+            sleepTime = MOB_SLEEP_TIME_DEFAULT - (TOTAL_NUMBER_OF_MOBS - DataDistributor.getMobs().size());
             if (!DataDistributor.getMobs().isEmpty()) {
                 for (Mob mob : DataDistributor.getMobs()) {
                     if (PauseService.gamePaused()) {

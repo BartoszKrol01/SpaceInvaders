@@ -11,6 +11,10 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
+import static main.space.invaders.settings.SettingsService.MOBS_IN_ONE_ROW_COUNT_DEFAULT;
+import static main.space.invaders.settings.SettingsService.MOB_SLEEP_TIME_DEFAULT;
+import static main.space.invaders.settings.SettingsService.NUMBER_OF_MOB_ROWS_DEFAULT;
+
 public class SettingsDialog extends JDialog {
 
     public SettingsDialog() {
@@ -25,15 +29,15 @@ public class SettingsDialog extends JDialog {
         GridBagConstraints c = new GridBagConstraints();
 
         SettingsLabel rowsOfEnemiesLabel = new SettingsLabel("Rows of enemies");
-        JSlider rowsOfEnemiesSlider = new JSlider(JSlider.HORIZONTAL, 3, 7, 5);
+        JSlider rowsOfEnemiesSlider = new JSlider(JSlider.HORIZONTAL, 3, 7, NUMBER_OF_MOB_ROWS_DEFAULT);
         rowsOfEnemiesSlider.setBackground(SwingUtils.GUI_COLOR);
 
         SettingsLabel enemiesInRowLabel = new SettingsLabel("Enemies in row");
-        JSlider enemiesInRowSlider = new JSlider(JSlider.HORIZONTAL, 1, 15, 11);
+        JSlider enemiesInRowSlider = new JSlider(JSlider.HORIZONTAL, 1, 15, MOBS_IN_ONE_ROW_COUNT_DEFAULT);
         enemiesInRowSlider.setBackground(SwingUtils.GUI_COLOR);
 
         SettingsLabel enemiesStepIntervalLabel = new SettingsLabel("Enemies step interval");
-        JSlider enemiesStepIntervalSlider = new JSlider(JSlider.HORIZONTAL, 1, 200, 50);
+        JSlider enemiesStepIntervalSlider = new JSlider(JSlider.HORIZONTAL, 1, 200, MOB_SLEEP_TIME_DEFAULT);
         enemiesStepIntervalSlider.setBackground(SwingUtils.GUI_COLOR);
 
         SettingsLabel specialModeLabel = new SettingsLabel("Special mode");

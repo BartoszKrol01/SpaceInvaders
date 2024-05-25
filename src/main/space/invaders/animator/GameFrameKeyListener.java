@@ -22,9 +22,8 @@ public class GameFrameKeyListener extends Animator implements KeyListener {
     }
 
     public GameFrameKeyListener() {
+        super();
         this.moveService = new MoveService();
-        new Thread(this).start();
-        DataDistributor.addAnimator(this);
     }
 
     @Override

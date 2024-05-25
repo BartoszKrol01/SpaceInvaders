@@ -2,14 +2,14 @@ package main.space.invaders.drawable.barrier;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import static main.space.invaders.constants.Barrier.BARRIERS_TRIANGLES_NUMBER;
-import static main.space.invaders.constants.Barrier.BARRIERS_TRIANGLE_BASE;
-import static main.space.invaders.constants.Barrier.BARRIERS_TRIANGLE_BASE_START_Y;
-import static main.space.invaders.constants.Barrier.BARRIERS_TRIANGLE_BASE_WIDTH;
-import static main.space.invaders.constants.Barrier.BARRIERS_TRIANGLE_HEIGHT;
-import static main.space.invaders.constants.Barrier.BARRIER_SIZE;
-import static main.space.invaders.constants.Barrier.GAP_BETWEEN_BARRIERS;
-import static main.space.invaders.constants.GameDisplay.SIDE_PANEL_GAP;
+import static main.space.invaders.settings.Barrier.BARRIERS_TRIANGLES_NUMBER;
+import static main.space.invaders.settings.Barrier.BARRIERS_TRIANGLE_BASE;
+import static main.space.invaders.settings.Barrier.BARRIERS_TRIANGLE_BASE_START_Y;
+import static main.space.invaders.settings.Barrier.BARRIERS_TRIANGLE_BASE_WIDTH;
+import static main.space.invaders.settings.Barrier.BARRIERS_TRIANGLE_HEIGHT;
+import static main.space.invaders.settings.Barrier.BARRIER_SIZE;
+import static main.space.invaders.settings.Barrier.GAP_BETWEEN_BARRIERS;
+import static main.space.invaders.settings.GameDisplay.SIDE_PANEL_GAP;
 
 public class BarrierLoader {
 

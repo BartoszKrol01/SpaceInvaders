@@ -9,6 +9,7 @@ public class Life extends JButton {
 
     public Life() {
         customizeJButton(this);
+        this.setEnabled(false);
         this.setBorderPainted(true);
         this.setBackground(Color.GREEN);
     }

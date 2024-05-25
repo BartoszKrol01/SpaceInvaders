@@ -1,4 +1,4 @@
-package main.space.invaders.constants;
+package main.space.invaders.settings;
 
 public class Image {
 

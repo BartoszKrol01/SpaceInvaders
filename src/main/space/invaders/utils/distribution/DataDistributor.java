@@ -24,10 +24,12 @@ public class DataDistributor {
 
     static {
         animators = new ArrayList<>();
-        repopulateData();
+        drawables = new CopyOnWriteArrayList<>();
+        mobs = new CopyOnWriteArrayList<>();
+        missiles = new CopyOnWriteArrayList<>();
     }
 
-    public static void repopulateData() {
+    public static void populateData() {
         mobs = MobsLoader.loadMobs();
         spaceship = new Spaceship();
         missiles = new CopyOnWriteArrayList<>();

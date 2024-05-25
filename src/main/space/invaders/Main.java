@@ -9,13 +9,15 @@ import main.space.invaders.gui.popup.EnterPlayerNickPopup;
 public class Main {
     public static void main(String[] args) {
         //ask for player name
-        new EnterPlayerNickPopup();
+        new EnterPlayerNickPopup(false);
 
-        //create GUI interface
+        //create user interface
         new GameFrame(new FramePanel());
 
         //create animation thread
         new MobAnimator();
         new MissileAnimator();
+
+        InitializationService.startApplication();
     }
 }

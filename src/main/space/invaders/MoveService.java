@@ -2,8 +2,8 @@ package main.space.invaders;
 
 import main.space.invaders.utils.distribution.DataDistributor;
 
-import static main.space.invaders.constants.GameDisplay.GAME_PANEL_WIDTH;
-import static main.space.invaders.constants.Spaceship.SPACESHIP_SIZE;
+import static main.space.invaders.settings.GameDisplay.GAME_PANEL_WIDTH;
+import static main.space.invaders.settings.Spaceship.SPACESHIP_SIZE;
 
 public class MoveService {
 

@@ -19,7 +19,7 @@ public class PlayerNickButton extends JButton {
         this.setBackground(SwingUtils.GUI_COLOR);
         updatePlayerNick();
         this.addActionListener(e -> {
-            new EnterPlayerNickPopup();
+            new EnterPlayerNickPopup(true);
             updatePlayerNick();
         });
     }

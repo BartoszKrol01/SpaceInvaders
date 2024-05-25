@@ -10,16 +10,15 @@ import main.space.invaders.utils.distribution.SwingDistributor;
 import java.util.ArrayList;
 import java.util.List;
 
-import static main.space.invaders.constants.Missile.MISSILE_SHORTEN_RATE;
 import static main.space.invaders.drawable.missile.MissileVerificationService.isMissileOffScreen;
 import static main.space.invaders.drawable.missile.MissileVerificationService.shouldRemoveMissile;
 import static main.space.invaders.drawable.missile.MissileVerificationService.shouldShortenMissile;
+import static main.space.invaders.settings.Missile.MISSILE_SHORTEN_RATE;
 
 public class MissileAnimator extends Animator {
 
     public MissileAnimator() {
-        new Thread(this).start();
-        DataDistributor.addAnimator(this);
+        super();
     }
 
     @Override
@@ -63,6 +62,7 @@ public class MissileAnimator extends Animator {
             if (!toRemoveMobs.isEmpty()) {
                 SwingDistributor.getRealTimePointsLabel().updateText(toRemoveMobs.size());
             }
+            SwingDistributor.getGamePanel().repaint();
             sleepTryCatch(16);
         }
     }

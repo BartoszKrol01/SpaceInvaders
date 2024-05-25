@@ -5,9 +5,10 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Font;
 
-import static main.space.invaders.constants.GameDisplay.GAME_PANEL_WIDTH;
+import static main.space.invaders.settings.GameDisplay.GAME_PANEL_WIDTH;
 
 public class RealTimePointsLabel extends JLabel {
+//todo: reset counter on game reset
 
     private static final String SCORE = "Score";
     private static final String DEFAULT_MESSAGE = SCORE + ": 0";

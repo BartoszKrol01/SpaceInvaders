@@ -10,8 +10,8 @@ import main.space.invaders.utils.distribution.DataDistributor;
 import java.awt.Graphics;
 import java.awt.Image;
 
-import static main.space.invaders.constants.Missile.MISSILE_HEIGHT;
-import static main.space.invaders.constants.Mob.TOTAL_MOB_SIZE;
+import static main.space.invaders.settings.Missile.MISSILE_HEIGHT;
+import static main.space.invaders.settings.Mob.TOTAL_MOB_SIZE;
 
 public abstract class Mob implements Drawable, Shootable {
 

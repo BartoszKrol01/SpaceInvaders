@@ -4,9 +4,9 @@ import main.space.invaders.drawable.missile.HitBox;
 
 import java.awt.Image;
 
-import static main.space.invaders.constants.Mob.MOB_SIZE;
-import static main.space.invaders.constants.Mob.UPPER_MOB_HITBOX_DIFFERENCE_X;
-import static main.space.invaders.constants.Mob.UPPER_MOB_HITBOX_DIFFERENCE_Y;
+import static main.space.invaders.settings.Mob.MOB_SIZE;
+import static main.space.invaders.settings.Mob.UPPER_MOB_HITBOX_DIFFERENCE_X;
+import static main.space.invaders.settings.Mob.UPPER_MOB_HITBOX_DIFFERENCE_Y;
 
 public class UpperMob extends Mob {
 

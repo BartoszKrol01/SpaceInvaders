@@ -10,15 +10,15 @@ import main.space.invaders.utils.distribution.SwingDistributor;
 
 import java.awt.Graphics;
 
-import static main.space.invaders.constants.Missile.MISSILE_HEIGHT;
-import static main.space.invaders.constants.Spaceship.FIRST_SPACESHIP_HITBOX_DIFFERENCE_X;
-import static main.space.invaders.constants.Spaceship.FIRST_SPACESHIP_HITBOX_DIFFERENCE_Y;
-import static main.space.invaders.constants.Spaceship.SECOND_SPACESHIP_HITBOX_DIFFERENCE_X;
-import static main.space.invaders.constants.Spaceship.SECOND_SPACESHIP_HITBOX_DIFFERENCE_Y;
-import static main.space.invaders.constants.Spaceship.SPACESHIP_SIZE;
-import static main.space.invaders.constants.Spaceship.SPACESHIP_START_X;
-import static main.space.invaders.constants.Spaceship.SPACESHIP_START_Y;
 import static main.space.invaders.drawable.missile.MissileVerificationService.shouldFireMoreMissiles;
+import static main.space.invaders.settings.Missile.MISSILE_HEIGHT;
+import static main.space.invaders.settings.Spaceship.FIRST_SPACESHIP_HITBOX_DIFFERENCE_X;
+import static main.space.invaders.settings.Spaceship.FIRST_SPACESHIP_HITBOX_DIFFERENCE_Y;
+import static main.space.invaders.settings.Spaceship.SECOND_SPACESHIP_HITBOX_DIFFERENCE_X;
+import static main.space.invaders.settings.Spaceship.SECOND_SPACESHIP_HITBOX_DIFFERENCE_Y;
+import static main.space.invaders.settings.Spaceship.SPACESHIP_SIZE;
+import static main.space.invaders.settings.Spaceship.SPACESHIP_START_X;
+import static main.space.invaders.settings.Spaceship.SPACESHIP_START_Y;
 
 public class Spaceship implements Drawable, Shootable {
 

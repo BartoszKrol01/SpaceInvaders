@@ -7,8 +7,8 @@ import main.space.invaders.exception.UnknownMissileSourceException;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import static main.space.invaders.constants.Missile.MISSILE_HEIGHT;
-import static main.space.invaders.constants.Missile.MISSILE_WIDTH;
+import static main.space.invaders.settings.Missile.MISSILE_HEIGHT;
+import static main.space.invaders.settings.Missile.MISSILE_WIDTH;
 
 public class Missile implements Drawable {
 

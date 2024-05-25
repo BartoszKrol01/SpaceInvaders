@@ -41,7 +41,7 @@ public class PauseService {
     public static void restartTheGame() {
         GameFrameKeyListener.clearKeysPressedCache();
         SwingDistributor.getActivePlayerPanel().resetPanel();
-        DataDistributor.repopulateData();
+        DataDistributor.populateData();
     }
 
     private PauseService() {}
