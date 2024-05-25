@@ -1,11 +1,8 @@
 package main.space.invaders.gui.panel.game;
 
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import java.awt.Color;
-import java.awt.Font;
 
-import static main.space.invaders.settings.GameDisplay.GAME_PANEL_WIDTH;
+import static main.space.invaders.utils.SwingUtils.setFontAndForegroundColor;
 
 public class RealTimePointsLabel extends JLabel {
 //todo: reset counter on game reset
@@ -17,14 +14,7 @@ public class RealTimePointsLabel extends JLabel {
     public RealTimePointsLabel() {
         counter = 0;
         this.setText(DEFAULT_MESSAGE);
-        this.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
-        this.setForeground(Color.GREEN);
-        this.setHorizontalAlignment(SwingConstants.RIGHT);
-        int x = GAME_PANEL_WIDTH - 50;
-        int y = 0;
-        int width = 50;
-        int height = 30;
-        this.setBounds(x, y, width, height);
+        setFontAndForegroundColor(this);
     }
 
     public void updateText(int mobsEliminated) {
