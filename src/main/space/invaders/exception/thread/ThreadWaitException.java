@@ -1,6 +1,8 @@
 package main.space.invaders.exception.thread;
 
-public class ThreadWaitException extends ThreadException {
+import main.space.invaders.exception.InternalException;
+
+public class ThreadWaitException extends InternalException {
     public ThreadWaitException(String message, Throwable cause) {
         super(message, cause);
     }

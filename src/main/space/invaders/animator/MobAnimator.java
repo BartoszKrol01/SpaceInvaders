@@ -25,7 +25,7 @@ public class MobAnimator extends Animator {
     }
 
     @Override
-    public void run() {
+    public void run() {//todo: after restart mobs stay in the same location for a minute
         while (PauseService.isRunning()) {
             if (!DataDistributor.getMobs().isEmpty()) {
                 for (Mob mob : DataDistributor.getMobs()) {

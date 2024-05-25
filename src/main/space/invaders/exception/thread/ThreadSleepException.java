@@ -1,6 +1,8 @@
 package main.space.invaders.exception.thread;
 
-public class ThreadSleepException extends RuntimeException {
+import main.space.invaders.exception.InternalException;
+
+public class ThreadSleepException extends InternalException {
     public ThreadSleepException(String message, Throwable cause) {
         super(message, cause);
     }
