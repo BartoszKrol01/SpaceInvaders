@@ -3,7 +3,7 @@ package main.space.invaders.gui.panel.game.player;
 import main.space.invaders.animator.PauseService;
 import main.space.invaders.drawable.shootable.spaceship.SpaceshipImage;
 import main.space.invaders.drawable.shootable.spaceship.SpaceshipImagesService;
-import main.space.invaders.utils.distribution.SwingDistributor;
+import main.space.invaders.utils.SwingUtils;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,14 +12,15 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.Map;
 
+import static main.space.invaders.utils.SwingUtils.customizeJButton;
+
 public class ChangeSpaceshipButton extends JButton {
 
     private static final String TITLE = "Spaceship edit mode";
 
     public ChangeSpaceshipButton() {
-        this.setFocusable(false);
-        this.setBorderPainted(false);
-        this.setBackground(SwingDistributor.GUI_COLOR);
+        customizeJButton(this);
+        this.setBackground(SwingUtils.GUI_COLOR);
         this.setIcon(new ImageIcon(SpaceshipImagesService.getCurrentSpaceshipImage()));
         this.addActionListener(e -> {
             PauseService.pauseTheGame();

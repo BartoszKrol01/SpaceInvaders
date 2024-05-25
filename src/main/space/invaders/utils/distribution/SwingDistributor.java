@@ -4,11 +4,8 @@ import main.space.invaders.gui.panel.game.GamePanel;
 import main.space.invaders.gui.panel.game.RealTimePointsLabel;
 import main.space.invaders.gui.panel.game.player.ActivePlayerPanel;
 
-import java.awt.Color;
-
 public class SwingDistributor {
 
-    public static final Color GUI_COLOR = new Color(16, 18, 16);
     private static final GamePanel gamePanel;
     private static final RealTimePointsLabel realTimePointsLabel;
     private static final ActivePlayerPanel activePlayerPanel;

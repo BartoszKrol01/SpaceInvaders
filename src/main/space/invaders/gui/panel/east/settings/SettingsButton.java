@@ -1,18 +1,20 @@
 package main.space.invaders.gui.panel.east.settings;
 
 import main.space.invaders.utils.FileLoader;
-import main.space.invaders.utils.distribution.SwingDistributor;
+import main.space.invaders.utils.SwingUtils;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+
+import static main.space.invaders.utils.SwingUtils.customizeJButton;
 
 public class SettingsButton extends JButton {
 
     public SettingsButton() {
         ImageIcon icon = new ImageIcon(FileLoader.loadImage("gui/settings"));
         this.setIcon(icon);
-        this.setFocusable(false);
-        this.setBorderPainted(false);
-        this.setBackground(SwingDistributor.GUI_COLOR);
+        customizeJButton(this);
+        this.setBackground(SwingUtils.GUI_COLOR);
+        this.addActionListener(e -> new SettingsDialog());
     }
 }

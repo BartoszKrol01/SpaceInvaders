@@ -1,23 +1,22 @@
 package main.space.invaders.gui.panel.game.player;
 
 import main.space.invaders.gui.popup.EnterPlayerNickPopup;
+import main.space.invaders.utils.SwingUtils;
 import main.space.invaders.utils.distribution.DataDistributor;
-import main.space.invaders.utils.distribution.SwingDistributor;
 
 import javax.swing.JButton;
-import java.awt.Color;
-import java.awt.Font;
+
+import static main.space.invaders.utils.SwingUtils.customizeJButton;
+import static main.space.invaders.utils.SwingUtils.setFontAndForegroundColor;
 
 public class PlayerNickButton extends JButton {
-
+    //todo: after cancel clicked on popup nick should stay the same
     private static final String TEXT_PREFIX = "Player: ";
 
     public PlayerNickButton() {
-        this.setFocusable(false);
-        this.setBorderPainted(false);
-        this.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
-        this.setForeground(Color.GREEN);
-        this.setBackground(SwingDistributor.GUI_COLOR);
+        customizeJButton(this);
+        setFontAndForegroundColor(this);
+        this.setBackground(SwingUtils.GUI_COLOR);
         updatePlayerNick();
         this.addActionListener(e -> {
             new EnterPlayerNickPopup();
