@@ -26,8 +26,12 @@ public class PauseService {
     }
 
     public static void unpauseTheGame() {
-        isGamePaused = false;
-        DataDistributor.getAnimators().forEach(Animator::resumeAnimation);
+        if (isGamePaused) {
+            isGamePaused = false;
+            DataDistributor.getAnimators().forEach(Animator::resumeAnimation);
+        } else {
+            System.err.println("Game is already unpaused");
+        }
     }
 
     public static void pauseOrUnpauseTheGame() {
