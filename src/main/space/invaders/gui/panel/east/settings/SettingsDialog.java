@@ -1,6 +1,8 @@
 package main.space.invaders.gui.panel.east.settings;
 
 import main.space.invaders.animator.PauseService;
+import main.space.invaders.gui.panel.east.settings.slider.SettingsSlider;
+import main.space.invaders.gui.panel.east.settings.slider.SliderFunction;
 import main.space.invaders.utils.SwingUtils;
 
 import javax.swing.JCheckBox;
@@ -22,30 +24,38 @@ public class SettingsDialog extends JDialog {
         this.setVisible(true);
         this.setLocationRelativeTo(null);
 
-        JPanel panel = new JPanel();
-        panel.setBackground(SwingUtils.GUI_COLOR);
-        this.add(panel);
-        panel.setLayout(new GridBagLayout());
+        JPanel panel = initializePanel();
         GridBagConstraints c = new GridBagConstraints();
 
         SettingsLabel rowsOfEnemiesLabel = new SettingsLabel("Rows of enemies");
-        JSlider rowsOfEnemiesSlider = new JSlider(JSlider.HORIZONTAL, 3, 7, NUMBER_OF_MOB_ROWS_DEFAULT);
-        rowsOfEnemiesSlider.setBackground(SwingUtils.GUI_COLOR);
+        SettingsSlider rowsOfEnemiesSlider = new SettingsSlider(JSlider.HORIZONTAL,
+                3,
+                7,
+                NUMBER_OF_MOB_ROWS_DEFAULT,
+                1,
+                SliderFunction.NUMBER_OF_MOB_ROWS);
 
         SettingsLabel enemiesInRowLabel = new SettingsLabel("Enemies in row");
-        JSlider enemiesInRowSlider = new JSlider(JSlider.HORIZONTAL, 1, 15, MOBS_IN_ONE_ROW_COUNT_DEFAULT);
-        enemiesInRowSlider.setBackground(SwingUtils.GUI_COLOR);
+        SettingsSlider enemiesInRowSlider = new SettingsSlider(JSlider.HORIZONTAL,
+                1,
+                16,
+                MOBS_IN_ONE_ROW_COUNT_DEFAULT,
+                3,
+                SliderFunction.MOBS_IN_ONE_ROW);
 
         SettingsLabel enemiesStepIntervalLabel = new SettingsLabel("Enemies step interval");
-        JSlider enemiesStepIntervalSlider = new JSlider(JSlider.HORIZONTAL, 1, 200, MOB_SLEEP_TIME_DEFAULT);
-        enemiesStepIntervalSlider.setBackground(SwingUtils.GUI_COLOR);
+        SettingsSlider enemiesStepIntervalSlider = new SettingsSlider(JSlider.HORIZONTAL,
+                0,
+                200,
+                MOB_SLEEP_TIME_DEFAULT,
+                50,
+                SliderFunction.MOB_SLEEP_TIME);
 
         SettingsLabel specialModeLabel = new SettingsLabel("Special mode");
         JCheckBox specialModeCheckBox = new JCheckBox();
         specialModeCheckBox.setBackground(SwingUtils.GUI_COLOR);
 
-        c.insets = new Insets(30, 30, 0, 0);
-
+        c.insets = new Insets(30, 30, 0, 30);
         c.gridx = 0;
         c.gridy = 0;
         panel.add(rowsOfEnemiesLabel, c);
@@ -53,7 +63,7 @@ public class SettingsDialog extends JDialog {
         c.gridx = 1;
         panel.add(rowsOfEnemiesSlider, c);
 
-        c.insets = new Insets(0, 30, 0, 0);
+        c.insets = new Insets(10, 30, 0, 30);
         c.gridx = 0;
         c.gridy = 1;
         panel.add(enemiesInRowLabel, c);
@@ -68,7 +78,7 @@ public class SettingsDialog extends JDialog {
         c.gridx = 1;
         panel.add(enemiesStepIntervalSlider, c);
 
-        c.insets = new Insets(0, 30, 30, 0);
+        c.insets = new Insets(10, 30, 30, 30);
         c.gridx = 0;
         c.gridy = 3;
         panel.add(specialModeLabel, c);
@@ -77,5 +87,13 @@ public class SettingsDialog extends JDialog {
         panel.add(specialModeCheckBox, c);
 
         this.pack();
+    }
+
+    private JPanel initializePanel() {
+        JPanel panel = new JPanel();
+        panel.setBackground(SwingUtils.GUI_COLOR);
+        this.add(panel);
+        panel.setLayout(new GridBagLayout());
+        return panel;
     }
 }

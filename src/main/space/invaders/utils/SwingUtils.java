@@ -8,15 +8,17 @@ import java.awt.Font;
 public class SwingUtils {
 
     public static final Color GUI_COLOR;
-    public static final Font GUI_FONT;
 
     static {
         GUI_COLOR = new Color(16, 18, 16);
-        GUI_FONT = new Font(Font.MONOSPACED, Font.BOLD, 20);
     }
 
     public static void setFontAndForegroundColor(JComponent component) {
-        component.setFont(GUI_FONT);
+        setFontAndForegroundColor(component, 20);
+    }
+
+    public static void setFontAndForegroundColor(JComponent component, int size) {
+        component.setFont(new Font(Font.MONOSPACED, Font.BOLD, size));
         component.setForeground(Color.GREEN);
     }
 
