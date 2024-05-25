@@ -7,7 +7,6 @@ import main.space.invaders.utils.distribution.DataDistributor;
 import main.space.invaders.utils.distribution.SwingDistributor;
 
 import java.util.Objects;
-import java.util.Random;
 
 import static main.space.invaders.settings.Mob.FIRST_MOB_POSSIBLE_STEPS_DOWN;
 import static main.space.invaders.settings.Mob.MOB_POSSIBLE_STEPS_SIDE;
@@ -18,7 +17,6 @@ import static main.space.invaders.settings.service.MobSleepTimeService.MOB_SLEEP
 
 public class MobAnimator extends Animator {
 
-    private static final int FIRE_MISSILE_PROBABILITY_PER_MILLE = 50;
     private long sleepTime;
 
     public MobAnimator() {
@@ -36,7 +34,6 @@ public class MobAnimator extends Animator {
                         pauseAnimation();
                     }
                     changeImage(mob);
-                    tryToFireMissile(mob); //todo: firing missile shouldn't be dependent on sleep time
                     sleepTryCatch(sleepTime);
                     SwingDistributor.getGamePanel().repaint();
                 }
@@ -54,13 +51,6 @@ public class MobAnimator extends Animator {
         }
     }
 
-    private static void tryToFireMissile(Mob mob) {
-        Random random = new Random();
-        if (random.nextInt(1000) <= FIRE_MISSILE_PROBABILITY_PER_MILLE) {
-            mob.fireMissile();
-        }
-    }
-
     private static void changeImage(Mob mob) {
         if (Objects.equals(mob.getCurrentImage(), mob.getStay())) {
             mob.setCurrentImage(mob.getGo());
@@ -70,7 +60,7 @@ public class MobAnimator extends Animator {
         updateLocation(mob);
     }
 
-    private static void updateLocation(Mob mob) {
+    private static void updateLocation(Mob mob) { //todo: mob step down should happen if mob is at the border of game panel
         if (mob.getHorizontalStepsCounter() >= MOB_POSSIBLE_STEPS_SIDE) {
             mob.setHorizontalStepsCounter(0);
             mob.setYLocation(mob.getYLocation() + TOTAL_MOB_SIZE);
