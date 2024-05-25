@@ -1,6 +1,7 @@
 package main.space.invaders.gui.panel.east.settings.slider;
 
-import main.space.invaders.settings.SettingsService;
+import main.space.invaders.settings.service.MobSleepTimeService;
+import main.space.invaders.settings.service.SettingsService;
 import main.space.invaders.utils.SwingUtils;
 
 import javax.swing.JSlider;
@@ -23,7 +24,7 @@ public class SettingsSlider extends JSlider {
         this.addChangeListener(e -> {
             int changeValue = this.getValue();
             switch (sliderFunction) {
-                case MOB_SLEEP_TIME -> SettingsService.modifyMobSleepTime(changeValue);
+                case MOB_SLEEP_TIME -> MobSleepTimeService.modifyMobSleepTime(changeValue);
                 case MOBS_IN_ONE_ROW -> SettingsService.modifyMobsInOneRowCount(changeValue);
                 case NUMBER_OF_MOB_ROWS -> SettingsService.modifyNumberOfMobRows(changeValue);
             }

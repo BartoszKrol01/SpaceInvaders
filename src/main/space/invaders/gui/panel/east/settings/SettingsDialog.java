@@ -1,6 +1,5 @@
 package main.space.invaders.gui.panel.east.settings;
 
-import main.space.invaders.animator.PauseService;
 import main.space.invaders.gui.panel.east.settings.slider.SettingsSlider;
 import main.space.invaders.gui.panel.east.settings.slider.SliderFunction;
 import main.space.invaders.utils.SwingUtils;
@@ -13,15 +12,14 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
-import static main.space.invaders.settings.SettingsService.MOBS_IN_ONE_ROW_COUNT_DEFAULT;
-import static main.space.invaders.settings.SettingsService.MOB_SLEEP_TIME_DEFAULT;
-import static main.space.invaders.settings.SettingsService.NUMBER_OF_MOB_ROWS_DEFAULT;
+import static main.space.invaders.settings.service.MobSleepTimeService.MOB_SLEEP_TIME_DEFAULT;
+import static main.space.invaders.settings.service.SettingsService.MOBS_IN_ONE_ROW_COUNT_DEFAULT;
+import static main.space.invaders.settings.service.SettingsService.NUMBER_OF_MOB_ROWS_DEFAULT;
 
 public class SettingsDialog extends JDialog {
 
     public SettingsDialog() {
-        PauseService.pauseTheGame();
-        this.setVisible(true);
+        this.setVisible(false);
         this.setLocationRelativeTo(null);
 
         JPanel panel = initializePanel();
@@ -51,6 +49,9 @@ public class SettingsDialog extends JDialog {
                 50,
                 SliderFunction.MOB_SLEEP_TIME);
 
+        SettingsLabel fixedTimeLabel = new SettingsLabel("Fixed time");
+        FixedTimeCheckBox fixedTimeCheckBox = new FixedTimeCheckBox();
+
         SettingsLabel specialModeLabel = new SettingsLabel("Special mode");
         JCheckBox specialModeCheckBox = new JCheckBox();
         specialModeCheckBox.setBackground(SwingUtils.GUI_COLOR);
@@ -78,9 +79,16 @@ public class SettingsDialog extends JDialog {
         c.gridx = 1;
         panel.add(enemiesStepIntervalSlider, c);
 
-        c.insets = new Insets(10, 30, 30, 30);
         c.gridx = 0;
         c.gridy = 3;
+        panel.add(fixedTimeLabel, c);
+
+        c.gridx = 1;
+        panel.add(fixedTimeCheckBox, c);
+
+        c.insets = new Insets(10, 30, 30, 30);
+        c.gridx = 0;
+        c.gridy = 4;
         panel.add(specialModeLabel, c);
 
         c.gridx = 1;

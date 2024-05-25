@@ -1,8 +1,8 @@
 package main.space.invaders.settings;
 
 import static main.space.invaders.settings.Image.IMAGE_SIZE;
-import static main.space.invaders.settings.SettingsService.MOBS_IN_ONE_ROW_COUNT_DEFAULT;
-import static main.space.invaders.settings.SettingsService.NUMBER_OF_MOB_ROWS_DEFAULT;
+import static main.space.invaders.settings.service.SettingsService.MOBS_IN_ONE_ROW_COUNT_DEFAULT;
+import static main.space.invaders.settings.service.SettingsService.NUMBER_OF_MOB_ROWS_DEFAULT;
 
 public class Mob {
 

@@ -2,6 +2,7 @@ package main.space.invaders.animator;
 
 import main.space.invaders.drawable.shootable.mob.model.Mob;
 import main.space.invaders.gui.popup.GameEndPopup;
+import main.space.invaders.settings.service.MobSleepTimeService;
 import main.space.invaders.utils.distribution.DataDistributor;
 import main.space.invaders.utils.distribution.SwingDistributor;
 
@@ -13,7 +14,7 @@ import static main.space.invaders.settings.Mob.MOB_POSSIBLE_STEPS_SIDE;
 import static main.space.invaders.settings.Mob.MOB_STEP_SIZE;
 import static main.space.invaders.settings.Mob.TOTAL_MOB_SIZE;
 import static main.space.invaders.settings.Mob.TOTAL_NUMBER_OF_MOBS;
-import static main.space.invaders.settings.SettingsService.MOB_SLEEP_TIME_DEFAULT;
+import static main.space.invaders.settings.service.MobSleepTimeService.MOB_SLEEP_TIME_DEFAULT;
 
 public class MobAnimator extends Animator {
 
@@ -28,20 +29,28 @@ public class MobAnimator extends Animator {
     @Override
     public void run() {
         while (PauseService.isRunning()) {
-            sleepTime = MOB_SLEEP_TIME_DEFAULT - (TOTAL_NUMBER_OF_MOBS - DataDistributor.getMobs().size());
             if (!DataDistributor.getMobs().isEmpty()) {
                 for (Mob mob : DataDistributor.getMobs()) {
+                    sleepTime = getSleepTime();
                     if (PauseService.gamePaused()) {
                         pauseAnimation();
                     }
                     changeImage(mob);
-                    tryToFireMissile(mob);
+                    tryToFireMissile(mob); //todo: firing missile shouldn't be dependent on sleep time
                     sleepTryCatch(sleepTime);
                     SwingDistributor.getGamePanel().repaint();
                 }
             } else {
                 new GameEndPopup(true);
             }
+        }
+    }
+
+    private long getSleepTime() {
+        if (MobSleepTimeService.isMobSleepTimeFixed()) {
+            return MobSleepTimeService.getMobsSleepTime();
+        } else {
+            return MOB_SLEEP_TIME_DEFAULT - (TOTAL_NUMBER_OF_MOBS - DataDistributor.getMobs().size());
         }
     }
 
