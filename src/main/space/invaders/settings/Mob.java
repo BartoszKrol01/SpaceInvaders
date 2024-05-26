@@ -8,14 +8,12 @@ public class Mob {
 
     public static final int MOB_SIZE = IMAGE_SIZE;
     public static final int MOB_GAP = 18;
-    public static final int HALF_MOB_GAP = MOB_GAP / 2;
     public static final int TOTAL_MOB_SIZE = MOB_SIZE + MOB_GAP;
     public static final int NUMBER_OF_MOB_ROWS = NUMBER_OF_MOB_ROWS_DEFAULT;//todo:reload
     public static final int MOBS_IN_ONE_ROW_COUNT = MOBS_IN_ONE_ROW_COUNT_DEFAULT;//todo:reload
     public static final int TOTAL_NUMBER_OF_MOBS = NUMBER_OF_MOB_ROWS * MOBS_IN_ONE_ROW_COUNT;//todo:reload
     public static final int MOB_STEP_SIZE = 3;
     public static final int MOB_POSSIBLE_STEPS_SIDE = 18;
-    public static final int FIRST_MOB_POSSIBLE_STEPS_DOWN = 5;
     public static final int LOWER_MOB_HITBOX_DIFFERENCE_X = 0;
     public static final int LOWER_MOB_HITBOX_DIFFERENCE_Y = 2;
     public static final int UPPER_MOB_HITBOX_DIFFERENCE_X = 6;
