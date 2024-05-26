@@ -1,5 +1,6 @@
 package main.space.invaders.drawable.shootable.mob.model;
 
+import main.space.invaders.animator.MobAnimator;
 import main.space.invaders.drawable.Drawable;
 import main.space.invaders.drawable.DrawableType;
 import main.space.invaders.drawable.missile.HitBox;
@@ -19,21 +20,16 @@ public abstract class Mob implements Drawable, Shootable {
     private Image currentImage;
     protected int xLocation;
     protected int yLocation;
-    private int horizontalStepsCounter;
     private int direction;
-    private int verticalStepsCounter;
-    private final int startRow;
+    private boolean justMovedDown;
 
-    public Mob(Image stay, Image go, int xLocation, int yLocation, int startRow) {
+    public Mob(Image stay, Image go, int xLocation, int yLocation) {
         this.stay = stay;
         this.go = go;
         this.currentImage = stay;
         this.xLocation = xLocation;
         this.yLocation = yLocation;
-        this.horizontalStepsCounter = 0;
-        this.verticalStepsCounter = 0;
         this.direction = 1;
-        this.startRow = startRow;
     }
 
     @Override
@@ -61,6 +57,10 @@ public abstract class Mob implements Drawable, Shootable {
         Missile missile = new Missile(x, y, this);
         DataDistributor.addDrawables(missile);
         DataDistributor.addMissile(missile);
+    }
+
+    public void performStepDown() {
+        MobAnimator.moveMobDown(this);
     }
 
     //getters and setters
@@ -97,14 +97,6 @@ public abstract class Mob implements Drawable, Shootable {
         this.yLocation = yLocation;
     }
 
-    public int getHorizontalStepsCounter() {
-        return horizontalStepsCounter;
-    }
-
-    public void setHorizontalStepsCounter(int horizontalStepsCounter) {
-        this.horizontalStepsCounter = horizontalStepsCounter;
-    }
-
     public int getDirection() {
         return direction;
     }
@@ -113,15 +105,11 @@ public abstract class Mob implements Drawable, Shootable {
         this.direction = direction;
     }
 
-    public int getVerticalStepsCounter() {
-        return verticalStepsCounter;
+    public boolean justMovedDown() {
+        return justMovedDown;
     }
 
-    public void setVerticalStepsCounter(int verticalStepsCounter) {
-        this.verticalStepsCounter = verticalStepsCounter;
-    }
-
-    public int getStartRow() {
-        return startRow;
+    public void setJustMovedDown(boolean justMovedDown) {
+        this.justMovedDown = justMovedDown;
     }
 }

@@ -12,7 +12,6 @@ public class GameEndPopup {
         String message = createMessage(win);
         JOptionPane.showMessageDialog(SwingDistributor.getGamePanel(), message);
         PauseService.restartTheGame();
-        PauseService.unpauseTheGame();
     }
 
     private String createMessage(boolean win) {

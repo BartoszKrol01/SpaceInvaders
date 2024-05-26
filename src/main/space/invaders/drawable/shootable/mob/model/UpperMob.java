@@ -10,8 +10,8 @@ import static main.space.invaders.settings.Mob.UPPER_MOB_HITBOX_DIFFERENCE_Y;
 
 public class UpperMob extends Mob {
 
-    public UpperMob(Image stay, Image go, int xLocation, int yLocation, int startRow) {
-        super(stay, go, xLocation, yLocation, startRow);
+    public UpperMob(Image stay, Image go, int xLocation, int yLocation) {
+        super(stay, go, xLocation, yLocation);
     }
 
     @Override

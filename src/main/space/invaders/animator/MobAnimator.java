@@ -8,8 +8,7 @@ import main.space.invaders.utils.distribution.SwingDistributor;
 
 import java.util.Objects;
 
-import static main.space.invaders.settings.Mob.FIRST_MOB_POSSIBLE_STEPS_DOWN;
-import static main.space.invaders.settings.Mob.MOB_POSSIBLE_STEPS_SIDE;
+import static main.space.invaders.settings.Mob.MOB_SIZE;
 import static main.space.invaders.settings.Mob.MOB_STEP_SIZE;
 import static main.space.invaders.settings.Mob.TOTAL_MOB_SIZE;
 import static main.space.invaders.settings.Mob.TOTAL_NUMBER_OF_MOBS;
@@ -60,22 +59,31 @@ public class MobAnimator extends Animator {
         updateLocation(mob);
     }
 
-    private static void updateLocation(Mob mob) { //todo: mob step down should happen if mob is at the border of game panel
-        if (mob.getHorizontalStepsCounter() >= MOB_POSSIBLE_STEPS_SIDE) {
-            mob.setHorizontalStepsCounter(0);
-            mob.setYLocation(mob.getYLocation() + TOTAL_MOB_SIZE);
-            mob.setVerticalStepsCounter(mob.getVerticalStepsCounter() + 1);
-            checkIfGameIsOver(mob);
-            mob.setDirection(mob.getDirection() * -1);
+    private static void updateLocation(Mob mob) {
+        if (shouldMoveDownMobs(mob)) {
+            DataDistributor.getMobs()
+                    .forEach(Mob::performStepDown);
         } else {
+            mob.setJustMovedDown(false);
             mob.setXLocation(mob.getXLocation() + (mob.getDirection() * MOB_STEP_SIZE));
-            mob.setHorizontalStepsCounter(mob.getHorizontalStepsCounter() + 1);
         }
     }
 
+    private static boolean shouldMoveDownMobs(Mob mob) {
+        return (mob.getXLocation() - MOB_STEP_SIZE < 0 ||
+                mob.getXLocation() + MOB_SIZE + MOB_STEP_SIZE > SwingDistributor.getGamePanel().getSize().width) &&
+                !mob.justMovedDown();
+    }
+
+    public static void moveMobDown(Mob mob) {
+        mob.setYLocation(mob.getYLocation() + TOTAL_MOB_SIZE);
+        mob.setDirection(mob.getDirection() * -1);
+        mob.setJustMovedDown(true);
+        checkIfGameIsOver(mob);
+    }
+
     private static void checkIfGameIsOver(Mob mob) {
-        if (mob.getVerticalStepsCounter() >= FIRST_MOB_POSSIBLE_STEPS_DOWN + mob.getStartRow()) {
-            DataDistributor.getMobs().forEach(m -> m.setVerticalStepsCounter(0));
+        if (mob.getYLocation() >= DataDistributor.getSpaceship().getYLocation() && !PauseService.gamePaused()) {
             new GameEndPopup(false);
         }
     }

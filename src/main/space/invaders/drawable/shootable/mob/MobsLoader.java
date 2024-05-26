@@ -38,7 +38,7 @@ public class MobsLoader {
 
         for (int row = 1; row <= mobType.getRowsOccupied(); row++) {
             for (int column = 1; column <= MOBS_IN_ONE_ROW_COUNT; column++) {
-                mobs.add(createMob(mobType, x, y, currentRow, stay, go));
+                mobs.add(createMob(mobType, x, y, stay, go));
                 x += TOTAL_MOB_SIZE;
             }
             y -= TOTAL_MOB_SIZE;
@@ -47,11 +47,11 @@ public class MobsLoader {
         }
     }
 
-    private static Mob createMob(MobType mobType, int x, int y, int currentRow, Image stay, Image go) {
+    private static Mob createMob(MobType mobType, int x, int y, Image stay, Image go) {
         return switch (mobType) {
-            case LOWER -> new LowerMob(stay, go, x, y, currentRow);
-            case MIDDLE -> new MiddleMob(stay, go, x, y, currentRow);
-            case UPPER -> new UpperMob(stay, go, x, y, currentRow);
+            case LOWER -> new LowerMob(stay, go, x, y);
+            case MIDDLE -> new MiddleMob(stay, go, x, y);
+            case UPPER -> new UpperMob(stay, go, x, y);
         };
     }
 

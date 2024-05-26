@@ -10,8 +10,8 @@ import static main.space.invaders.settings.Mob.MOB_SIZE;
 
 public class LowerMob extends Mob {
 
-    public LowerMob(Image stay, Image go, int xLocation, int yLocation, int startRow) {
-        super(stay, go, xLocation, yLocation, startRow);
+    public LowerMob(Image stay, Image go, int xLocation, int yLocation) {
+        super(stay, go, xLocation, yLocation);
     }
 
     @Override

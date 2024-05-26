@@ -11,6 +11,9 @@ public class MobSleepTimeService {
     }
 
     public static void modifyMobSleepTime(int newValue) {
+        if (newValue <= 0) {
+            newValue++;
+        }
         mobSleepTime = newValue;
     }
 

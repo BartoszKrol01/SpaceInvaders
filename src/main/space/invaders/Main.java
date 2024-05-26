@@ -21,5 +21,7 @@ public class Main {
         new MobShooter();
 
         InitializationService.startApplication();
+
+        //todo: pause on start of the game
     }
 }

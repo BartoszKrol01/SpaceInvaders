@@ -82,4 +82,8 @@ public class Spaceship implements Drawable, Shootable {
     public int getXLocation() {
         return xLocation;
     }
+
+    public int getYLocation() {
+        return yLocation;
+    }
 }
