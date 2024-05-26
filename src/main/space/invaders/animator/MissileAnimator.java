@@ -53,7 +53,7 @@ public class MissileAnimator extends Animator {
                         }
                     }
                 }
-                missile.setYLocation(missile.getYLocation() + missile.getDirection());
+                missile.setYLocation(missile.getYLocation() + missile.getDirection() * missile.getVelocity());
             }
 
             DataDistributor.removeMissiles(toRemoveMissiles);

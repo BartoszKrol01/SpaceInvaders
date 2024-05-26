@@ -18,19 +18,21 @@ public class Missile implements Drawable {
     private final Drawable source;
     private final int direction;
     private final Color color;
+    private final int velocity;
 
     public Missile(int xLocation, int yLocation, Drawable source) {
         this.source = source;
         this.xLocation = xLocation;
         this.yLocation = yLocation;
         this.height = MISSILE_HEIGHT;
+        this.velocity = 4;
 
         if (source.getType() == DrawableType.MOB) {
             this.color = Color.RED;
-            this.direction = 2;
+            this.direction = 1;
         } else if (source.getType() == DrawableType.SPACESHIP) {
             this.color = Color.GREEN;
-            this.direction = -2;
+            this.direction = -1;
         } else {
             throw new UnknownMissileSourceException("Missile cant be fired from unknown source!");
         }
@@ -77,5 +79,9 @@ public class Missile implements Drawable {
 
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    public int getVelocity() {
+        return velocity;
     }
 }

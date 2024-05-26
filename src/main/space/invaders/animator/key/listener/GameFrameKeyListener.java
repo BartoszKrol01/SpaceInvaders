@@ -62,7 +62,7 @@ public class GameFrameKeyListener extends Animator implements KeyListener {
             if (keysPressed.contains(KeyEventMapped.SPACE)) {
                 spaceship.fireMissile();
             }
-            sleepTryCatch(20);
+            sleepTryCatch(16);
         }
     }
 

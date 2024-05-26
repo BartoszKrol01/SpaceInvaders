@@ -7,8 +7,9 @@ import static main.space.invaders.settings.SpaceshipDisplay.SPACESHIP_SIZE;
 
 public class MoveService {
 
-    private static final int MAX_CHANGE_VALUE = 9;
-    private static final int CHANGE_VALUE_STEP = 3;
+    private static final int MAX_CHANGE_VALUE = 8;
+    private static final int BUTTON_CLICKED_CHANGE_VALUE = 12;
+    private static final int CHANGE_VALUE_STEP = 1;
     private int changeValue;
     private KeyEventMapped arrowDirection;
 
@@ -34,7 +35,7 @@ public class MoveService {
     }
 
     public static int handleButtonClicked(KeyEventMapped arrowDirection) {
-        return MAX_CHANGE_VALUE * arrowDirection.getSign();
+        return BUTTON_CLICKED_CHANGE_VALUE * arrowDirection.getSign();
     }
 
     public void setChangeValue(int changeValue) {
