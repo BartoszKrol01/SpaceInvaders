@@ -10,8 +10,7 @@ import main.space.invaders.utils.distribution.DataDistributor;
 import java.awt.Graphics;
 import java.awt.Image;
 
-import static main.space.invaders.settings.Missile.MISSILE_HEIGHT;
-import static main.space.invaders.settings.Mob.TOTAL_MOB_SIZE;
+import static main.space.invaders.settings.Mob.MOB_SIZE;
 
 public abstract class Mob implements Drawable, Shootable {
 
@@ -56,9 +55,9 @@ public abstract class Mob implements Drawable, Shootable {
     }
 
     @Override
-    public void fireMissile() {//todo: fix missile spawn point
-        int x = xLocation + TOTAL_MOB_SIZE / 2;
-        int y = yLocation + MISSILE_HEIGHT;
+    public void fireMissile() {
+        int x = xLocation + MOB_SIZE / 2;
+        int y = yLocation + MOB_SIZE / 2;
         Missile missile = new Missile(x, y, this);
         DataDistributor.addDrawables(missile);
         DataDistributor.addMissile(missile);
