@@ -7,6 +7,8 @@ import main.space.invaders.gui.panel.game.GamePanel;
 import main.space.invaders.gui.panel.game.RealTimePointsLabel;
 import main.space.invaders.gui.panel.game.player.ActivePlayerPanel;
 
+import javax.swing.JPanel;
+
 public class SwingDistributor {
 
     private static GamePanel gamePanel;
@@ -18,8 +20,9 @@ public class SwingDistributor {
     public static void initialize() {
         realTimePointsLabel = new RealTimePointsLabel();
         activePlayerPanel = new ActivePlayerPanel();
-        gamePanel = new GamePanel();
-        centerPanel = new CenterPanel();
+        JPanel gameWrapper = new JPanel();
+        gamePanel = new GamePanel(gameWrapper);
+        centerPanel = new CenterPanel(gameWrapper);
         gameFrame = new GameFrame(new FramePanel());
     }
 

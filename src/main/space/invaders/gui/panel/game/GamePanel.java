@@ -13,25 +13,26 @@ import java.awt.Graphics;
 
 public class GamePanel extends JPanel {
 
-    public GamePanel() {
+    private final JPanel gameWrapper;
+
+    public GamePanel(JPanel gameWrapper) {
         this.setBackground(Color.BLACK);
+        this.gameWrapper = gameWrapper;
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        updateFrameIfNecessary();
         SwingUtilities.updateComponentTreeUI(SwingDistributor.getCenterPanel());
         for (Drawable drawable : DataDistributor.getDrawables()) {
             drawable.draw(g);
         }
     }
 
-    private void updateFrameIfNecessary() {
+    public void updateFrameIfNecessary() {
         Dimension preferredSize = getPreferredSize();
-        Dimension realSize = getSize();
-        if (preferredSize.width > realSize.width || preferredSize.height > realSize.height) {
-            //todo: while decreasing sliders frame is forcefully resized even if there is no need
+        Dimension maxSize = gameWrapper.getSize();
+        if (preferredSize.width > maxSize.width || preferredSize.height > maxSize.height) {
             SwingUtilities.updateComponentTreeUI(SwingDistributor.getGameFrame());
             SwingDistributor.getGameFrame().pack();
         }

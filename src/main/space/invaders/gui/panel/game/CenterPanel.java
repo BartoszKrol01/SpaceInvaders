@@ -10,7 +10,7 @@ import java.awt.FlowLayout;
 
 public class CenterPanel extends JPanel {
 
-    public CenterPanel() {
+    public CenterPanel(JPanel gameWrapper) {
         this.setLayout(new BorderLayout());
 
         JPanel northPanel = new JPanel();
@@ -20,7 +20,6 @@ public class CenterPanel extends JPanel {
         northPanel.add(new JLabel());
         this.add(northPanel, BorderLayout.NORTH);
 
-        JPanel gameWrapper = new JPanel();
         gameWrapper.setBackground(Color.BLACK);
         gameWrapper.add(SwingDistributor.getGamePanel());
         this.add(gameWrapper, BorderLayout.CENTER);
