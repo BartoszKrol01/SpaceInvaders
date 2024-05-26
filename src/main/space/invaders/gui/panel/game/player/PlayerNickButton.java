@@ -10,7 +10,7 @@ import static main.space.invaders.utils.SwingUtils.customizeJButton;
 import static main.space.invaders.utils.SwingUtils.setFontAndForegroundColor;
 
 public class PlayerNickButton extends JButton {
-    //todo: after cancel clicked on popup nick should stay the same
+
     private static final String TEXT_PREFIX = "Player: ";
 
     public PlayerNickButton() {
