@@ -1,5 +1,6 @@
 package main.space.invaders.animator;
 
+import main.space.invaders.animator.key.listener.GameFrameKeyListener;
 import main.space.invaders.utils.distribution.DataDistributor;
 import main.space.invaders.utils.distribution.SwingDistributor;
 

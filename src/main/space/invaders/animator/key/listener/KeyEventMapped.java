@@ -1,4 +1,4 @@
-package main.space.invaders;
+package main.space.invaders.animator.key.listener;
 
 import java.awt.event.KeyEvent;
 import java.util.Arrays;

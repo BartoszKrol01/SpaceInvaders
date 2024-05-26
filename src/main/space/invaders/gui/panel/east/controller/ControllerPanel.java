@@ -1,6 +1,6 @@
 package main.space.invaders.gui.panel.east.controller;
 
-import main.space.invaders.KeyEventMapped;
+import main.space.invaders.animator.key.listener.KeyEventMapped;
 import main.space.invaders.utils.SwingUtils;
 
 import javax.swing.JPanel;

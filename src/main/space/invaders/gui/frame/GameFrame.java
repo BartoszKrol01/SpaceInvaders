@@ -1,6 +1,6 @@
 package main.space.invaders.gui.frame;
 
-import main.space.invaders.animator.GameFrameKeyListener;
+import main.space.invaders.animator.key.listener.GameFrameKeyListener;
 import main.space.invaders.gui.panel.FramePanel;
 
 import javax.swing.JFrame;

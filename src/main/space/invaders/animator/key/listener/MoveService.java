@@ -1,4 +1,4 @@
-package main.space.invaders;
+package main.space.invaders.animator.key.listener;
 
 import main.space.invaders.settings.GameDisplay;
 import main.space.invaders.utils.distribution.DataDistributor;
