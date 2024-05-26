@@ -7,22 +7,28 @@ public class BarrierDisplay {
     public static final int BARRIER_SIZE = 2;
     public static final int BARRIERS_TRIANGLE_BASE = 41;
     public static final int BARRIERS_TRIANGLE_BASE_WIDTH = BARRIERS_TRIANGLE_BASE * BARRIER_SIZE;
-    public static final int GAP_BETWEEN_BARRIERS = ((GameDisplay.getGamePanelWidth() - (2 * GameDisplay.SIDE_PANEL_GAP)) - 2 * BARRIERS_TRIANGLE_BASE_WIDTH) / 2 - BARRIERS_TRIANGLE_BASE_WIDTH / 2;
     public static final int BARRIERS_TRIANGLE_HEIGHT = (BARRIERS_TRIANGLE_BASE + 1) / 2;
-    public static final int BARRIERS_TRIANGLES_NUMBER = 3;
+    public static int BARRIERS_TRIANGLES_NUMBER = 3;
+    private static int gapBetweenBarriers;
     private static int barriersTriangleBaseStartY;
 
     static {
-        recalculateBarrierTriangleBaseStartY();
+        recalculateBarrierDisplayValues();
     }
 
     public static int getBarriersTriangleBaseStartY() {
-        recalculateBarrierTriangleBaseStartY();
+        recalculateBarrierDisplayValues();
         return barriersTriangleBaseStartY;
     }
 
-    private static void recalculateBarrierTriangleBaseStartY() {
+    public static int getGapBetweenBarriers() {
+        recalculateBarrierDisplayValues();
+        return gapBetweenBarriers;
+    }
+
+    private static void recalculateBarrierDisplayValues() {
         barriersTriangleBaseStartY = SpaceshipDisplay.getSpaceshipStartY() - TOTAL_MOB_SIZE;
+        gapBetweenBarriers = ((GameDisplay.getGamePanelWidth() - (2 * GameDisplay.SIDE_PANEL_GAP)) - 2 * BARRIERS_TRIANGLE_BASE_WIDTH) / 2 - BARRIERS_TRIANGLE_BASE_WIDTH / 2;
     }
 
     private BarrierDisplay() {}

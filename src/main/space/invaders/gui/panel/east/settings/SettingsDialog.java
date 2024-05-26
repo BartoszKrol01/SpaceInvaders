@@ -28,17 +28,17 @@ public class SettingsDialog extends JDialog {
         SettingsLabel rowsOfEnemiesLabel = new SettingsLabel("Rows of enemies");
         SettingsSlider rowsOfEnemiesSlider = new SettingsSlider(JSlider.HORIZONTAL,
                 3,
-                7,
+                13,
                 NUMBER_OF_MOB_ROWS_DEFAULT,
                 1,
                 SliderFunction.NUMBER_OF_MOB_ROWS);
 
         SettingsLabel enemiesInRowLabel = new SettingsLabel("Enemies in row");
         SettingsSlider enemiesInRowSlider = new SettingsSlider(JSlider.HORIZONTAL,
-                1,
-                16,
+                7,
+                31,
                 MOBS_IN_ONE_ROW_COUNT_DEFAULT,
-                3,
+                4,
                 SliderFunction.MOBS_IN_ONE_ROW);
 
         SettingsLabel enemiesStepIntervalLabel = new SettingsLabel("Enemies step interval");
