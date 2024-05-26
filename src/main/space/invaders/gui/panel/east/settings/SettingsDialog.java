@@ -17,7 +17,7 @@ import static main.space.invaders.settings.service.MobsInOneRowCountService.MOBS
 import static main.space.invaders.settings.service.NumberOfMobRowsService.NUMBER_OF_MOB_ROWS_DEFAULT;
 
 public class SettingsDialog extends JDialog {
-    //todo: some options reset the game, assure user that the game will be restarted
+
     public SettingsDialog() {
         this.setVisible(false);
         this.setLocationRelativeTo(null);
@@ -50,7 +50,7 @@ public class SettingsDialog extends JDialog {
                 SliderFunction.MOB_SLEEP_TIME);
 
         SettingsLabel fixedTimeLabel = new SettingsLabel("Fixed time");
-        FixedTimeCheckBox fixedTimeCheckBox = new FixedTimeCheckBox();
+        FixedTimeCheckBox fixedTimeCheckBox = new FixedTimeCheckBox(enemiesStepIntervalSlider);
 
         SettingsLabel specialModeLabel = new SettingsLabel("Special mode");
         JCheckBox specialModeCheckBox = new JCheckBox();
