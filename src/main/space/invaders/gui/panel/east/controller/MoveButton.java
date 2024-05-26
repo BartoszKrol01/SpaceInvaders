@@ -1,5 +1,6 @@
 package main.space.invaders.gui.panel.east.controller;
 
+import main.space.invaders.animator.PauseService;
 import main.space.invaders.animator.key.listener.KeyEventMapped;
 import main.space.invaders.animator.key.listener.MoveService;
 import main.space.invaders.utils.FileLoader;
@@ -22,8 +23,10 @@ public class MoveButton extends JButton {
         ImageIcon icon = new ImageIcon(FileLoader.loadImage(filePath));
         this.setIcon(icon);
         this.addActionListener(e -> {
-            int changeValue = MoveService.handleButtonClicked(keyEvent);
-            DataDistributor.getSpaceship().changeSpaceshipLocation(changeValue);
+            if (!PauseService.gamePaused()) {
+                int changeValue = MoveService.handleButtonClicked(keyEvent);
+                DataDistributor.getSpaceship().changeSpaceshipLocation(changeValue);
+            }
         });
     }
 }

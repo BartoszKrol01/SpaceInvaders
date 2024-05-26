@@ -1,5 +1,6 @@
 package main.space.invaders.gui.panel.east.controller;
 
+import main.space.invaders.animator.PauseService;
 import main.space.invaders.utils.FileLoader;
 import main.space.invaders.utils.SwingUtils;
 import main.space.invaders.utils.distribution.DataDistributor;
@@ -16,6 +17,10 @@ public class ShootButton extends JButton {
         this.setIcon(icon);
         this.setBackground(SwingUtils.GUI_COLOR);
         customizeJButton(this);
-        this.addActionListener(e -> DataDistributor.getSpaceship().fireMissile());
+        this.addActionListener(e -> {
+            if (!PauseService.gamePaused()) {
+                DataDistributor.getSpaceship().fireMissile();
+            }
+        });
     }
 }
