@@ -15,7 +15,7 @@ import java.util.Map;
 import static main.space.invaders.utils.SwingUtils.customizeJButton;
 
 public class ChangeSpaceshipButton extends JButton {
-
+    //todo: if game paused choosing spaceship should not unpause
     private static final String TITLE = "Spaceship edit mode";
 
     public ChangeSpaceshipButton() {

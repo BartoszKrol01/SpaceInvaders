@@ -1,5 +1,6 @@
 package main.space.invaders.gui.panel.game.player;
 
+import main.space.invaders.animator.PauseService;
 import main.space.invaders.gui.popup.EnterPlayerNickPopup;
 import main.space.invaders.utils.SwingUtils;
 import main.space.invaders.utils.distribution.DataDistributor;
@@ -19,7 +20,7 @@ public class PlayerNickButton extends JButton {
         this.setBackground(SwingUtils.GUI_COLOR);
         updatePlayerNick();
         this.addActionListener(e -> {
-            new EnterPlayerNickPopup(true);
+            new EnterPlayerNickPopup(!PauseService.gamePaused());
             updatePlayerNick();
         });
     }
