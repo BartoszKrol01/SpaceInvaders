@@ -11,7 +11,6 @@ import java.util.Objects;
 import static main.space.invaders.settings.Mob.MOB_SIZE;
 import static main.space.invaders.settings.Mob.MOB_STEP_SIZE;
 import static main.space.invaders.settings.Mob.TOTAL_MOB_SIZE;
-import static main.space.invaders.settings.Mob.TOTAL_NUMBER_OF_MOBS;
 import static main.space.invaders.settings.service.MobSleepTimeService.MOB_SLEEP_TIME_DEFAULT;
 
 public class MobAnimator extends Animator {
@@ -46,7 +45,7 @@ public class MobAnimator extends Animator {
         if (MobSleepTimeService.isMobSleepTimeFixed()) {
             return MobSleepTimeService.getMobsSleepTime();
         } else {
-            return MOB_SLEEP_TIME_DEFAULT - (TOTAL_NUMBER_OF_MOBS - DataDistributor.getMobs().size());
+            return (long) (Math.log(Math.pow(DataDistributor.getMobs().size(), 5)) + 3);
         }
     }
 

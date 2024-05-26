@@ -15,8 +15,8 @@ import static main.space.invaders.settings.Missile.MISSILE_SHORTEN_RATE;
 public class MissileVerificationService {
 
     private static LocalDateTime lastMissileFired;
-    private static final double MINIMAL_INTERVAL_BETWEEN_MISSILE_FIRE = 500;
-    private static final int MAXIMUM_FRIENDLY_MISSILES_ON_SCREEN = 10;
+    private static final double MINIMAL_INTERVAL_BETWEEN_MISSILE_FIRE = 200;
+    private static final int MAXIMUM_FRIENDLY_MISSILES_ON_SCREEN = 15;
 
     public static boolean shouldFireMoreMissiles() {
         if (lastMissileFired == null) {

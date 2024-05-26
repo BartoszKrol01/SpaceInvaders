@@ -7,6 +7,8 @@ import main.space.invaders.gui.popup.EnterPlayerNickPopup;
 import main.space.invaders.utils.distribution.SwingDistributor;
 
 public class Main {
+    //todo: missiles should be faster
+    //todo: reduce number of lives
     public static void main(String[] args) throws InterruptedException {
         //ask for player name
         new EnterPlayerNickPopup(false);

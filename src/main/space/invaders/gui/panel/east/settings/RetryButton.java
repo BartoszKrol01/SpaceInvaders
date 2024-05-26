@@ -3,6 +3,7 @@ package main.space.invaders.gui.panel.east.settings;
 import main.space.invaders.animator.PauseService;
 import main.space.invaders.utils.FileLoader;
 import main.space.invaders.utils.SwingUtils;
+import main.space.invaders.utils.distribution.SwingDistributor;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,6 +19,7 @@ public class RetryButton extends JButton {
         this.setBackground(SwingUtils.GUI_COLOR);
         this.addActionListener(e -> {
             PauseService.restartTheGame();
+            SwingDistributor.getGamePanel().repaint();
             PauseService.pauseTheGame();
         });
     }

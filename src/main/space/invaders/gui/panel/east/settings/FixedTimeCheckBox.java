@@ -6,7 +6,7 @@ import main.space.invaders.utils.SwingUtils;
 import javax.swing.JCheckBox;
 
 public class FixedTimeCheckBox extends JCheckBox {
-
+    //todo: if unchecked disable mob sleep time Slider
     private final static String TOOL_TIP_TEXT = "If unchecked enemies will move faster as their number decreases";
 
     public FixedTimeCheckBox() {
