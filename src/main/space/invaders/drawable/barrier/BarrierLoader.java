@@ -12,7 +12,8 @@ import static main.space.invaders.settings.BarrierDisplay.BARRIER_SIZE;
 import static main.space.invaders.settings.BarrierDisplay.GAP_BETWEEN_BARRIERS;
 import static main.space.invaders.settings.GameDisplay.SIDE_PANEL_GAP;
 
-public class BarrierLoader {//todo: fix barriers initial position
+public class BarrierLoader {
+//todo: fix barriers initial position
 
     public static CopyOnWriteArrayList<Barrier> loadBarriers() {
         CopyOnWriteArrayList<Barrier> barriers = new CopyOnWriteArrayList<>();
