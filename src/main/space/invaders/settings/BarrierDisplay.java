@@ -22,7 +22,7 @@ public class BarrierDisplay {
     }
 
     private static void recalculateBarrierTriangleBaseStartY() {
-        barriersTriangleBaseStartY = SpaceshipDisplay.getSpaceshipStartY() - TOTAL_MOB_SIZE - BARRIER_SIZE;
+        barriersTriangleBaseStartY = SpaceshipDisplay.getSpaceshipStartY() - TOTAL_MOB_SIZE;
     }
 
     private BarrierDisplay() {}

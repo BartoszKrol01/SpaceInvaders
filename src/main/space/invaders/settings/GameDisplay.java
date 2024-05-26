@@ -5,6 +5,8 @@ import main.space.invaders.settings.service.NumberOfMobRowsService;
 
 import java.awt.Dimension;
 
+import static main.space.invaders.settings.SpaceshipDisplay.GAP_BETWEEN_SPACESHIP_AND_MOBS;
+
 public class GameDisplay {
 
     public static final int TOP_GAP_BETWEEN_PANEL_AND_FRAME = MobDisplay.TOTAL_MOB_SIZE;
@@ -33,7 +35,7 @@ public class GameDisplay {
 
     private static void recalculateGameDimension() {
         gamePanelWidth = MobDisplay.TOTAL_MOB_SIZE * MobsInOneRowCountService.getMobsInOneRowCount() + SIDE_PANEL_GAP * 2;
-        gamePanelHeight = MobDisplay.TOTAL_MOB_SIZE * NumberOfMobRowsService.getNumberOfMobRows() * 2 + TOP_GAP_BETWEEN_PANEL_AND_FRAME;
+        gamePanelHeight = MobDisplay.TOTAL_MOB_SIZE * NumberOfMobRowsService.getNumberOfMobRows() + GAP_BETWEEN_SPACESHIP_AND_MOBS + TOP_GAP_BETWEEN_PANEL_AND_FRAME;
     }
 
     private GameDisplay() {}

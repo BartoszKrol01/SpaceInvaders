@@ -12,7 +12,7 @@ public class NumberOfMobRowsService {
         numberOfMobRows = NUMBER_OF_MOB_ROWS_DEFAULT;
     }
 
-    public static void modifyNumberOfMobRows(int newValue) { //todo: barriers have different space between mobs for different values of mob rows
+    public static void modifyNumberOfMobRows(int newValue) {
         numberOfMobRows = newValue;
         MobType.calculateRowsOccupied(newValue);
         PauseService.restartTheGame();
