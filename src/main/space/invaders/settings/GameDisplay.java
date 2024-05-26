@@ -1,5 +1,6 @@
 package main.space.invaders.settings;
 
+import main.space.invaders.settings.service.MobsInOneRowCountService;
 import main.space.invaders.settings.service.NumberOfMobRowsService;
 
 import java.awt.Dimension;
@@ -31,7 +32,7 @@ public class GameDisplay {
     }
 
     private static void recalculateGameDimension() {
-        gamePanelWidth = MobDisplay.TOTAL_MOB_SIZE * MobDisplay.MOBS_IN_ONE_ROW_COUNT + SIDE_PANEL_GAP * 2;
+        gamePanelWidth = MobDisplay.TOTAL_MOB_SIZE * MobsInOneRowCountService.getMobsInOneRowCount() + SIDE_PANEL_GAP * 2;
         gamePanelHeight = MobDisplay.TOTAL_MOB_SIZE * NumberOfMobRowsService.getNumberOfMobRows() * 2 + TOP_GAP_BETWEEN_PANEL_AND_FRAME;
     }
 

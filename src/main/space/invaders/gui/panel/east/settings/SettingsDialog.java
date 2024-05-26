@@ -13,8 +13,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 import static main.space.invaders.settings.service.MobSleepTimeService.MOB_SLEEP_TIME_DEFAULT;
+import static main.space.invaders.settings.service.MobsInOneRowCountService.MOBS_IN_ONE_ROW_COUNT_DEFAULT;
 import static main.space.invaders.settings.service.NumberOfMobRowsService.NUMBER_OF_MOB_ROWS_DEFAULT;
-import static main.space.invaders.settings.service.SettingsService.MOBS_IN_ONE_ROW_COUNT_DEFAULT;
 
 public class SettingsDialog extends JDialog {
     //todo: some options reset the game, assure user that the game will be restarted

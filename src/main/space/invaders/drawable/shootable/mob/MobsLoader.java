@@ -4,6 +4,7 @@ import main.space.invaders.drawable.shootable.mob.model.LowerMob;
 import main.space.invaders.drawable.shootable.mob.model.MiddleMob;
 import main.space.invaders.drawable.shootable.mob.model.Mob;
 import main.space.invaders.drawable.shootable.mob.model.UpperMob;
+import main.space.invaders.settings.service.MobsInOneRowCountService;
 import main.space.invaders.settings.service.NumberOfMobRowsService;
 import main.space.invaders.utils.FileLoader;
 
@@ -13,7 +14,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import static main.space.invaders.settings.GameDisplay.SIDE_PANEL_GAP;
 import static main.space.invaders.settings.GameDisplay.TOP_GAP_BETWEEN_PANEL_AND_FRAME;
-import static main.space.invaders.settings.MobDisplay.MOBS_IN_ONE_ROW_COUNT;
 import static main.space.invaders.settings.MobDisplay.TOTAL_MOB_SIZE;
 
 public class MobsLoader {
@@ -38,7 +38,7 @@ public class MobsLoader {
         int y = getCurrentMobYLocation();
 
         for (int row = 1; row <= mobType.getRowsOccupied(); row++) {
-            for (int column = 1; column <= MOBS_IN_ONE_ROW_COUNT; column++) {
+            for (int column = 1; column <= MobsInOneRowCountService.getMobsInOneRowCount(); column++) {
                 mobs.add(createMob(mobType, x, y, stay, go));
                 x += TOTAL_MOB_SIZE;
             }

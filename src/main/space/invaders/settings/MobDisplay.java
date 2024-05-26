@@ -1,7 +1,6 @@
 package main.space.invaders.settings;
 
 import static main.space.invaders.settings.Image.IMAGE_SIZE;
-import static main.space.invaders.settings.service.SettingsService.MOBS_IN_ONE_ROW_COUNT_DEFAULT;
 
 public class MobDisplay {
 
@@ -16,7 +15,6 @@ public class MobDisplay {
     public static final int UPPER_MOB_HITBOX_DIFFERENCE_Y = 4;
     public static final int MIDDLE_MOB_HITBOX_DIFFERENCE_X = 1;
     public static final int MIDDLE_MOB_HITBOX_DIFFERENCE_Y = 8;
-    public static final int MOBS_IN_ONE_ROW_COUNT = MOBS_IN_ONE_ROW_COUNT_DEFAULT;//todo:reload
 
     private MobDisplay() {}
 

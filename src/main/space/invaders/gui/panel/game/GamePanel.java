@@ -21,6 +21,7 @@ public class GamePanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         updateFrameIfNecessary();
+        SwingUtilities.updateComponentTreeUI(SwingDistributor.getCenterPanel());
         for (Drawable drawable : DataDistributor.getDrawables()) {
             drawable.draw(g);
         }
@@ -30,6 +31,7 @@ public class GamePanel extends JPanel {
         Dimension preferredSize = getPreferredSize();
         Dimension realSize = getSize();
         if (preferredSize.width > realSize.width || preferredSize.height > realSize.height) {
+            //todo: while decreasing sliders frame is forcefully resized even if there is no need
             SwingUtilities.updateComponentTreeUI(SwingDistributor.getGameFrame());
             SwingDistributor.getGameFrame().pack();
         }

@@ -1,7 +1,7 @@
 package main.space.invaders.gui.panel;
 
 import main.space.invaders.gui.panel.east.EastPanel;
-import main.space.invaders.gui.panel.game.CenterPanel;
+import main.space.invaders.utils.distribution.SwingDistributor;
 
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
@@ -14,6 +14,6 @@ public class FramePanel extends JPanel {
         this.setLayout(new BorderLayout());
         this.add(new ScoreBoardPanel(), BorderLayout.WEST);
         this.add(new EastPanel(), BorderLayout.EAST);
-        this.add(new CenterPanel(), BorderLayout.CENTER);
+        this.add(SwingDistributor.getCenterPanel(), BorderLayout.CENTER);
     }
 }
