@@ -1,8 +1,6 @@
 package main.space.invaders;
 
 import main.space.invaders.animator.PauseService;
-import main.space.invaders.gui.frame.GameFrame;
-import main.space.invaders.gui.panel.FramePanel;
 import main.space.invaders.gui.popup.EnterPlayerNickPopup;
 import main.space.invaders.utils.distribution.SwingDistributor;
 
@@ -13,10 +11,7 @@ public class Main {
         //ask for player name
         new EnterPlayerNickPopup(false);
 
-        //create user interface
-        new GameFrame(new FramePanel());
-
-        //start threads and populate data
+        //create user interface, start threads and populate data
         InitializationService.startApplication();
 
         //make sure that panel painted all of drawables

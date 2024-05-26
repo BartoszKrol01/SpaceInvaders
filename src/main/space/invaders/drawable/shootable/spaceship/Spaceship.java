@@ -5,20 +5,19 @@ import main.space.invaders.drawable.DrawableType;
 import main.space.invaders.drawable.missile.HitBox;
 import main.space.invaders.drawable.missile.Missile;
 import main.space.invaders.drawable.shootable.Shootable;
+import main.space.invaders.settings.SpaceshipDisplay;
 import main.space.invaders.utils.distribution.DataDistributor;
 import main.space.invaders.utils.distribution.SwingDistributor;
 
 import java.awt.Graphics;
 
 import static main.space.invaders.drawable.missile.MissileVerificationService.shouldFireMoreMissiles;
-import static main.space.invaders.settings.Missile.MISSILE_HEIGHT;
-import static main.space.invaders.settings.Spaceship.FIRST_SPACESHIP_HITBOX_DIFFERENCE_X;
-import static main.space.invaders.settings.Spaceship.FIRST_SPACESHIP_HITBOX_DIFFERENCE_Y;
-import static main.space.invaders.settings.Spaceship.SECOND_SPACESHIP_HITBOX_DIFFERENCE_X;
-import static main.space.invaders.settings.Spaceship.SECOND_SPACESHIP_HITBOX_DIFFERENCE_Y;
-import static main.space.invaders.settings.Spaceship.SPACESHIP_SIZE;
-import static main.space.invaders.settings.Spaceship.SPACESHIP_START_X;
-import static main.space.invaders.settings.Spaceship.SPACESHIP_START_Y;
+import static main.space.invaders.settings.MissileDisplay.MISSILE_HEIGHT;
+import static main.space.invaders.settings.SpaceshipDisplay.FIRST_SPACESHIP_HITBOX_DIFFERENCE_X;
+import static main.space.invaders.settings.SpaceshipDisplay.FIRST_SPACESHIP_HITBOX_DIFFERENCE_Y;
+import static main.space.invaders.settings.SpaceshipDisplay.SECOND_SPACESHIP_HITBOX_DIFFERENCE_X;
+import static main.space.invaders.settings.SpaceshipDisplay.SECOND_SPACESHIP_HITBOX_DIFFERENCE_Y;
+import static main.space.invaders.settings.SpaceshipDisplay.SPACESHIP_SIZE;
 
 public class Spaceship implements Drawable, Shootable {
 
@@ -26,8 +25,8 @@ public class Spaceship implements Drawable, Shootable {
     private final int yLocation;
 
     public Spaceship() {
-        this.xLocation = SPACESHIP_START_X;
-        this.yLocation = SPACESHIP_START_Y;
+        this.xLocation = SpaceshipDisplay.getSpaceshipStartX();
+        this.yLocation = SpaceshipDisplay.getSpaceshipStartY();
     }
 
     public void changeSpaceshipLocation(int xChangeValue) {

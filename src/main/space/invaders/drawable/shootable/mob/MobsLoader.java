@@ -4,6 +4,7 @@ import main.space.invaders.drawable.shootable.mob.model.LowerMob;
 import main.space.invaders.drawable.shootable.mob.model.MiddleMob;
 import main.space.invaders.drawable.shootable.mob.model.Mob;
 import main.space.invaders.drawable.shootable.mob.model.UpperMob;
+import main.space.invaders.settings.service.NumberOfMobRowsService;
 import main.space.invaders.utils.FileLoader;
 
 import java.awt.Image;
@@ -12,11 +13,11 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import static main.space.invaders.settings.GameDisplay.SIDE_PANEL_GAP;
 import static main.space.invaders.settings.GameDisplay.TOP_GAP_BETWEEN_PANEL_AND_FRAME;
-import static main.space.invaders.settings.Mob.MOBS_IN_ONE_ROW_COUNT;
-import static main.space.invaders.settings.Mob.NUMBER_OF_MOB_ROWS;
-import static main.space.invaders.settings.Mob.TOTAL_MOB_SIZE;
+import static main.space.invaders.settings.MobDisplay.MOBS_IN_ONE_ROW_COUNT;
+import static main.space.invaders.settings.MobDisplay.TOTAL_MOB_SIZE;
 
 public class MobsLoader {
+    //todo: images should be static and final
 
     private static int currentRow;
 
@@ -56,6 +57,6 @@ public class MobsLoader {
     }
 
     private static int getCurrentMobYLocation() {
-        return (TOP_GAP_BETWEEN_PANEL_AND_FRAME + (NUMBER_OF_MOB_ROWS * TOTAL_MOB_SIZE)) - (currentRow * TOTAL_MOB_SIZE);
+        return (TOP_GAP_BETWEEN_PANEL_AND_FRAME + (NumberOfMobRowsService.getNumberOfMobRows() * TOTAL_MOB_SIZE)) - (currentRow * TOTAL_MOB_SIZE);
     }
 }

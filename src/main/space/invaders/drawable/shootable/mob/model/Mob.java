@@ -11,7 +11,7 @@ import main.space.invaders.utils.distribution.DataDistributor;
 import java.awt.Graphics;
 import java.awt.Image;
 
-import static main.space.invaders.settings.Mob.MOB_SIZE;
+import static main.space.invaders.settings.MobDisplay.MOB_SIZE;
 
 public abstract class Mob implements Drawable, Shootable {
 

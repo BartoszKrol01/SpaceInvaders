@@ -47,6 +47,7 @@ public class PauseService {
         SwingDistributor.getActivePlayerPanel().resetPanel();
         SwingDistributor.getRealTimePointsLabel().restartText();
         DataDistributor.populateData();
+        SwingDistributor.getGamePanel().repaint();
     }
 
     private PauseService() {}

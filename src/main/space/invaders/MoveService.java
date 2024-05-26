@@ -1,9 +1,9 @@
 package main.space.invaders;
 
+import main.space.invaders.settings.GameDisplay;
 import main.space.invaders.utils.distribution.DataDistributor;
 
-import static main.space.invaders.settings.GameDisplay.GAME_PANEL_WIDTH;
-import static main.space.invaders.settings.Spaceship.SPACESHIP_SIZE;
+import static main.space.invaders.settings.SpaceshipDisplay.SPACESHIP_SIZE;
 
 public class MoveService {
 
@@ -29,7 +29,7 @@ public class MoveService {
 
     public static boolean isSpaceShipAtBorder(KeyEventMapped direction, int xLocation) {
         boolean isAtLeftBorder = xLocation <= -2 && direction == KeyEventMapped.LEFT;
-        boolean isAtRightBorder = xLocation >= GAME_PANEL_WIDTH - SPACESHIP_SIZE + 1 && direction == KeyEventMapped.RIGHT;
+        boolean isAtRightBorder = xLocation >= GameDisplay.getGamePanelWidth() - SPACESHIP_SIZE + 1 && direction == KeyEventMapped.RIGHT;
         return isAtRightBorder || isAtLeftBorder;
     }
 

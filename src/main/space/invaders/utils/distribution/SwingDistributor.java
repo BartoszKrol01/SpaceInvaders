@@ -1,19 +1,27 @@
 package main.space.invaders.utils.distribution;
 
+import main.space.invaders.gui.frame.GameFrame;
+import main.space.invaders.gui.panel.FramePanel;
 import main.space.invaders.gui.panel.game.GamePanel;
 import main.space.invaders.gui.panel.game.RealTimePointsLabel;
 import main.space.invaders.gui.panel.game.player.ActivePlayerPanel;
 
 public class SwingDistributor {
 
-    private static final GamePanel gamePanel;
-    private static final RealTimePointsLabel realTimePointsLabel;
-    private static final ActivePlayerPanel activePlayerPanel;
+    private static GamePanel gamePanel;
+    private static RealTimePointsLabel realTimePointsLabel;
+    private static ActivePlayerPanel activePlayerPanel;
+    private static GameFrame gameFrame;
 
-    static {
-        activePlayerPanel = new ActivePlayerPanel();
+    public static void initialize() {
         realTimePointsLabel = new RealTimePointsLabel();
+        activePlayerPanel = new ActivePlayerPanel();
         gamePanel = new GamePanel();
+        gameFrame = new GameFrame(new FramePanel());
+    }
+
+    public static GameFrame getGameFrame() {
+        return gameFrame;
     }
 
     public static GamePanel getGamePanel() {

@@ -13,7 +13,7 @@ import java.util.List;
 import static main.space.invaders.drawable.missile.MissileVerificationService.isMissileOffScreen;
 import static main.space.invaders.drawable.missile.MissileVerificationService.shouldRemoveMissile;
 import static main.space.invaders.drawable.missile.MissileVerificationService.shouldShortenMissile;
-import static main.space.invaders.settings.Missile.MISSILE_SHORTEN_RATE;
+import static main.space.invaders.settings.MissileDisplay.MISSILE_SHORTEN_RATE;
 
 public class MissileAnimator extends Animator {
 

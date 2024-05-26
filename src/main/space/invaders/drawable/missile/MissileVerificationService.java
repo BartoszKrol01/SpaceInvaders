@@ -2,15 +2,15 @@ package main.space.invaders.drawable.missile;
 
 import main.space.invaders.drawable.Drawable;
 import main.space.invaders.drawable.DrawableType;
+import main.space.invaders.settings.GameDisplay;
 import main.space.invaders.utils.distribution.DataDistributor;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
 
 import static main.space.invaders.drawable.missile.HitBox.isThereCollision;
-import static main.space.invaders.settings.GameDisplay.GAME_PANEL_HEIGHT;
-import static main.space.invaders.settings.Missile.MISSILE_HEIGHT;
-import static main.space.invaders.settings.Missile.MISSILE_SHORTEN_RATE;
+import static main.space.invaders.settings.MissileDisplay.MISSILE_HEIGHT;
+import static main.space.invaders.settings.MissileDisplay.MISSILE_SHORTEN_RATE;
 
 public class MissileVerificationService {
 
@@ -35,7 +35,7 @@ public class MissileVerificationService {
     }
 
     public static boolean isMissileOffScreen(Missile missile) {
-        return missile.getYLocation() > GAME_PANEL_HEIGHT || missile.getYLocation() + MISSILE_HEIGHT < 0;
+        return missile.getYLocation() > GameDisplay.getGamePanelHeight() || missile.getYLocation() + MISSILE_HEIGHT < 0;
     }
 
     public static boolean shouldShortenMissile(Missile missile, Drawable drawable) {
