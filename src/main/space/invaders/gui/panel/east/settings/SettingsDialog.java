@@ -17,6 +17,7 @@ import static main.space.invaders.settings.service.MobsInOneRowCountService.MOBS
 import static main.space.invaders.settings.service.NumberOfMobRowsService.NUMBER_OF_MOB_ROWS_DEFAULT;
 
 public class SettingsDialog extends JDialog {
+    //todo: increase number of mob columns then decrease, mobs ignore side steps
 
     public SettingsDialog() {
         this.setVisible(false);
