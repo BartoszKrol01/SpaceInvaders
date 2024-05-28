@@ -1,4 +1,4 @@
-package main.space.invaders.gui.frame.menu;
+package main.space.invaders.gui.frame.menu.listener;
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;

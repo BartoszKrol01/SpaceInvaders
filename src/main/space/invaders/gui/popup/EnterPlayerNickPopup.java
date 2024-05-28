@@ -32,9 +32,12 @@ public class EnterPlayerNickPopup {
                 "Introducing...",
                 JOptionPane.OK_CANCEL_OPTION);
 
-        if (option == JOptionPane.OK_OPTION && textField.getText() != null && !textField.getText().isBlank()) {
-            System.out.println("OK OPTION : " + textField.getText());
-            DataDistributor.setPlayer(new Player(textField.getText()));
+        String userInput = textField.getText();
+        if (option == JOptionPane.OK_OPTION && userInput != null && !userInput.isBlank()) {
+            if (userInput.contains("~")) {
+                JOptionPane.showMessageDialog(null, "Nick can not contain '~' character", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            DataDistributor.setPlayer(new Player(userInput));
         } else if (DataDistributor.getPlayer() == null) {
             DataDistributor.setPlayer(new Player("guest"));
         }

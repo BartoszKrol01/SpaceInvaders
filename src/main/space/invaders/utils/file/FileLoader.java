@@ -44,13 +44,17 @@ public class FileLoader {
     }
 
     public static FileWriter getScoreFileWriter() {
-        FileWriter file;
+        return getFileWriter(getScoreFile(), true);
+    }
+
+    public static FileWriter getFileWriter(File file, boolean append) {
+        FileWriter fileWriter;
         try {
-            file = new FileWriter(getScoreFile(), true);
+            fileWriter = new FileWriter(file, append);
         } catch (IOException e) {
-            throw new FileLoadException("Error occurred while reading input file ", e);
+            throw new FileLoadException("Error occurred while reading input file", e);
         }
-        return file;
+        return fileWriter;
     }
 
     private static File getScoreFile() {

@@ -1,6 +1,6 @@
 package main.space.invaders.utils.file;
 
-import main.space.invaders.exception.ScoreFileReadException;
+import main.space.invaders.exception.ScoreFileException;
 import main.space.invaders.player.HighScore;
 
 import java.io.BufferedReader;
@@ -21,7 +21,7 @@ public class ScoreFileService {
             file.flush();
             file.close();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new ScoreFileException("Error while writing score to file", e);
         }
     }
 
@@ -38,7 +38,7 @@ public class ScoreFileService {
                     HighScore highScoreToAdd = new HighScore(playerName, score);
                     result.add(highScoreToAdd);
                 } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
-                    throw new ScoreFileReadException("""
+                    throw new ScoreFileException("""
                             Error while reading score. You have several options here:
                             - ensure that the score values are integers
                             - ensure that the player name and score are separated by the '%s' character
@@ -48,7 +48,7 @@ public class ScoreFileService {
                 }
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new ScoreFileException("Error while reading score", e);
         }
 
         return result.stream()
