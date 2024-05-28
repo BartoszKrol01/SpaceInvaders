@@ -1,9 +1,9 @@
 package main.space.invaders.gui.panel.east.controller;
 
 import main.space.invaders.animator.PauseService;
-import main.space.invaders.utils.FileLoader;
 import main.space.invaders.utils.SwingUtils;
 import main.space.invaders.utils.distribution.DataDistributor;
+import main.space.invaders.utils.file.FileLoader;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;

@@ -1,6 +1,6 @@
 package main.space.invaders.drawable.shootable.spaceship;
 
-import main.space.invaders.utils.FileLoader;
+import main.space.invaders.utils.file.FileLoader;
 
 import java.awt.Image;
 import java.util.HashMap;

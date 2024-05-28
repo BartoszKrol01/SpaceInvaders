@@ -8,6 +8,7 @@ import main.space.invaders.utils.SwingUtils;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.Map;
@@ -34,6 +35,7 @@ public class ChangeSpaceshipButton extends JButton {
         dialog.setLocationRelativeTo(null);
         dialog.setTitle(TITLE);
         dialog.setVisible(true);
+        dialog.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
 
     private JDialog addButtonsToJDialog() {

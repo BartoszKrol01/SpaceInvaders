@@ -15,8 +15,8 @@ public abstract class InternalException extends RuntimeException {
         showErrorDialog(null);
     }
 
-    private static void showErrorDialog(Throwable cause) {
-        String errorMessage = "An internal error has occurred. Game will be closed";
+    private void showErrorDialog(Throwable cause) {
+        String errorMessage = "An internal error has occurred. Game will be closed." + "\n" + this.getMessage();
         if (cause != null) {
             errorMessage = errorMessage + "\n" + cause.getMessage() + "\n" + formatStackTrace(cause.getStackTrace());
         }

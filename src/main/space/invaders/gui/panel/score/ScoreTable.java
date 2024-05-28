@@ -8,14 +8,9 @@ import main.space.invaders.utils.SwingUtils;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
 import java.util.List;
 
 public class ScoreTable extends JTable {
-
-    private static final int PADDING = 5;
 
     public ScoreTable() {
         super();
@@ -34,6 +29,10 @@ public class ScoreTable extends JTable {
         this.getColumnModel().getColumn(0).setCellRenderer(cellRenderer);
         this.getColumnModel().getColumn(1).setCellRenderer(cellRenderer);
 
+        this.getColumnModel().getColumn(0).setPreferredWidth((200));
+        this.getColumnModel().getColumn(1).setMaxWidth((100));
+        this.setRowHeight(30);
+
         this.setEnabled(false);
     }
 
@@ -41,7 +40,7 @@ public class ScoreTable extends JTable {
         String activePlayerName = Player.getActivePlayer().getName();
         DefaultTableModel model = (DefaultTableModel) this.getModel();
 
-        List<HighScore> highScores = HighScoreService.updateAndGetHighScores(activePlayerName, ScoreCounter.getScore());
+        List<HighScore> highScores = HighScoreService.updateAndGetHighScores(new HighScore(activePlayerName, ScoreCounter.getScore()));
         removeAllRows(model);
         addHighScores(highScores, model);
     }
@@ -56,9 +55,10 @@ public class ScoreTable extends JTable {
         }
     }
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
+    /*
+        //implementation for repainting table's width and height causes NPE after super.paintComponent(g)
+        //for now setRowHeight and setPreferredWidth stay hard coded
+        // g is Graphics object
 
         double maxWidth = 0;
         double maxHeight = 0;
@@ -81,5 +81,5 @@ public class ScoreTable extends JTable {
                 .getColumn(0)
                 .setPreferredWidth(((int) maxWidth + PADDING));
         this.setRowHeight((int) maxHeight + PADDING);
-    }
+    */
 }

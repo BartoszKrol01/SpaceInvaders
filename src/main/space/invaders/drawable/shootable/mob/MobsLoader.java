@@ -6,7 +6,7 @@ import main.space.invaders.drawable.shootable.mob.model.Mob;
 import main.space.invaders.drawable.shootable.mob.model.UpperMob;
 import main.space.invaders.settings.service.MobsInOneRowCountService;
 import main.space.invaders.settings.service.NumberOfMobRowsService;
-import main.space.invaders.utils.FileLoader;
+import main.space.invaders.utils.file.FileLoader;
 
 import java.awt.Image;
 import java.util.List;
