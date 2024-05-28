@@ -1,6 +1,7 @@
 package main.space.invaders.gui.panel;
 
 import main.space.invaders.gui.panel.east.EastPanel;
+import main.space.invaders.gui.panel.score.ScoreBoardPanel;
 import main.space.invaders.utils.distribution.SwingDistributor;
 
 import javax.swing.JPanel;

@@ -1,6 +1,7 @@
 package main.space.invaders.animator;
 
 import main.space.invaders.animator.key.listener.GameFrameKeyListener;
+import main.space.invaders.player.ScoreCounter;
 import main.space.invaders.utils.distribution.DataDistributor;
 import main.space.invaders.utils.distribution.SwingDistributor;
 
@@ -50,6 +51,7 @@ public class PauseService {
         DataDistributor.populateData();
         SwingDistributor.getGamePanel().repaint();
         SwingDistributor.getGamePanel().updateFrameIfNecessary();
+        ScoreCounter.resetScore();
     }
 
     private PauseService() {}

@@ -1,6 +1,5 @@
 package main.space.invaders.utils.distribution;
 
-import main.space.invaders.Player;
 import main.space.invaders.animator.Animator;
 import main.space.invaders.drawable.Drawable;
 import main.space.invaders.drawable.barrier.BarrierLoader;
@@ -8,6 +7,7 @@ import main.space.invaders.drawable.missile.Missile;
 import main.space.invaders.drawable.shootable.mob.MobsLoader;
 import main.space.invaders.drawable.shootable.mob.model.Mob;
 import main.space.invaders.drawable.shootable.spaceship.Spaceship;
+import main.space.invaders.player.Player;
 
 import java.util.ArrayList;
 import java.util.List;

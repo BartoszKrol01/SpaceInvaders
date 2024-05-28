@@ -11,6 +11,7 @@ public class GameEndPopup {
         PauseService.pauseTheGame();
         String message = createMessage(win);
         JOptionPane.showMessageDialog(SwingDistributor.getGamePanel(), message);
+        SwingDistributor.getScoreTable().addScoreToBoard();
         PauseService.restartTheGame();
     }
 

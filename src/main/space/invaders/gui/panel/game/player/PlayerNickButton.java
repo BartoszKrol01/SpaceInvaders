@@ -26,7 +26,7 @@ public class PlayerNickButton extends JButton {
     }
 
     public void updatePlayerNick() {
-        String name = DataDistributor.getPlayer().name();
+        String name = DataDistributor.getPlayer().getName();
         this.setText(TEXT_PREFIX + name);
     }
 }

@@ -1,7 +1,7 @@
 package main.space.invaders.gui.popup;
 
-import main.space.invaders.Player;
 import main.space.invaders.animator.PauseService;
+import main.space.invaders.player.Player;
 import main.space.invaders.utils.distribution.DataDistributor;
 
 import javax.swing.JOptionPane;

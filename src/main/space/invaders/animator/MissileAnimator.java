@@ -4,6 +4,7 @@ import main.space.invaders.drawable.Drawable;
 import main.space.invaders.drawable.DrawableType;
 import main.space.invaders.drawable.missile.Missile;
 import main.space.invaders.drawable.shootable.mob.model.Mob;
+import main.space.invaders.player.ScoreCounter;
 import main.space.invaders.utils.distribution.DataDistributor;
 import main.space.invaders.utils.distribution.SwingDistributor;
 
@@ -60,7 +61,8 @@ public class MissileAnimator extends Animator {
             DataDistributor.removeDrawables(toRemoveDrawables);
             DataDistributor.removeMobs(toRemoveMobs);
             if (!toRemoveMobs.isEmpty()) {
-                SwingDistributor.getRealTimePointsLabel().updateText(toRemoveMobs.size());
+                ScoreCounter.incrementScore(toRemoveMobs.size());
+                SwingDistributor.getRealTimePointsLabel().updateScore();
             }
             SwingDistributor.getGamePanel().repaint();
             sleepTryCatch(16);

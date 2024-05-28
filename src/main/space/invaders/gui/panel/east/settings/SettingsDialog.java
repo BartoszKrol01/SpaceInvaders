@@ -51,7 +51,7 @@ public class SettingsDialog extends JDialog {
                 SliderFunction.MOB_SLEEP_TIME);
 
         SettingsLabel fixedTimeLabel = new SettingsLabel("Fixed time");
-        FixedTimeCheckBox fixedTimeCheckBox = new FixedTimeCheckBox(enemiesStepIntervalSlider);
+        FixedTimeCheckBox fixedTimeCheckBox = new FixedTimeCheckBox(enemiesStepIntervalSlider, enemiesStepIntervalLabel);
 
         SettingsLabel specialModeLabel = new SettingsLabel("Special mode");
         JCheckBox specialModeCheckBox = new JCheckBox();

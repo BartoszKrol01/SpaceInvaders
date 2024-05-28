@@ -8,22 +8,36 @@ import java.awt.Font;
 public class SwingUtils {
 
     public static final Color GUI_COLOR;
+    private static final int DEFAULT_FONT_SIZE = 20;
 
     static {
         GUI_COLOR = new Color(16, 18, 16);
     }
 
     public static void setFontAndForegroundColor(JComponent component) {
-        setFontAndForegroundColor(component, 20);
+        setFontAndForegroundColor(component, DEFAULT_FONT_SIZE);
     }
 
     public static void setFontAndForegroundColor(JComponent component, int size) {
-        component.setFont(new Font(Font.MONOSPACED, Font.BOLD, size));
+        Font font = new Font(Font.MONOSPACED, Font.BOLD, size);
+        component.setFont(font);
         component.setForeground(Color.GREEN);
     }
 
     public static void customizeJButton(JButton button) {
         button.setFocusable(false);
         button.setBorderPainted(false);
+    }
+
+    public static void setForegroundDisabled(JComponent component, boolean isSelected) {
+        if (isSelected) {
+            component.setForeground(Color.GREEN);
+        } else {
+            component.setForeground(Color.LIGHT_GRAY);
+        }
+    }
+
+    public static Font getDefaultFont(int size) {
+        return new Font(Font.MONOSPACED, Font.BOLD, size);
     }
 }
