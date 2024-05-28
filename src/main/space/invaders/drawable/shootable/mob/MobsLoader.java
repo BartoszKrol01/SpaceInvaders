@@ -17,7 +17,6 @@ import static main.space.invaders.settings.GameDisplay.TOP_GAP_BETWEEN_PANEL_AND
 import static main.space.invaders.settings.MobDisplay.TOTAL_MOB_SIZE;
 
 public class MobsLoader {
-    //todo: images should be static and final
 
     private static int currentRow;
 

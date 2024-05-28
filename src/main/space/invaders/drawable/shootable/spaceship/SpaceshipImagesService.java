@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 import java.util.Objects;
 
 public class SpaceshipImagesService {
-    //todo: add one more spaceship image
+
     private static final int SPACESHIPS_TO_LOAD = 2;
     private static final String SPACESHIP_PATH = "spaceship/spaceship_X";
     private static final String CURRENT_SPACESHIP_ERROR = "Can not find current spaceship ";

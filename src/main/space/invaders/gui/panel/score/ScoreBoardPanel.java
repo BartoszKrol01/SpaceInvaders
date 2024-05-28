@@ -10,13 +10,18 @@ import javax.swing.border.LineBorder;
 
 public class ScoreBoardPanel extends JPanel {
 
+    private final JScrollPane scrollPane;
+
     public ScoreBoardPanel() {
+        this.scrollPane = new JScrollPane(SwingDistributor.getScoreTable());
         this.setBackground(SwingUtils.GUI_COLOR);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        JScrollPane scrollPane = new JScrollPane(SwingDistributor.getScoreTable());
         scrollPane.getViewport().setBackground(SwingUtils.GUI_COLOR);
         scrollPane.setBorder(new LineBorder(SwingUtils.GUI_COLOR, 0)); //to delete default border
-//        scrollPane.setVisible(false);//todo: setvisible in settings
         this.add(scrollPane);
+    }
+
+    public void setScrollPaneVisible(boolean visible) {
+        scrollPane.setVisible(visible);
     }
 }

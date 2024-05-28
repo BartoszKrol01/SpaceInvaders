@@ -25,11 +25,13 @@ public class PauseService {
 
     public static void pauseTheGame() {
         isGamePaused = true;
+        SwingDistributor.getScoreBoardPanel().setScrollPaneVisible(true);
     }
 
     public static void unpauseTheGame() {
         if (isGamePaused) {
             isGamePaused = false;
+            SwingDistributor.getScoreBoardPanel().setScrollPaneVisible(false);
             DataDistributor.getAnimators().forEach(Animator::resumeAnimation);
         } else {
             System.err.println("Game is already unpaused");
