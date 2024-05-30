@@ -55,31 +55,4 @@ public class ScoreTable extends JTable {
         }
     }
 
-    /*
-        //implementation for repainting table's width and height causes NPE after super.paintComponent(g)
-        //for now setRowHeight and setPreferredWidth stay hard coded
-        // g is Graphics object
-
-        double maxWidth = 0;
-        double maxHeight = 0;
-        TableModel model = this.getModel();
-        FontMetrics metrics = g.getFontMetrics(SwingUtils.getDefaultFont(16));
-
-        for (int i = 0; i < model.getRowCount(); i++) {
-            String playerName = model.getValueAt(i, 0).toString();
-            double currentWidth = metrics.stringWidth(playerName);
-            double currentHeight = metrics.getHeight();
-            if (maxWidth < currentWidth) {
-                maxWidth = currentWidth;
-            }
-            if (maxHeight < currentHeight) {
-                maxHeight = currentHeight;
-            }
-        }
-
-        this.getColumnModel()
-                .getColumn(0)
-                .setPreferredWidth(((int) maxWidth + PADDING));
-        this.setRowHeight((int) maxHeight + PADDING);
-    */
 }
