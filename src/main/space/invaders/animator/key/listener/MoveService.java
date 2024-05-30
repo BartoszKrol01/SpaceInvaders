@@ -29,13 +29,13 @@ public class MoveService {
     }
 
     public static boolean isSpaceShipAtBorder(KeyEventMapped direction, int xLocation) {
-        boolean isAtLeftBorder = xLocation <= -2 && direction == KeyEventMapped.LEFT;
-        boolean isAtRightBorder = xLocation >= GameDisplay.getGamePanelWidth() - SPACESHIP_SIZE + 1 && direction == KeyEventMapped.RIGHT;
+        boolean isAtLeftBorder = xLocation <= -2 && direction.getSign() == -1;
+        boolean isAtRightBorder = xLocation >= GameDisplay.getGamePanelWidth() - SPACESHIP_SIZE + 1 && direction.getSign() == 1;
         return isAtRightBorder || isAtLeftBorder;
     }
 
     public static int handleButtonClicked(KeyEventMapped arrowDirection) {
-        return BUTTON_CLICKED_CHANGE_VALUE * arrowDirection.getSign();
+        return adjustChangeValue(BUTTON_CLICKED_CHANGE_VALUE * arrowDirection.getSign(), arrowDirection);
     }
 
     public void setChangeValue(int changeValue) {
