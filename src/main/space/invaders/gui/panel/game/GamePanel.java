@@ -1,6 +1,7 @@
 package main.space.invaders.gui.panel.game;
 
 import main.space.invaders.drawable.Drawable;
+import main.space.invaders.gui.frame.GameFrame;
 import main.space.invaders.settings.GameDisplay;
 import main.space.invaders.utils.distribution.DataDistributor;
 import main.space.invaders.utils.distribution.SwingDistributor;
@@ -33,8 +34,10 @@ public class GamePanel extends JPanel {
         Dimension preferredSize = getPreferredSize();
         Dimension maxSize = gameWrapper.getSize();
         if (preferredSize.width > maxSize.width || preferredSize.height > maxSize.height) {
-            SwingUtilities.updateComponentTreeUI(SwingDistributor.getGameFrame());
-            SwingDistributor.getGameFrame().pack();
+            GameFrame gameFrame = SwingDistributor.getGameFrame();
+            SwingUtilities.updateComponentTreeUI(gameFrame);
+            gameFrame.pack();
+            gameFrame.setLocationRelativeTo(null);
         }
     }
 

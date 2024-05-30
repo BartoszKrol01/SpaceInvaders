@@ -1,5 +1,6 @@
 package main.space.invaders.gui.panel.east.settings;
 
+import main.space.invaders.animator.key.listener.KeyEventMapped;
 import main.space.invaders.gui.panel.east.settings.slider.SettingsSlider;
 import main.space.invaders.gui.panel.east.settings.slider.SliderFunction;
 import main.space.invaders.utils.SwingUtils;
@@ -17,7 +18,6 @@ import static main.space.invaders.settings.service.MobsInOneRowCountService.MOBS
 import static main.space.invaders.settings.service.NumberOfMobRowsService.NUMBER_OF_MOB_ROWS_DEFAULT;
 
 public class SettingsDialog extends JDialog {
-    //todo: increase number of mob columns then decrease, mobs ignore side steps
 
     public SettingsDialog() {
         this.setVisible(false);
@@ -55,6 +55,7 @@ public class SettingsDialog extends JDialog {
 
         SettingsLabel specialModeLabel = new SettingsLabel("Special mode");
         JCheckBox specialModeCheckBox = new JCheckBox();
+        specialModeCheckBox.addActionListener(e -> KeyEventMapped.switchLeftAndRightKeySings());
         specialModeCheckBox.setBackground(SwingUtils.GUI_COLOR);
 
         c.insets = new Insets(30, 30, 0, 30);

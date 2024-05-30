@@ -1,5 +1,6 @@
 package main.space.invaders.gui.panel.east.settings;
 
+import main.space.invaders.animator.PauseService;
 import main.space.invaders.gui.panel.east.settings.slider.SettingsSlider;
 import main.space.invaders.settings.service.MobSleepTimeService;
 import main.space.invaders.utils.SwingUtils;
@@ -15,9 +16,10 @@ public class FixedTimeCheckBox extends JCheckBox {
         this.setSelected(true);
         this.setToolTipText(TOOL_TIP_TEXT);
         this.addActionListener(e -> {
-            MobSleepTimeService.changeFixedMobSleepTimeFlag();
+            MobSleepTimeService.changeMobSleepTimeFixedFlag();
             slider.setVisible(this.isSelected());
             SwingUtils.setForegroundDisabled(enemiesStepIntervalLabel, this.isSelected());
+            PauseService.restartTheGame();
         });
     }
 }

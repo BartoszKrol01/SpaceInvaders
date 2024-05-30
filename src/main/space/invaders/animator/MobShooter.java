@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class MobShooter extends Animator {
 
-    private static final int FIRE_MISSILE_PROBABILITY_PER_MILLE = 20;
+    private static final int FIRE_MISSILE_PROBABILITY_PER_MILLE = 40;
 
     public MobShooter() {
         super();
@@ -19,6 +19,7 @@ public class MobShooter extends Animator {
             for (Mob mob : DataDistributor.getMobs()) {
                 if (PauseService.gamePaused()) {
                     pauseAnimation();
+                    break;
                 }
                 tryToFireMissile(mob);
                 sleepTryCatch(16);

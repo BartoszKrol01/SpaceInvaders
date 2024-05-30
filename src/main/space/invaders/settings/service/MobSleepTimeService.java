@@ -4,7 +4,7 @@ public class MobSleepTimeService {
 
     public static final int MOB_SLEEP_TIME_DEFAULT = 100;
     private static int mobSleepTime;
-    private static boolean mobSleepTimeFixed = false;
+    private static boolean mobSleepTimeFixed = true;
 
     static {
         mobSleepTime = MOB_SLEEP_TIME_DEFAULT;
@@ -25,7 +25,7 @@ public class MobSleepTimeService {
         return mobSleepTimeFixed;
     }
 
-    public static void changeFixedMobSleepTimeFlag() {
+    public static void changeMobSleepTimeFixedFlag() {
         mobSleepTimeFixed = !mobSleepTimeFixed;
     }
 }

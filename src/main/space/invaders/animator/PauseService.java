@@ -47,12 +47,13 @@ public class PauseService {
     }
 
     public static void restartTheGame() {
+        pauseTheGame();
         GameFrameKeyListener.clearKeysPressedCache();
         SwingDistributor.getActivePlayerPanel().resetPanel();
         SwingDistributor.getRealTimePointsLabel().restartText();
-        DataDistributor.populateData();
         SwingDistributor.getGamePanel().repaint();
         SwingDistributor.getGamePanel().updateFrameIfNecessary();
+        DataDistributor.populateData();
         ScoreCounter.resetScore();
     }
 

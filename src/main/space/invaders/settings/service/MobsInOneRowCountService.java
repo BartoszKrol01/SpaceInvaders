@@ -12,8 +12,10 @@ public class MobsInOneRowCountService {
     }
 
     public static void modifyMobsInOneRowCount(int newValue) {
-        mobsInOneRowCount = newValue;
-        PauseService.restartTheGame();
+        if (mobsInOneRowCount != newValue) {
+            mobsInOneRowCount = newValue;
+            PauseService.restartTheGame();
+        }
     }
 
     public static int getMobsInOneRowCount() {

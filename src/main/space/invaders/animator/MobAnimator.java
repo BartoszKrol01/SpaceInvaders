@@ -30,6 +30,7 @@ public class MobAnimator extends Animator {
                     sleepTime = getSleepTime();
                     if (PauseService.gamePaused()) {
                         pauseAnimation();
+                        break;
                     }
                     changeImage(mob);
                     sleepTryCatch(sleepTime);

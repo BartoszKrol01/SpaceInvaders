@@ -11,7 +11,7 @@ public enum KeyEventMapped {
     ESC(KeyEvent.VK_ESCAPE, 0),
     P(KeyEvent.VK_P, 0);
 
-    private final int sign;
+    private int sign;
     private final int value;
 
     KeyEventMapped(int value, int sign) {
@@ -31,5 +31,14 @@ public enum KeyEventMapped {
                     System.err.println("Undefined key pressed, returning NO_DIRECTION for key: " + value);
                     return NO_DIRECTION;
                 });
+    }
+
+    private void setSign(int sign) {
+        this.sign = sign;
+    }
+
+    public static void switchLeftAndRightKeySings() {
+        RIGHT.setSign(RIGHT.sign * -1);
+        LEFT.setSign(LEFT.sign * -1);
     }
 }

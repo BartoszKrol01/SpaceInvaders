@@ -17,7 +17,7 @@ public class ScoreFileService {
     public static void writeToScoreFile(HighScore score) {
         FileWriter file = FileLoader.getScoreFileWriter();
         try {
-            file.write(score.toString() + "\n");
+            file.write("\n" + score.toString() + "\n");
             file.flush();
             file.close();
         } catch (IOException e) {
@@ -30,7 +30,7 @@ public class ScoreFileService {
         List<HighScore> result = new ArrayList<>();
         try {
             String line;
-            while ((line = file.readLine()) != null) {
+            while ((line = file.readLine()) != null && !line.isEmpty()) {
                 String[] lineSplit = line.split(SCORE_SEPARATOR);
                 String playerName = lineSplit[0];
                 try {

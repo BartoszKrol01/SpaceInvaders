@@ -16,9 +16,6 @@ public class RetryButton extends JButton {
         this.setIcon(icon);
         customizeJButton(this);
         this.setBackground(SwingUtils.GUI_COLOR);
-        this.addActionListener(e -> {
-            PauseService.restartTheGame();
-            PauseService.pauseTheGame();
-        });
+        this.addActionListener(e -> PauseService.restartTheGame());
     }
 }

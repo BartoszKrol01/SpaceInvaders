@@ -13,9 +13,11 @@ public class NumberOfMobRowsService {
     }
 
     public static void modifyNumberOfMobRows(int newValue) {
-        numberOfMobRows = newValue;
-        MobType.calculateRowsOccupied(newValue);
-        PauseService.restartTheGame();
+        if (numberOfMobRows != newValue) {
+            numberOfMobRows = newValue;
+            MobType.calculateRowsOccupied(newValue);
+            PauseService.restartTheGame();
+        }
     }
 
     public static int getNumberOfMobRows() {
